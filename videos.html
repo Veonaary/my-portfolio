@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Project Videos – Mustafa</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      padding: 2rem;
+    }
+
+    .video-card {
+      background: #222;
+      border-radius: 8px;
+      padding: 1rem;
+      overflow: hidden;
+      box-shadow: 0 0 10px #0005;
+    }
+
+    .video-card h3 {
+      margin-top: 0.5rem;
+      font-size: 1.1rem;
+    }
+
+    .video-card p {
+      font-size: 0.9rem;
+      color: #ccc;
+    }
+
+    .video-card video {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+
+    @media (max-width: 600px) {
+      .video-grid {
+        grid-template-columns: 1fr;
+        padding: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Project Videos</h1>
+    <p>Watch previews of my game development projects</p>
+  </header>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="videos.html">Videos</a>
+  </nav>
+
+  <section class="video-grid">
+    <div class="video-card">
+      <video controls src="videos/video1.mp4"></video>
+      <h3>Shōzen – Spirit of Japan</h3>
+      <p>A VR experience inspired by feudal Zen culture.</p>
+    </div>
+    <div class="video-card">
+      <video controls src="videos/video2.mp4"></video>
+      <h3>Virtual University</h3>
+      <p>Explore the UMT campus in an open-world educational sim.</p>
+    </div>
+    <!-- Add 8–10 more videos here similarly -->
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
