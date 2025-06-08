@@ -2,74 +2,119 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Project Videos – Mustafa</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mustafa's Project Videos</title>
   <link rel="stylesheet" href="style.css" />
   <style>
+    /* Additional styling just for videos page */
+
+    body {
+      font-family: "Segoe UI", sans-serif;
+      background: #111;
+      color: #f0f0f0;
+      margin: 0;
+      padding: 0;
+      max-width: 1000px;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 2rem;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    nav a {
+      margin-right: 1rem;
+      color: #0ff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    h1, h2 {
+      margin-bottom: 1rem;
+    }
+
     .video-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-      padding: 2rem;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.5rem;
     }
 
     .video-card {
       background: #222;
       border-radius: 8px;
       padding: 1rem;
-      overflow: hidden;
-      box-shadow: 0 0 10px #0005;
+      box-shadow: 0 0 10px #0ff44a44;
+      display: flex;
+      flex-direction: column;
     }
 
-    .video-card h3 {
-      margin-top: 0.5rem;
-      font-size: 1.1rem;
+    .video-card video {
+      border-radius: 5px;
+      max-width: 100%;
+      margin-bottom: 0.8rem;
     }
 
     .video-card p {
       font-size: 0.9rem;
-      color: #ccc;
+      line-height: 1.3;
+      margin: 0;
     }
 
-    .video-card video {
-      width: 100%;
-      height: auto;
-      border-radius: 8px;
-    }
-
-    @media (max-width: 600px) {
-      .video-grid {
-        grid-template-columns: 1fr;
+    @media (max-width: 480px) {
+      body {
         padding: 1rem;
       }
     }
   </style>
 </head>
 <body>
+
   <header>
-    <h1>Project Videos</h1>
-    <p>Watch previews of my game development projects</p>
+    <h1>Mustafa's Project Videos</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="#videos">Videos</a>
+      <a href="#contact">Contact</a>
+    </nav>
   </header>
 
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="videos.html">Videos</a>
-  </nav>
+  <section id="videos" class="video-grid">
+    <div class="video-card">
+      <video controls>
+        <source src="videos/WasteManagement.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+      <p>Virtual University Experience — VR simulation of UMT campus and NFT economy.</p>
+    </div>
 
-  <section class="video-grid">
     <div class="video-card">
-      <video controls src="videos/video1.mp4"></video>
-      <h3>Shōzen – Spirit of Japan</h3>
-      <p>A VR experience inspired by feudal Zen culture.</p>
+      <video controls>
+        <source src="videos/Project2.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+      <p>Project 2 — Description of this cool game or VR experience.</p>
     </div>
+
     <div class="video-card">
-      <video controls src="videos/video2.mp4"></video>
-      <h3>Virtual University</h3>
-      <p>Explore the UMT campus in an open-world educational sim.</p>
+      <video controls>
+        <source src="videos/Project3.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+      <p>Project 3 — Short description here.</p>
     </div>
-    <!-- Add 8–10 more videos here similarly -->
+
+    <!-- Add more videos similarly -->
   </section>
 
-  <script src="script.js"></script>
+  <section id="contact" style="margin-top: 3rem; text-align: center;">
+    <h2>Contact</h2>
+    <p>Email: <a href="mailto:h.mustafa.amin22@gmail.com">h.mustafa.amin22@gmail.com</a></p>
+    <p>Contact No.: +92 302 6804622</p>
+    <p>GitHub: <a href="https://github.com/Veonaary" target="_blank">github.com/Veonaary</a></p>
+  </section>
+
 </body>
 </html>
