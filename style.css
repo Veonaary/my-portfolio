@@ -217,14 +217,13 @@ body {
 }
 
 .hero {
-  padding: 0 2rem;            /* Added horizontal padding for consistent spacing */
-  box-sizing: border-box;     /* Ensures padding doesn't increase total width */
   height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
   background: transparent;
+  padding: 0 2rem;
 }
 
 
@@ -239,10 +238,8 @@ body {
 }
 
 .hero-content {
-  font-family: 'Orbitron', sans-serif;
-  color: #fff;
-  padding: 2rem;
-  animation: fadeInUp 1.5s ease forwards;
+  max-width: 800px;
+  margin: auto;
 }
 
 .hero h1 {
@@ -253,9 +250,15 @@ body {
 }
 .hero-content h1 {
   font-size: 3rem;
+  font-family: 'Orbitron', sans-serif;
+  color: #fff;
   margin-bottom: 1rem;
-  color: #00ffe7;
-  animation: fadeInUp 1s ease forwards;
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+  color: #ccc;
+  margin-bottom: 2rem;
 }
 
 .hero p {
@@ -267,13 +270,13 @@ body {
 
 .btn-primary {
   display: inline-block;
-  margin-top: 1.5rem;
   padding: 0.8rem 1.6rem;
   background-color: #00ffe7;
   color: #000;
   font-weight: bold;
   border-radius: 8px;
   text-decoration: none;
+  box-shadow: 0 0 10px #00ffe7;
   transition: background-color 0.3s ease;
 }
 
