@@ -142,8 +142,8 @@ section p {
 }
 
 .socials a svg {
-  width: 20px;
-  height: 20px;
+  width: 40px;
+  height: 40px;
   transition: transform 0.3s ease, filter 0.3s ease;
   filter: drop-shadow(0 0 0 transparent);
 }
