@@ -165,13 +165,26 @@ body {
   transition: fill 0.3s ease;
 }
 
-/* Dark theme styles */
-body.dark-theme {
-  background-color: #121212;
-  color: #eee;
+/* Light theme by default */
+body {
+  background-color: white;
+  color: black;
 }
 
-/* Icons turn white in dark theme */
+/* Icons color in light mode */
+.socials svg {
+  fill: black;
+  transition: fill 0.3s ease;
+}
+
+/* Dark theme */
+body.dark-theme {
+  background-color: #121212;
+  color: white;
+}
+
+/* Icons color in dark mode */
 body.dark-theme .socials svg {
   fill: white;
 }
+
