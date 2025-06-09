@@ -153,3 +153,25 @@ section p {
   filter: drop-shadow(0 0 6px #fff);
 }
 
+/* Default: Light Theme */
+body {
+  background-color: #fff;
+  color: #111;
+}
+
+/* Icons default to dark (black) in light theme */
+.socials svg {
+  fill: #111; /* dark fill */
+  transition: fill 0.3s ease;
+}
+
+/* Dark theme styles */
+body.dark-theme {
+  background-color: #121212;
+  color: #eee;
+}
+
+/* Icons turn white in dark theme */
+body.dark-theme .socials svg {
+  fill: white;
+}
