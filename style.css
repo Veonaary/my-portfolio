@@ -123,3 +123,13 @@ section p {
     align-items: center;
   }
 }
+.glow-icon {
+  transition: filter 0.3s ease, transform 0.3s ease;
+  vertical-align: middle;
+  margin-right: 8px;
+}
+
+.glow-icon:hover {
+  filter: drop-shadow(0 0 6px #0ff) brightness(1.5);
+  transform: scale(1.2);
+}
