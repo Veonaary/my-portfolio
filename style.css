@@ -188,3 +188,15 @@ body.dark-theme .socials svg {
   fill: white;
 }
 
+/* Default light theme */
+body {
+  background-color: white;
+  color: black; /* Text color for light mode */
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Dark theme */
+body.dark-theme {
+  background-color: #121212; /* or any dark color you want */
+  color: white; /* Text color for dark mode */
+}
