@@ -217,14 +217,16 @@ body {
 }
 
 .hero {
+  padding: 0 2rem;            /* Added horizontal padding for consistent spacing */
+  box-sizing: border-box;     /* Ensures padding doesn't increase total width */
   height: 100vh;
-  width: 100%;
-  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #0f0f0f, #1a1a1a);
+  text-align: center;
+  background: transparent;
 }
+
 
 .hero-overlay {
   position: absolute;
@@ -237,10 +239,10 @@ body {
 }
 
 .hero-content {
+  max-width: 700px;           /* Limit max width for better readability */
+  padding: 2rem 1rem;         /* Add breathing room inside container */
   position: relative;
   z-index: 1;
-  text-align: center;
-  padding: 2rem;
 }
 
 .hero h1 {
@@ -258,25 +260,29 @@ body {
 }
 
 .btn-primary {
-  display: inline-block;
-  background: #00ffe7;
-  color: #000;
-  padding: 0.75rem 1.5rem;
-  border-radius: 8px;
-  font-weight: 600;
-  transition: background 0.3s ease;
+  padding: 0.8rem 2.2rem;     /* Larger padding for better tap targets */
+  background: #00f2ff;
+  color: black;
+  font-weight: 700;           /* Bolder text */
+  border: none;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 12px #00f2ff88; /* Soft glow */
   animation: fadeInUp 1.5s ease forwards;
 }
 
 .btn-primary:hover {
-  background: #0ff;
+  background: #ff00f2;
+  color: white;
+  transform: scale(1.1);
+  box-shadow: 0 0 20px #ff00f2cc; /* Intensify glow on hover */
 }
-
 /* Fade-in animation */
 @keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(25px); /* Slightly bigger movement */
   }
   to {
     opacity: 1;
@@ -335,8 +341,13 @@ body {
 }
 
 .hero-content p {
-  font-size: 1.2rem;
-  margin-bottom: 1.5rem;
+  font-family: 'Poppins', sans-serif; /* Use imported font */
+  font-size: clamp(1rem, 2vw, 1.5rem);
+  line-height: 1.4;           /* Improved readability */
+  font-weight: 400;            /* Cleaner weight */
+  color: #ccc;
+  margin-bottom: 2rem;
+  animation: fadeInUp 1.2s ease forwards;
 }
 
 .btn-primary {
@@ -433,21 +444,84 @@ section {
 
 /* Responsive */
 @media (max-width: 768px) {
-  .hero-content h1 {
-    font-size: 2rem;
-  }
-
+.hero-content h1 {
+  font-family: 'Orbitron', sans-serif;
+  font-size: clamp(2.5rem, 6vw, 4rem); /* Fluid scaling */
+  color: #00ffe7;
+  margin-bottom: 1.2rem;      /* Slightly larger bottom margin */
+  letter-spacing: 2px;        /* Adds modern spacing */
+  font-weight: 700;           /* Stronger font weight */
+  animation: fadeInUp 1s ease forwards;
+}
   nav {
     flex-wrap: wrap;
   }
 }
 #custom-cursor {
   position: fixed;
-  width: 20px;
-  height: 20px;
-  background: #00f2ff;
-  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  background: transparent;
   pointer-events: none;
   transform: translate(-50%, -50%);
   z-index: 9999;
+  mix-blend-mode: screen;
+
+  /* Create a crosshair using box shadows */
+  box-shadow:
+    0 -10px 0 2px #00f2ff,   /* top line */
+    0 10px 0 2px #00f2ff,    /* bottom line */
+    -10px 0 0 2px #00f2ff,   /* left line */
+    10px 0 0 2px #00f2ff;    /* right line */
+  border-radius: 4px;
+  animation: pulseGlow 2s infinite ease-in-out;
+}
+
+/* Glow pulse animation */
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow:
+      0 -10px 4px 3px #00f2ff88,
+      0 10px 4px 3px #00f2ff88,
+      -10px 0 4px 3px #00f2ff88,
+      10px 0 4px 3px #00f2ff88;
+  }
+  50% {
+    box-shadow:
+      0 -10px 8px 5px #00f2ffcc,
+      0 10px 8px 5px #00f2ffcc,
+      -10px 0 8px 5px #00f2ffcc,
+      10px 0 8px 5px #00f2ffcc;
+  }
+}
+
+/* Optional: change size and glow when hovering interactive elements */
+a:hover ~ #custom-cursor,
+button:hover ~ #custom-cursor {
+  width: 30px;
+  height: 30px;
+  border-radius: 6px;
+  animation: pulseGlowHover 1.5s infinite ease-in-out;
+  box-shadow:
+    0 -12px 8px 4px #ff00f2,
+    0 12px 8px 4px #ff00f2,
+    -12px 0 8px 4px #ff00f2,
+    12px 0 8px 4px #ff00f2;
+}
+
+@keyframes pulseGlowHover {
+  0%, 100% {
+    box-shadow:
+      0 -12px 10px 5px #ff00f2cc,
+      0 12px 10px 5px #ff00f2cc,
+      -12px 0 10px 5px #ff00f2cc,
+      12px 0 10px 5px #ff00f2cc;
+  }
+  50% {
+    box-shadow:
+      0 -12px 14px 8px #ff00f2ff,
+      0 12px 14px 8px #ff00f2ff,
+      -12px 0 14px 8px #ff00f2ff,
+      12px 0 14px 8px #ff00f2ff;
+  }
 }
