@@ -3,6 +3,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const body = document.body;
 
   toggleBtn.addEventListener('click', () => {
+    console.log("Toggle button clicked");
+
     body.classList.toggle('dark-theme');
 
     if(body.classList.contains('dark-theme')) {
