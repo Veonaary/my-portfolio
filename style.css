@@ -467,69 +467,74 @@ section {
 }
 #custom-cursor {
   position: fixed;
-  width: 24px;
-  height: 24px;
+  width: 16px;
+  height: 16px;
   background: transparent;
   pointer-events: none;
   transform: translate(-50%, -50%);
   z-index: 9999;
   mix-blend-mode: screen;
 
-  /* Create a crosshair using box shadows */
   box-shadow:
-    0 -10px 0 2px #00f2ff,   /* top line */
-    0 10px 0 2px #00f2ff,    /* bottom line */
-    -10px 0 0 2px #00f2ff,   /* left line */
-    10px 0 0 2px #00f2ff;    /* right line */
-  border-radius: 4px;
+    0 -6px 0 1px #00f2ff,   /* top */
+    0 6px 0 1px #00f2ff,    /* bottom */
+    -6px 0 0 1px #00f2ff,   /* left */
+    6px 0 0 1px #00f2ff;    /* right */
+  border-radius: 2px;
   animation: pulseGlow 2s infinite ease-in-out;
 }
 
-/* Glow pulse animation */
 @keyframes pulseGlow {
   0%, 100% {
     box-shadow:
-      0 -10px 4px 3px #00f2ff88,
-      0 10px 4px 3px #00f2ff88,
-      -10px 0 4px 3px #00f2ff88,
-      10px 0 4px 3px #00f2ff88;
+      0 -6px 2px 2px #00f2ff66,
+      0 6px 2px 2px #00f2ff66,
+      -6px 0 2px 2px #00f2ff66,
+      6px 0 2px 2px #00f2ff66;
   }
   50% {
     box-shadow:
-      0 -10px 8px 5px #00f2ffcc,
-      0 10px 8px 5px #00f2ffcc,
-      -10px 0 8px 5px #00f2ffcc,
-      10px 0 8px 5px #00f2ffcc;
+      0 -6px 4px 3px #00f2ffaa,
+      0 6px 4px 3px #00f2ffaa,
+      -6px 0 4px 3px #00f2ffaa,
+      6px 0 4px 3px #00f2ffaa;
   }
 }
 
-/* Optional: change size and glow when hovering interactive elements */
+/* Hover effect – slight scale and color shift */
 a:hover ~ #custom-cursor,
 button:hover ~ #custom-cursor {
-  width: 30px;
-  height: 30px;
-  border-radius: 6px;
-  animation: pulseGlowHover 1.5s infinite ease-in-out;
+  width: 18px;
+  height: 18px;
+  border-radius: 3px;
+  animation: pulseGlowHover 1.2s infinite ease-in-out;
   box-shadow:
-    0 -12px 8px 4px #ff00f2,
-    0 12px 8px 4px #ff00f2,
-    -12px 0 8px 4px #ff00f2,
-    12px 0 8px 4px #ff00f2;
+    0 -7px 3px 3px #ff00f2aa,
+    0 7px 3px 3px #ff00f2aa,
+    -7px 0 3px 3px #ff00f2aa,
+    7px 0 3px 3px #ff00f2aa;
 }
 
 @keyframes pulseGlowHover {
   0%, 100% {
     box-shadow:
-      0 -12px 10px 5px #ff00f2cc,
-      0 12px 10px 5px #ff00f2cc,
-      -12px 0 10px 5px #ff00f2cc,
-      12px 0 10px 5px #ff00f2cc;
+      0 -7px 4px 4px #ff00f288,
+      0 7px 4px 4px #ff00f288,
+      -7px 0 4px 4px #ff00f288,
+      7px 0 4px 4px #ff00f288;
   }
   50% {
     box-shadow:
-      0 -12px 14px 8px #ff00f2ff,
-      0 12px 14px 8px #ff00f2ff,
-      -12px 0 14px 8px #ff00f2ff,
-      12px 0 14px 8px #ff00f2ff;
+      0 -7px 6px 5px #ff00f2dd,
+      0 7px 6px 5px #ff00f2dd,
+      -7px 0 6px 5px #ff00f2dd,
+      7px 0 6px 5px #ff00f2dd;
   }
+}
+#custom-cursor {
+  transition: opacity 0.3s ease;
+}
+
+body.idle #custom-cursor {
+  opacity: 0;
 }
