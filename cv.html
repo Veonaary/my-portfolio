@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>My CV</title>
-  <link rel="stylesheet" href="pdfjs/viewer.css" />
+  <link rel="stylesheet" href="style.css" />
   <style>
     body {
       background-color: white;
@@ -16,21 +16,27 @@
     .cv-container {
       max-width: 900px;
       margin: 0 auto;
+      text-align: center;
     }
 
-    canvas {
+    .cv-image {
       width: 100%;
+      max-width: 100%;
+      height: auto;
       border: 1px solid #ccc;
+      border-radius: 6px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     }
 
     .download-btn {
       display: inline-block;
-      margin: 1rem 0;
-      padding: 0.7rem 1.2rem;
+      margin: 1.5rem 0;
+      padding: 0.7rem 1.5rem;
       background-color: #007bff;
       color: white;
       text-decoration: none;
       border-radius: 6px;
+      font-weight: bold;
       transition: background-color 0.3s ease;
     }
 
@@ -43,33 +49,13 @@
   <div class="cv-container">
     <h1>My Full CV</h1>
 
-    <canvas id="cvViewer"></canvas>
+    <!-- CV Image -->
+    <img src="Files/MustafaAminCVImage.png" alt="Mustafa Amin CV" class="cv-image"/>
 
-    <a href="Files/MustafaAminCV.pdf" download class="download-btn">Download CV (PDF)</a>
+    <!-- Download Link -->
+    <a href="Files/MustafaAminCV.pdf" download class="download-btn">
+      Download CV (PDF)
+    </a>
   </div>
-
-  <script src="pdfjs/pdf.js"></script>
-  <script>
-    const url = 'Files/MustafaAminCV.pdf';
-
-    const loadingTask = pdfjsLib.getDocument(url);
-    loadingTask.promise.then(function(pdf) {
-      pdf.getPage(1).then(function(page) {
-        const scale = 1.5;
-        const viewport = page.getViewport({ scale });
-
-        const canvas = document.getElementById('cvViewer');
-        const context = canvas.getContext('2d');
-        canvas.height = viewport.height;
-        canvas.width = viewport.width;
-
-        const renderContext = {
-          canvasContext: context,
-          viewport: viewport
-        };
-        page.render(renderContext);
-      });
-    });
-  </script>
 </body>
 </html>
