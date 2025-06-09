@@ -4,10 +4,16 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Mustafa's GameDev Portfolio</title>
+
+  <!-- AOS Animation CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+  <!-- Your Custom Styles -->
   <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
-<header class="hero">
+<header class="hero" data-aos="fade-down">
   <div class="hero-overlay">
     <div class="hero-content">
       <h1>Hafiz Mustafa Amin</h1>
@@ -28,9 +34,9 @@
 
   </nav>
 
-  <section id="about">
-    <h2>About Me</h2>
-    <p>I'm a game developer with a passion for creating captivating and immersive gameplay experiences. With expertise in game development, programming, and art, I bring games to life on various platforms, including mobile, PC, and console. My eye for visual design and commitment to staying on top of industry trends ensure that my games are visually stunning and cutting-edge. 
+<section id="about" data-aos="fade-up">
+<h2 data-aos="fade-up" data-aos-delay="100">About Me</h2>
+    <p> I'm a game developer with a passion for creating captivating and immersive gameplay experiences. With expertise in game development, programming, and art, I bring games to life on various platforms, including mobile, PC, and console. My eye for visual design and commitment to staying on top of industry trends ensure that my games are visually stunning and cutting-edge. 
 Overall, I am a tremendous asset to any team or project because of my enthusiasm for gaming and game creation. I have a solid work ethic, good communication abilities, and the ability to meet deadlines and deliver quality work.
 Let's collaborate to create unforgettable gaming experiences.
 
@@ -43,7 +49,7 @@ Feel free to contact me </p>
     <p>View my complete game dev projects and videos <a href="videos.html">here</a>.</p>
   </section> -->
 
- <section id="experience" style="padding: 2rem;">
+<section id="experience" style="padding: 2rem;" data-aos="fade-right">
   <h2 style="font-size: 2rem; margin-bottom: 1rem;">My Experience</h2>
 
   <div style="border-left: 4px solid #007bff; padding-left: 1rem;">
@@ -104,7 +110,7 @@ Feel free to contact me </p>
   </div>
 </section>
 
-<section id="education" style="padding: 2rem;">
+<section id="education" style="padding: 2rem;" data-aos="fade-left">
   <h2 style="font-size: 2rem; margin-bottom: 1rem;">Education</h2>
 
   <div style="border-left: 4px solid #28a745; padding-left: 1rem;">
@@ -126,7 +132,7 @@ Feel free to contact me </p>
 
 
 
-<section id="contact">
+<section id="contact" data-aos="zoom-in">
   <h2>Contact Me</h2>
 
   <div class="socials">
@@ -160,5 +166,14 @@ Feel free to contact me </p>
 
 
   <script src="script.js"></script>
+  <!-- AOS Animation JS -->
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 1000,
+    once: true
+  });
+</script>
+
 </body>
 </html>
