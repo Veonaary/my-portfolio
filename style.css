@@ -173,14 +173,14 @@ body {
 
 /* Icons color in light mode */
 .socials svg {
-  fill: black;
+  fill: rgb(255, 255, 255);
   transition: fill 0.3s ease;
 }
 
 /* Dark theme */
 body.dark-theme {
   background-color: #121212;
-  color: white;
+  color: rgb(0, 0, 0);
 }
 
 /* Icons color in dark mode */
@@ -202,5 +202,5 @@ body.dark-theme {
 
 
 
-  
+
 }
