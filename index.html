@@ -6,12 +6,19 @@
   <title>Mustafa's GameDev Portfolio</title>
   <link rel="stylesheet" href="style.css" />
   <style>
+    body {
+      background-color: #000;
+      color: #fff;
+      font-family: sans-serif;
+    }
+
     .socials {
       margin-top: 1rem;
       display: flex;
       gap: 1rem;
       align-items: center;
     }
+
     .socials a {
       color: #0ff;
       text-decoration: none;
@@ -19,13 +26,37 @@
       align-items: center;
       transition: transform 0.2s;
     }
+
     .socials a:hover {
       transform: scale(1.1);
     }
+
     .socials svg {
       width: 24px;
       height: 24px;
-      fill: #0ff;
+      fill: #fff;
+      transition: filter 0.3s ease, transform 0.3s ease;
+    }
+
+    .socials svg:hover {
+      filter: drop-shadow(0 0 6px #0ff) brightness(1.5);
+      transform: scale(1.2);
+    }
+
+    .glow-icon {
+      vertical-align: middle;
+      margin-right: 8px;
+      filter: brightness(1);
+      transition: filter 0.3s ease, transform 0.3s ease;
+    }
+
+    .glow-icon:hover {
+      filter: drop-shadow(0 0 6px #0ff) brightness(1.5);
+      transform: scale(1.2);
+    }
+
+    a {
+      color: #0ff;
     }
   </style>
 </head>
@@ -58,46 +89,43 @@
     <p>View my complete game dev projects and videos <a href="videos.html">here</a>.</p>
   </section>
 
-<section id="contact">
-  <h2>Contact</h2>
+  <section id="contact">
+    <h2>Contact</h2>
 
-  <p>
-    <img src="https://img.icons8.com/ios-filled/20/0ff/email-open.png" alt="Email Icon" />
-    Email:
-    <a href="mailto:h.mustafa.amin22@gmail.com">h.mustafa.amin22@gmail.com</a>
-  </p>
+    <p>
+      <img src="https://img.icons8.com/ios-filled/20/ffffff/email-open.png" alt="Email Icon" class="glow-icon" />
+      Email:
+      <a href="mailto:h.mustafa.amin22@gmail.com">h.mustafa.amin22@gmail.com</a>
+    </p>
 
-  <p>
-    <img src="https://img.icons8.com/ios-filled/20/0ff/phone.png" alt="Phone Icon" />
-    Contact No.:
-    +92 302 6804622
-  </p>
+    <p>
+      <img src="https://img.icons8.com/ios-filled/20/ffffff/phone.png" alt="Phone Icon" class="glow-icon" />
+      Contact No.: +92 302 6804622
+    </p>
 
-  <p>
-    <img src="https://img.icons8.com/ios-filled/20/0ff/github.png" alt="GitHub Icon" />
-    GitHub:
-    <a href="https://github.com/Veonaary" target="_blank">github.com/Veonaary</a>
-  </p>
+    <p>
+      <img src="https://img.icons8.com/ios-filled/20/ffffff/github.png" alt="GitHub Icon" class="glow-icon" />
+      GitHub:
+      <a href="https://github.com/Veonaary" target="_blank">github.com/Veonaary</a>
+    </p>
 
-  <p>
-    <img src="https://img.icons8.com/ios-filled/20/0ff/facebook.png" alt="Facebook Icon" />
-    Facebook:
-    <a href="https://www.facebook.com/mustafa.amin.946254" target="_blank">facebook.com/your_username</a>
-  </p>
+    <p>
+      <img src="https://img.icons8.com/ios-filled/20/ffffff/facebook.png" alt="Facebook Icon" class="glow-icon" />
+      Facebook:
+      <a href="https://www.facebook.com/mustafa.amin.946254" target="_blank">facebook.com/mustafa.amin.946254</a>
+    </p>
 
-  <p>
-    <img src="https://img.icons8.com/ios-filled/20/0ff/instagram-new.png" alt="Instagram Icon" />
-    Instagram:
-    <a href="https://www.instagram.com/mustafa_amin_official" target="_blank">instagram.com/your_username</a>
-  </p>W
+    <p>
+      <img src="https://img.icons8.com/ios-filled/20/ffffff/instagram-new.png" alt="Instagram Icon" class="glow-icon" />
+      Instagram:
+      <a href="https://www.instagram.com/mustafa_amin_official" target="_blank">instagram.com/mustafa_amin_official</a>
+    </p>
 
-  <p>
-    <img src="https://img.icons8.com/ios-filled/20/0ff/linkedin.png" alt="LinkedIn Icon" />
-    LinkedIn:
-    <a href="https://www.linkedin.com/in/mustafaaminofficial" target="_blank">linkedin.com/in/your_username</a>
-  </p>
-</section>
-
+    <p>
+      <img src="https://img.icons8.com/ios-filled/20/ffffff/linkedin.png" alt="LinkedIn Icon" class="glow-icon" />
+      LinkedIn:
+      <a href="https://www.linkedin.com/in/mustafaaminofficial" target="_blank">linkedin.com/in/mustafaaminofficial</a>
+    </p>
 
     <div class="socials">
       <a href="https://www.instagram.com/mustafa_amin_official" target="_blank" title="Instagram">
