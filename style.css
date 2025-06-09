@@ -229,26 +229,32 @@ body {
 
 
 .hero-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  background: radial-gradient(circle at center, rgba(0, 255, 231, 0.06), transparent 70%);
-  z-index: 0;
+  position: relative;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  z-index: 1;
 }
 
 .hero-content {
-  max-width: 700px;           /* Limit max width for better readability */
-  padding: 2rem 1rem;         /* Add breathing room inside container */
-  position: relative;
-  z-index: 1;
+  font-family: 'Orbitron', sans-serif;
+  color: #fff;
+  padding: 2rem;
+  animation: fadeInUp 1.5s ease forwards;
 }
 
 .hero h1 {
   font-size: clamp(2rem, 5vw, 4rem);
   color: #00ffe7;
   margin-bottom: 1rem;
+  animation: fadeInUp 1s ease forwards;
+}
+.hero-content h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  color: #00ffe7;
   animation: fadeInUp 1s ease forwards;
 }
 
@@ -260,16 +266,15 @@ body {
 }
 
 .btn-primary {
-  padding: 0.8rem 2.2rem;     /* Larger padding for better tap targets */
-  background: #00f2ff;
-  color: black;
-  font-weight: 700;           /* Bolder text */
-  border: none;
-  border-radius: 50px;
+  display: inline-block;
+  margin-top: 1.5rem;
+  padding: 0.8rem 1.6rem;
+  background-color: #00ffe7;
+  color: #000;
+  font-weight: bold;
+  border-radius: 8px;
   text-decoration: none;
-  transition: all 0.3s ease;
-  box-shadow: 0 0 12px #00f2ff88; /* Soft glow */
-  animation: fadeInUp 1.5s ease forwards;
+  transition: background-color 0.3s ease;
 }
 
 .btn-primary:hover {
