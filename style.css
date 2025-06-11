@@ -217,14 +217,13 @@ body {
 }
 
 .hero {
-  height: 100vh;
+  min-height: 100vh; /* This causes full viewport height */
   display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  background: transparent;
+  flex-direction: column;
+  justify-content: center; /* This is good for centering */
   padding: 0 2rem;
 }
+
 
 
 .hero-overlay {
