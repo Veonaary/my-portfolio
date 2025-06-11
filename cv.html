@@ -10,7 +10,6 @@
   <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
 
   <!-- Styles -->
-  <link rel="stylesheet" href="style.css" />
   <style>
     body {
       font-family: 'Rubik', sans-serif;
@@ -26,16 +25,16 @@
       justify-content: center;
       gap: 2rem;
       padding: 1.5rem;
-      background: rgba(0, 255, 255, 0.1);
+      background: rgba(179, 136, 255, 0.08);
       backdrop-filter: blur(10px);
-      border-bottom: 1px solid #00ffe740;
+      border-bottom: 1px solid #b388ff50;
       position: sticky;
       top: 0;
       z-index: 1000;
     }
 
     nav a {
-      color: #00ffe7;
+      color: #b388ff;
       text-decoration: none;
       font-weight: bold;
       font-family: 'Orbitron', sans-serif;
@@ -44,7 +43,7 @@
 
     nav a:hover {
       color: #fff;
-      text-shadow: 0 0 8px #00ffe7;
+      text-shadow: 0 0 8px #b388ff;
     }
 
     .cv-section {
@@ -57,7 +56,7 @@
 
     .cv-section h1 {
       font-family: 'Orbitron', sans-serif;
-      color: #00ffe7;
+      color: #b388ff;
       font-size: 2.5rem;
       margin-bottom: 1.5rem;
     }
@@ -67,7 +66,7 @@
       max-width: 100%;
       height: auto;
       border-radius: 16px;
-      box-shadow: 0 0 25px #00ffe750;
+      box-shadow: 0 0 25px #b388ff60;
       margin-top: 1rem;
     }
 
@@ -76,8 +75,8 @@
       margin: 2rem 0;
       padding: 0.8rem 2rem;
       background-color: transparent;
-      color: #00ffe7;
-      border: 2px solid #00ffe7;
+      color: #38f9ff;
+      border: 2px solid #38f9ff;
       border-radius: 12px;
       font-weight: bold;
       transition: all 0.3s ease;
@@ -85,12 +84,12 @@
     }
 
     .download-btn:hover {
-      background-color: #00ffe720;
+      background-color: #38f9ff20;
       transform: scale(1.05);
-      box-shadow: 0 0 10px #00ffe7;
+      box-shadow: 0 0 10px #38f9ff;
     }
 
-    /* Cursor */
+    /* Custom Cursor */
     #custom-cursor {
       position: fixed;
       width: 20px;
@@ -100,10 +99,10 @@
       transform: translate(-50%, -50%);
       z-index: 9999;
       box-shadow:
-        0 -8px 0 1px #00f2ff,
-        0 8px 0 1px #00f2ff,
-        -8px 0 0 1px #00f2ff,
-        8px 0 0 1px #00f2ff;
+        0 -8px 0 1px #38f9ff,
+        0 8px 0 1px #38f9ff,
+        -8px 0 0 1px #38f9ff,
+        8px 0 0 1px #38f9ff;
       animation: pulseGlow 2s infinite ease-in-out;
       mix-blend-mode: screen;
     }
@@ -111,17 +110,17 @@
     @keyframes pulseGlow {
       0%, 100% {
         box-shadow:
-          0 -8px 4px 3px #00f2ff88,
-          0 8px 4px 3px #00f2ff88,
-          -8px 0 4px 3px #00f2ff88,
-          8px 0 4px 3px #00f2ff88;
+          0 -8px 4px 3px #38f9ff88,
+          0 8px 4px 3px #38f9ff88,
+          -8px 0 4px 3px #38f9ff88,
+          8px 0 4px 3px #38f9ff88;
       }
       50% {
         box-shadow:
-          0 -8px 8px 5px #00f2ffcc,
-          0 8px 8px 5px #00f2ffcc,
-          -8px 0 8px 5px #00f2ffcc,
-          8px 0 8px 5px #00f2ffcc;
+          0 -8px 8px 5px #38f9ffcc,
+          0 8px 8px 5px #38f9ffcc,
+          -8px 0 8px 5px #38f9ffcc,
+          8px 0 8px 5px #38f9ffcc;
       }
     }
 
@@ -131,7 +130,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: radial-gradient(circle at center, #00ffe720, #0a0a0a 60%);
+      background: radial-gradient(circle at center, #b388ff22, #0a0a0a 70%);
       z-index: -1;
       animation: flicker 10s infinite alternate;
     }
@@ -175,7 +174,6 @@
   <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
   <script>
     AOS.init();
-
     const cursor = document.getElementById("custom-cursor");
     document.addEventListener("mousemove", (e) => {
       cursor.style.left = `${e.clientX}px`;
