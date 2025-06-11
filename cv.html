@@ -1,60 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>My CV</title>
-  <style>
-    body {
-      background-color: rgb(0, 0, 0);
-      color: rgb(255, 255, 255);
-      font-family: sans-serif;
-      padding: 1rem;
-    }
-
-    .cv-container {
-      max-width: 900px;
-      margin: 0 auto;
-      text-align: center;
-    }
-
-    .cv-image {
-      width: 100%;
-      max-width: 100%;
-      height: auto;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    }
-
-    .download-btn {
-      display: inline-block;
-      margin: 1.5rem 0;
-      padding: 0.7rem 1.5rem;
-      background-color: #007bff;
-      color: white;
-      text-decoration: none;
-      border-radius: 6px;
-      font-weight: bold;
-      transition: background-color 0.3s ease;
-    }
-
-    .download-btn:hover {
-      background-color: #0056b3;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My CV - Hafiz Mustafa Amin</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1e1e3f, #2c2c54);
+            color: #fff;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            padding: 40px 20px;
+        }
+        h1, h2 {
+            text-align: center;
+            color: #00f2ff;
+        }
+        .section {
+            margin-bottom: 40px;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.1);
+        }
+        .item {
+            margin-bottom: 20px;
+        }
+        .item h3 {
+            color: #00ffff;
+            margin-bottom: 5px;
+        }
+        .item p {
+            margin: 5px 0;
+        }
+    </style>
 </head>
 <body>
-  <div class="cv-container">
-    <h1>My Full CV</h1>
+    <div class="container">
+        <h1>Curriculum Vitae</h1>
 
-    <!-- ✅ CV image -->
-    <img src="Files/MustafaAminCVImage.png" alt="Mustafa Amin CV" class="cv-image"/>
+        <div class="section">
+            <h2>Education</h2>
+            <div class="item">
+                <h3>BS Computer Science</h3>
+                <p><strong>University of XYZ</strong> – 2020 - 2024</p>
+                <p>CGPA: 3.8/4.0</p>
+                <p>Key Courses: Game Development, Human-Computer Interaction, Artificial Intelligence</p>
+            </div>
+            <div class="item">
+                <h3>Intermediate in Computer Science</h3>
+                <p><strong>ABC College</strong> – 2018 - 2020</p>
+                <p>Percentage: 90%</p>
+            </div>
+        </div>
 
-    <!-- ✅ Download link -->
-    <a href="Files/MustafaAminCV.pdf" download class="download-btn">
-      Download CV (PDF)
-    </a>
-  </div>
+        <div class="section">
+            <h2>Experience</h2>
+            <div class="item">
+                <h3>Unity Game Developer Intern</h3>
+                <p><strong>Metaverse Studios</strong> – Summer 2023</p>
+                <p>Worked on interactive AR/VR applications and improved player interaction design in immersive environments.</p>
+            </div>
+            <div class="item">
+                <h3>Freelance AR/VR Projects</h3>
+                <p><strong>Remote</strong> – 2022 - Present</p>
+                <p>Delivered multiple small-scale games and virtual prototypes for education and entertainment using Unity and WebXR.</p>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
