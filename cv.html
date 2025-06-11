@@ -3,76 +3,161 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>My CV</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <title>My CV – Hafiz Mustafa Amin</title>
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Outfit&display=swap" rel="stylesheet" />
   <style>
+    /* Base */
     body {
       margin: 0;
-      padding: 0;
-      font-family: 'Inter', sans-serif;
-      background: #0a0a0a;
-      color: #f0f0f0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
+      font-family: 'Outfit', sans-serif;
+      background: radial-gradient(ellipse at center, #1a1a2e 0%, #121212 100%);
+      color: white;
+      overflow-x: hidden;
     }
 
-    .cv-container {
-      max-width: 900px;
-      width: 90%;
-      padding: 2rem;
-      background-color: #1a1a1a;
-      border-radius: 12px;
-      box-shadow: 0 0 20px rgba(0, 255, 255, 0.1);
-      text-align: center;
+    /* NavBar */
+    nav {
+      background-color: #000000cc;
+      backdrop-filter: blur(10px);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: flex-end;
+      gap: 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    nav a {
+      color: #0ff;
+      text-decoration: none;
+      font-family: 'Orbitron', sans-serif;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #ff00f2;
     }
 
     h1 {
-      font-size: 2rem;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
       color: #0ff;
-      margin-bottom: 1.5rem;
     }
 
-    .cv-image {
-      width: 100%;
-      border-radius: 8px;
-      border: 1px solid #333;
-      box-shadow: 0 0 10px rgba(0, 255, 255, 0.1);
+    .section {
+      max-width: 800px;
+      margin: 3rem auto;
+      padding: 2rem;
+      background: rgba(255, 255, 255, 0.03);
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(0, 255, 255, 0.1);
+      backdrop-filter: blur(12px);
     }
 
-    .download-btn {
-      display: inline-block;
-      margin-top: 2rem;
-      padding: 0.75rem 1.5rem;
-      background-color: #0ff;
-      color: #000;
-      font-weight: bold;
-      text-decoration: none;
-      border-radius: 8px;
-      transition: background-color 0.3s ease;
+    .section h2 {
+      color: #0ff;
+      font-family: 'Orbitron', sans-serif;
+      margin-bottom: 1rem;
     }
 
-    .download-btn:hover {
-      background-color: #00cccc;
+    .section p, .section li {
+      font-size: 1.05rem;
+      line-height: 1.6;
     }
 
-    @media (max-width: 600px) {
-      .cv-container {
-        padding: 1rem;
+    ul {
+      padding-left: 1.5rem;
+    }
+
+    /* Custom Cursor */
+    #custom-cursor {
+      position: fixed;
+      width: 20px;
+      height: 20px;
+      background: transparent;
+      pointer-events: none;
+      transform: translate(-50%, -50%);
+      z-index: 9999;
+      mix-blend-mode: screen;
+      box-shadow:
+        0 -8px 0 1.5px #00f2ff,
+        0 8px 0 1.5px #00f2ff,
+        -8px 0 0 1.5px #00f2ff,
+        8px 0 0 1.5px #00f2ff;
+      border-radius: 3px;
+      animation: pulseGlow 2s infinite ease-in-out;
+    }
+
+    @keyframes pulseGlow {
+      0%, 100% {
+        box-shadow:
+          0 -8px 4px 2px #00f2ff88,
+          0 8px 4px 2px #00f2ff88,
+          -8px 0 4px 2px #00f2ff88,
+          8px 0 4px 2px #00f2ff88;
       }
-
-      h1 {
-        font-size: 1.5rem;
+      50% {
+        box-shadow:
+          0 -8px 8px 4px #00f2ffcc,
+          0 8px 8px 4px #00f2ffcc,
+          -8px 0 8px 4px #00f2ffcc,
+          8px 0 8px 4px #00f2ffcc;
       }
     }
   </style>
 </head>
 <body>
-  <div class="cv-container">
-    <h1>My Full CV</h1>
-    <img src="Files/MustafaAminCVImage.png" alt="Mustafa Amin CV" class="cv-image"/>
-    <a href="Files/MustafaAminCV.pdf" download class="download-btn">Download CV (PDF)</a>
+
+  <nav>
+    <a href="index.html">About</a>
+    <a href="projects.html">Projects</a>
+    <a href="videos.html">Videos</a>
+    <a href="cv.html">My CV</a>
+  </nav>
+
+  <div class="section" data-aos="fade-up">
+    <h1>Curriculum Vitae</h1>
+    <h2>Experience</h2>
+    <ul>
+      <li><strong>Associate Game Developer @ Finz Games</strong> (Mar 2024 – Present)</li>
+      <li><strong>Unity 3D Intern @ UMT – Virtual UMT Project</strong> (Aug 2023 – Jun 2024)</li>
+    </ul>
+
+    <h2>Education</h2>
+    <ul>
+      <li><strong>BSCS – University of Management and Technology (UMT)</strong>, 2020–2024</li>
+    </ul>
+
+    <h2>Skills</h2>
+    <ul>
+      <li>Unity 3D, C#, Unreal Engine, Blender</li>
+      <li>AR/VR Development, Game Mechanics, Shader Programming</li>
+      <li>Team Collaboration, Agile Workflow</li>
+    </ul>
+
+    <h2>Contact</h2>
+    <ul>
+      <li>Email: mustafa@example.com</li>
+      <li>LinkedIn: linkedin.com/in/mustafa</li>
+      <li>GitHub: github.com/mustafagames</li>
+    </ul>
   </div>
+
+  <div id="custom-cursor"></div>
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init();
+
+    const cursor = document.getElementById('custom-cursor');
+    document.addEventListener('mousemove', e => {
+      cursor.style.left = e.clientX + 'px';
+      cursor.style.top = e.clientY + 'px';
+    });
+  </script>
 </body>
 </html>
