@@ -3,160 +3,113 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>My CV – Hafiz Mustafa Amin</title>
-  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Outfit&display=swap" rel="stylesheet" />
+  <title>My CV</title>
+
+  <!-- Fonts & Animations -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rubik&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css" />
   <style>
-    /* Base */
-    body {
-      margin: 0;
-      font-family: 'Outfit', sans-serif;
-      background: radial-gradient(ellipse at center, #1a1a2e 0%, #121212 100%);
-      color: white;
-      overflow-x: hidden;
+    .cv-section {
+      max-width: 960px;
+      margin: auto;
+      text-align: center;
+      padding: 4rem 1rem;
     }
 
-    /* NavBar */
-    nav {
-      background-color: #000000cc;
-      backdrop-filter: blur(10px);
-      padding: 1rem 2rem;
-      display: flex;
-      justify-content: flex-end;
-      gap: 2rem;
-      position: sticky;
-      top: 0;
-      z-index: 10;
+    .cv-image {
+      width: 100%;
+      max-width: 100%;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 0 20px #00ffe740;
     }
 
-    nav a {
-      color: #0ff;
-      text-decoration: none;
-      font-family: 'Orbitron', sans-serif;
-      transition: color 0.3s;
+    .download-btn {
+      display: inline-block;
+      margin: 2rem 0;
+      padding: 0.8rem 2rem;
+      background-color: transparent;
+      color: #00ffe7;
+      border: 2px solid #00ffe7;
+      border-radius: 12px;
+      font-weight: bold;
+      transition: all 0.3s ease;
     }
 
-    nav a:hover {
-      color: #ff00f2;
-    }
-
-    h1 {
-      font-family: 'Orbitron', sans-serif;
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-      color: #0ff;
-    }
-
-    .section {
-      max-width: 800px;
-      margin: 3rem auto;
-      padding: 2rem;
-      background: rgba(255, 255, 255, 0.03);
-      border-radius: 20px;
-      box-shadow: 0 0 20px rgba(0, 255, 255, 0.1);
-      backdrop-filter: blur(12px);
-    }
-
-    .section h2 {
-      color: #0ff;
-      font-family: 'Orbitron', sans-serif;
-      margin-bottom: 1rem;
-    }
-
-    .section p, .section li {
-      font-size: 1.05rem;
-      line-height: 1.6;
-    }
-
-    ul {
-      padding-left: 1.5rem;
+    .download-btn:hover {
+      background-color: #00ffe720;
+      transform: scale(1.05);
     }
 
     /* Custom Cursor */
     #custom-cursor {
       position: fixed;
-      width: 20px;
-      height: 20px;
-      background: transparent;
+      width: 18px;
+      height: 18px;
       pointer-events: none;
       transform: translate(-50%, -50%);
       z-index: 9999;
-      mix-blend-mode: screen;
       box-shadow:
-        0 -8px 0 1.5px #00f2ff,
-        0 8px 0 1.5px #00f2ff,
-        -8px 0 0 1.5px #00f2ff,
-        8px 0 0 1.5px #00f2ff;
-      border-radius: 3px;
+        0 -8px 0 1px #00f2ff,
+        0 8px 0 1px #00f2ff,
+        -8px 0 0 1px #00f2ff,
+        8px 0 0 1px #00f2ff;
       animation: pulseGlow 2s infinite ease-in-out;
     }
 
     @keyframes pulseGlow {
       0%, 100% {
         box-shadow:
-          0 -8px 4px 2px #00f2ff88,
-          0 8px 4px 2px #00f2ff88,
-          -8px 0 4px 2px #00f2ff88,
-          8px 0 4px 2px #00f2ff88;
+          0 -8px 4px 3px #00f2ff88,
+          0 8px 4px 3px #00f2ff88,
+          -8px 0 4px 3px #00f2ff88,
+          8px 0 4px 3px #00f2ff88;
       }
       50% {
         box-shadow:
-          0 -8px 8px 4px #00f2ffcc,
-          0 8px 8px 4px #00f2ffcc,
-          -8px 0 8px 4px #00f2ffcc,
-          8px 0 8px 4px #00f2ffcc;
+          0 -8px 8px 5px #00f2ffcc,
+          0 8px 8px 5px #00f2ffcc,
+          -8px 0 8px 5px #00f2ffcc,
+          8px 0 8px 5px #00f2ffcc;
       }
     }
   </style>
 </head>
 <body>
 
+  <!-- Cursor -->
+  <div id="custom-cursor"></div>
+
+  <!-- Background Animation -->
+  <div class="background-animation"></div>
+
+  <!-- Navigation -->
   <nav>
-    <a href="index.html">About</a>
-    <a href="projects.html">Projects</a>
+    <a href="index.html#about">About</a>
+    <a href="index.html#projects">Projects</a>
     <a href="videos.html">Videos</a>
     <a href="cv.html">My CV</a>
   </nav>
 
-  <div class="section" data-aos="fade-up">
-    <h1>Curriculum Vitae</h1>
-    <h2>Experience</h2>
-    <ul>
-      <li><strong>Associate Game Developer @ Finz Games</strong> (Mar 2024 – Present)</li>
-      <li><strong>Unity 3D Intern @ UMT – Virtual UMT Project</strong> (Aug 2023 – Jun 2024)</li>
-    </ul>
-
-    <h2>Education</h2>
-    <ul>
-      <li><strong>BSCS – University of Management and Technology (UMT)</strong>, 2020–2024</li>
-    </ul>
-
-    <h2>Skills</h2>
-    <ul>
-      <li>Unity 3D, C#, Unreal Engine, Blender</li>
-      <li>AR/VR Development, Game Mechanics, Shader Programming</li>
-      <li>Team Collaboration, Agile Workflow</li>
-    </ul>
-
-    <h2>Contact</h2>
-    <ul>
-      <li>Email: mustafa@example.com</li>
-      <li>LinkedIn: linkedin.com/in/mustafa</li>
-      <li>GitHub: github.com/mustafagames</li>
-    </ul>
-  </div>
-
-  <div id="custom-cursor"></div>
+  <!-- CV Section -->
+  <section class="cv-section" data-aos="fade-up">
+    <h1>My Curriculum Vitae</h1>
+    <a href="Files/CV_Resume_HafizMustafaAmin.pdf" class="download-btn" download>Download PDF</a>
+    <img src="Files/CV_Resume_HafizMustafaAmin.png" alt="My CV" class="cv-image" />
+  </section>
 
   <!-- Scripts -->
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
   <script>
     AOS.init();
 
-    const cursor = document.getElementById('custom-cursor');
-    document.addEventListener('mousemove', e => {
-      cursor.style.left = e.clientX + 'px';
-      cursor.style.top = e.clientY + 'px';
+    const cursor = document.getElementById("custom-cursor");
+    document.addEventListener("mousemove", (e) => {
+      cursor.style.left = `${e.clientX}px`;
+      cursor.style.top = `${e.clientY}px`;
     });
   </script>
 </body>
