@@ -3,164 +3,286 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rubik&display=swap" rel="stylesheet" />
+  <title>Mustafa Amin | Game Developer Portfolio</title>
+  
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  
+  <!-- AOS Animation Library -->
   <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
-  <title>Mustafa's GameDev Portfolio</title>
+  
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="styles.css" />
 </head>
-
 <body>
-  <!-- Animated Background -->
-  <div class="background-animation"></div>
+  <!-- INSANE Gaming Cursor -->
+  <div id="custom-cursor">
+    <div class="cursor-hexagon"></div>
+    <div class="cursor-ring"></div>
+    <div class="cursor-orbit"></div>
+    <div class="cursor-orbit"></div>
+    <div class="cursor-orbit"></div>
+  </div>
 
-  <!-- Navigation (keep at the very top) -->
+  <!-- Premium Interactive Elements -->
+  <div class="sound-visualizer" id="soundVisualizer">
+    <div class="sound-bar"></div>
+    <div class="sound-bar"></div>
+    <div class="sound-bar"></div>
+    <div class="sound-bar"></div>
+    <div class="sound-bar"></div>
+    <div class="sound-bar"></div>
+    <div class="sound-bar"></div>
+    <div class="sound-bar"></div>
+    <div class="sound-bar"></div>
+    <div class="sound-bar"></div>
+  </div>
+
+  <!-- Floating Action Button -->
+  <div class="fab-container" id="fabContainer">
+    <div class="fab-main" id="fabMain"></div>
+    <div class="fab-menu">
+      <div class="fab-item" data-tooltip="Toggle Theme">🌙</div>
+      <div class="fab-item" data-tooltip="Play Music">🎵</div>
+      <div class="fab-item" data-tooltip="Full Screen">🖥️</div>
+      <div class="fab-item" data-tooltip="Gaming Mode">⚡</div>
+    </div>
+  </div>
+
+  <!-- Gaming HUD Elements -->
+  <div class="hud-element hud-fps">FPS: <span id="fps">60</span></div>
+  <div class="hud-element hud-coords">X: <span id="mouseX">0</span> Y: <span id="mouseY">0</span></div>
+  <div class="hud-element hud-time">TIME: <span id="currentTime"></span></div>
+
+  <!-- Magnetic Field Indicator -->
+  <div class="magnetic-field" id="magneticField"></div>
+
+  <!-- Tooltip Container -->
+  <div class="tooltip" id="tooltip"></div>
+
+  <!-- Background Animation -->
+  <div class="background-animation"></div>
+  <div class="particles" id="particles"></div>
+
+  <!-- Navigation -->
   <nav>
+    <a href="#home">Home</a>
     <a href="#about">About</a>
     <a href="#projects">Projects</a>
+    <a href="#experience">Experience</a>
+    <a href="#skills">Skills</a>
+    <a href="#contact">Contact</a>
     <a href="videos.html">Videos</a>
-    <a href="cv.html">My CV</a>
+    <a href="cv.html">CV</a>
   </nav>
 
-  <!-- Hero Section (centered content) -->
-  <section class="hero">
+  <!-- Hero Section -->
+  <section id="home" class="hero">
     <div class="hero-content">
-      <h1>Hafiz Mustafa Amin</h1>
-      <p>Game Developer | Metaverse Enthusiast | AR/VR Creator</p>
-      <a href="#projects" class="btn-primary">See My Work</a>
+      <h1 class="glitch" data-text="Hafiz Mustafa Amin" data-aos="fade-up">Hafiz Mustafa Amin</h1>
+      <p data-aos="fade-up" data-aos-delay="200">Game Developer | Metaverse Enthusiast | AR/VR Creator</p>
+      <a href="#projects" class="btn-primary" data-aos="fade-up" data-aos-delay="400">Explore My Work</a>
     </div>
   </section>
 
-  <!-- Rest of your content -->
-  <section id="about" data-aos="fade-up"></section>
-  <!-- etc... -->
+  <!-- About Section -->
+  <section id="about" data-aos="fade-up">
+    <h2>About Me</h2>
+    <p>
+      I'm a passionate game developer with expertise in creating captivating and immersive gameplay experiences. 
+      With skills spanning game development, programming, and art, I bring games to life across various platforms 
+      including mobile, PC, and console. My eye for visual design and commitment to staying current with industry 
+      trends ensures that my games are both visually stunning and cutting-edge.
+    </p>
+    <br>
+    <p>
+      I have a solid work ethic, excellent communication abilities, and consistently deliver quality work on time. 
+      My enthusiasm for gaming and game creation makes me a tremendous asset to any team or project. 
+      Let's collaborate to create unforgettable gaming experiences!
+    </p>
+  </section>
 
+  <!-- Projects Section -->
+  <section id="projects" data-aos="fade-up">
+    <h2>Featured Projects</h2>
+    <div class="projects-grid">
+      <div class="project-card" data-aos="fade-up" data-aos-delay="100">
+        <h3>Virtual UMT Experience</h3>
+        <p>A comprehensive VR tour of UMT campus with innovative NFT economy integration. Winner of the Rector Award.</p>
+        <div class="project-tech">
+          <span class="tech-tag">Unity 3D</span>
+          <span class="tech-tag">C#</span>
+          <span class="tech-tag">Spatial Plugin</span>
+          <span class="tech-tag">VR</span>
+        </div>
+        <div class="project-links">
+          <a href="videos.html" class="project-link">View Demo</a>
+        </div>
+      </div>
 
+      <div class="project-card" data-aos="fade-up" data-aos-delay="200">
+        <h3>Car Chase Mobile Game</h3>
+        <p>High-octane mobile racing game with dynamic gameplay and optimized performance for Android devices.</p>
+        <div class="project-tech">
+          <span class="tech-tag">Unity</span>
+          <span class="tech-tag">C#</span>
+          <span class="tech-tag">Mobile Optimization</span>
+          <span class="tech-tag">Android</span>
+        </div>
+        <div class="project-links">
+          <a href="#" class="project-link">Play Store</a>
+          <a href="videos.html" class="project-link">Gameplay</a>
+        </div>
+      </div>
 
+      <div class="project-card" data-aos="fade-up" data-aos-delay="300">
+        <h3>Tractor Parking Simulator</h3>
+        <p>Realistic parking simulation game with physics-based mechanics and challenging levels.</p>
+        <div class="project-tech">
+          <span class="tech-tag">Unity</span>
+          <span class="tech-tag">Physics Simulation</span>
+          <span class="tech-tag">Mobile</span>
+          <span class="tech-tag">UI/UX</span>
+        </div>
+        <div class="project-links">
+          <a href="#" class="project-link">Play Store</a>
+        </div>
+      </div>
 
-<section id="about" data-aos="fade-up">
-<h2 data-aos="fade-up" data-aos-delay="100">About Me</h2>
-    <p> I'm a game developer with a passion for creating captivating and immersive gameplay experiences. With expertise in game development, programming, and art, I bring games to life on various platforms, including mobile, PC, and console. My eye for visual design and commitment to staying on top of industry trends ensure that my games are visually stunning and cutting-edge. 
-Overall, I am a tremendous asset to any team or project because of my enthusiasm for gaming and game creation. I have a solid work ethic, good communication abilities, and the ability to meet deadlines and deliver quality work.
-Let's collaborate to create unforgettable gaming experiences.
-
-Feel free to contact me </p>
-
-
-
-  <!-- <section id="projects">
-    <h2>My Projects</h2>
-    <p>View my complete game dev projects and videos <a href="videos.html">here</a>.</p>
-  </section> -->
-
-<section id="experience" style="padding: 2rem;" data-aos="fade-right">
-  <h2 style="font-size: 2rem; margin-bottom: 1rem;">My Experience</h2>
-
-  <div style="border-left: 4px solid #007bff; padding-left: 1rem;">
-    <!-- Finz Games -->
-    <div style="margin-bottom: 1.5rem;">
-      <h3>Associate Game Developer <small style="color: #666;">@ Finz Games</small></h3>
-      <p style="margin: 0.3rem 0;"><strong>Full-time</strong> · Mar 2024 – Present</p>
-      <p style="margin: 0.3rem 0;">📍 Lahore, Pakistan · On-site</p>
-      <p>🛠️ Industry-standard game development, working on multiple projects.</p>
+      <div class="project-card" data-aos="fade-up" data-aos-delay="400">
+        <h3>Game Jam Creations</h3>
+        <p>Collection of innovative games created during Mindstorm Studios game jams, showcasing rapid prototyping skills.</p>
+        <div class="project-tech">
+          <span class="tech-tag">Rapid Prototyping</span>
+          <span class="tech-tag">Creative Design</span>
+          <span class="tech-tag">Team Collaboration</span>
+        </div>
+        <div class="project-links">
+          <a href="videos.html" class="project-link">View Collection</a>
+        </div>
+      </div>
     </div>
+  </section>
 
-    <!-- UMT - FYP -->
-    <div style="margin-bottom: 1.5rem;">
-      <h3>Unity 3D Intern <small style="color: #666;">@ UMT – Virtual UMT Project</small></h3>
-      <p style="margin: 0.3rem 0;"><strong>Internship</strong> · Aug 2023 – Jun 2024</p>
-      <p style="margin: 0.3rem 0;">📍 Lahore, Pakistan · On-site</p>
-      <p>🛠️ Used Unity C# and spatial Plug-in to create the Virtual UMT FYP, which won the Rector Award.</p>
+  <!-- Experience Section -->
+  <section id="experience" data-aos="fade-up">
+    <h2>Professional Experience</h2>
+    <div class="timeline">
+      <div class="timeline-item" data-aos="fade-right" data-aos-delay="100">
+        <h3>Associate Game Developer</h3>
+        <div class="company">@ Finz Games</div>
+        <div class="duration">Mar 2024 – Present | Full-time</div>
+        <div class="location">📍 Lahore, Pakistan · On-site</div>
+        <p>Working on industry-standard game development projects, collaborating with cross-functional teams to deliver high-quality gaming experiences.</p>
+      </div>
+
+      <div class="timeline-item" data-aos="fade-right" data-aos-delay="200">
+        <h3>Unity 3D Intern</h3>
+        <div class="company">@ UMT – Virtual UMT Project</div>
+        <div class="duration">Aug 2023 – Jun 2024 | Internship</div>
+        <div class="location">📍 Lahore, Pakistan · On-site</div>
+        <p>Developed the award-winning Virtual UMT FYP using Unity C# and Spatial Plugin, earning the prestigious Rector Award.</p>
+      </div>
+
+      <div class="timeline-item" data-aos="fade-right" data-aos-delay="300">
+        <h3>Director of Events</h3>
+        <div class="company">@ Mindstorm Student Chapter – UMT-LHR</div>
+        <div class="duration">Feb 2023 – Present | Leadership Role</div>
+        <div class="location">📍 Lahore, Pakistan</div>
+        <p>Led teams in organizing game development events, community building, and fostering collaboration within the gaming community.</p>
+      </div>
+
+      <div class="timeline-item" data-aos="fade-right" data-aos-delay="400">
+        <h3>Associate Unity Game Developer</h3>
+        <div class="company">@ YoBro Studios</div>
+        <div class="duration">Sep 2022 – Feb 2023 | Full-time</div>
+        <div class="location">📍 Lahore, Pakistan</div>
+        <p>Developed and published mobile games including Car Chase and Tractor Parking, available on Google Play Store.</p>
+      </div>
+
+      <div class="timeline-item" data-aos="fade-right" data-aos-delay="500">
+        <h3>Freelance Unity Developer</h3>
+        <div class="company">@ Upwork/Fiverr</div>
+        <div class="duration">Jul 2022 – Present | Freelance</div>
+        <div class="location">📍 Remote</div>
+        <p>Delivered custom game development solutions using Unity and C#, serving international clients across various gaming platforms.</p>
+      </div>
     </div>
+  </section>
 
-    <!-- Mindstorm Student Chapter -->
-    <div style="margin-bottom: 1.5rem;">
-      <h3>Director of Events <small style="color: #666;">@ Mindstorm Student Chapter – UMT-LHR</small></h3>
-      <p style="margin: 0.3rem 0;"><strong>Leadership Role</strong> · Feb 2023 – Present</p>
-      <p style="margin: 0.3rem 0;">📍 Lahore, Pakistan</p>
-      <p>🛠️ Managed teams, organized game dev events, and engaged in community building.</p>
+  <!-- Skills Section -->
+  <section id="skills" data-aos="fade-up">
+    <h2>Technical Skills</h2>
+    <div class="skills-grid">
+      <div class="skill-category" data-aos="fade-up" data-aos-delay="100">
+        <h3>Game Engines</h3>
+        <div class="skill-list">
+          <span class="skill-item">Unity 3D</span>
+          <span class="skill-item">Unreal Engine</span>
+          <span class="skill-item">Godot</span>
+        </div>
+      </div>
+
+      <div class="skill-category" data-aos="fade-up" data-aos-delay="200">
+        <h3>Programming</h3>
+        <div class="skill-list">
+          <span class="skill-item">C#</span>
+          <span class="skill-item">C++</span>
+          <span class="skill-item">JavaScript</span>
+          <span class="skill-item">Python</span>
+        </div>
+      </div>
+
+      <div class="skill-category" data-aos="fade-up" data-aos-delay="300">
+        <h3>Specializations</h3>
+        <div class="skill-list">
+          <span class="skill-item">AR/VR Development</span>
+          <span class="skill-item">Mobile Games</span>
+          <span class="skill-item">Metaverse</span>
+          <span class="skill-item">Game Physics</span>
+        </div>
+      </div>
+
+      <div class="skill-category" data-aos="fade-up" data-aos-delay="400">
+        <h3>Tools & Platforms</h3>
+        <div class="skill-list">
+          <span class="skill-item">Blender</span>
+          <span class="skill-item">Photoshop</span>
+          <span class="skill-item">Git</span>
+          <span class="skill-item">Android Studio</span>
+        </div>
+      </div>
     </div>
+  </section>
 
-    <!-- YoBro Studios -->
-    <div style="margin-bottom: 1.5rem;">
-      <h3>Associate Unity Game Developer <small style="color: #666;">@ YoBro Studios</small></h3>
-      <p style="margin: 0.3rem 0;"><strong>Full-time</strong> · Sep 2022 – Feb 2023</p>
-      <p style="margin: 0.3rem 0;">📍 Lahore, Pakistan</p>
-      <p>🛠️ Developed mobile games like <em>Car Chase</em> and <em>Tractor Parking</em> available on the Play Store.</p>
+  <!-- Contact Section -->
+  <section id="contact" data-aos="fade-up">
+    <h2>Get In Touch</h2>
+    <div class="contact-grid">
+      <div class="contact-item" data-aos="fade-up" data-aos-delay="100">
+        <h3>Email</h3>
+        <a href="mailto:h.mustafa.amin22@gmail.com">h.mustafa.amin22@gmail.com</a>
+      </div>
+
+      <div class="contact-item" data-aos="fade-up" data-aos-delay="200">
+        <h3>LinkedIn</h3>
+        <a href="https://www.linkedin.com/in/mustafaaminofficial" target="_blank">mustafaaminofficial</a>
+      </div>
+
+      <div class="contact-item" data-aos="fade-up" data-aos-delay="300">
+        <h3>GitHub</h3>
+        <a href="https://github.com/Veonaary" target="_blank">Veonaary</a>
+      </div>
+
+      <div class="contact-item" data-aos="fade-up" data-aos-delay="400">
+        <h3>Phone</h3>
+        <a href="tel:+923026804622">+92 302 6804622</a>
+      </div>
     </div>
+  </section>
 
-    <!-- Mindstorm GameJams -->
-    <div style="margin-bottom: 1.5rem;">
-      <h3>Game Jam Participant <small style="color: #666;">@ Mindstorm Studios</small></h3>
-      <p style="margin: 0.3rem 0;"><strong>Participant</strong> · Summer & Winter GameJams</p>
-      <p style="margin: 0.3rem 0;">📍 Lahore, Pakistan</p>
-      <p>🛠️ Participated in multiple game jams focused on rapid game design and development.</p>
-    </div>
-
-    <!-- Freelancing -->
-    <div style="margin-bottom: 1.5rem;">
-      <h3>Unity Game Developer <small style="color: #666;">@ Upwork/Fiverr</small></h3>
-      <p style="margin: 0.3rem 0;"><strong>Freelance</strong> · Jul 2022 – Present</p>
-      <p style="margin: 0.3rem 0;">📍 Lahore, Pakistan · Remote</p>
-      <p>🛠️ Game development using Unity and C#, delivering client projects on freelancing platforms.</p>
-    </div>
-
-    <!-- Personal Projects -->
-    <div style="margin-bottom: 1.5rem;">
-      <h3>Personal Projects</h3>
-      <p style="margin: 0.3rem 0;">📍 Remote</p>
-      <p>🛠️ Developed passion-driven game dev projects. A curated collection of videos is available via Google Drive.</p>
-    </div>
-  </div>
-</section>
-
-<section id="education" style="padding: 2rem;" data-aos="fade-left">
-  <h2 style="font-size: 2rem; margin-bottom: 1rem;">Education</h2>
-
-  <div style="border-left: 4px solid #28a745; padding-left: 1rem;">
-    <!-- Bachelor's Degree -->
-    <div style="margin-bottom: 1.5rem;">
-      <h3>Bachelor Degree of Computer Science (BS CS) <small style="color: #666;">@ University of Management & Technology</small></h3>
-      <p style="margin: 0.3rem 0;"><strong>2020 – 2024</strong></p>
-      <p>📍 Lahore, Pakistan</p>
-    </div>
-
-    <!-- FSC Pre-Engineering -->
-    <div style="margin-bottom: 1.5rem;">
-      <h3>FSC Pre - Engineering <small style="color: #666;">@ Govt. College of Science Lahore</small></h3>
-      <p style="margin: 0.3rem 0;"><strong>2018 – 2020</strong></p>
-      <p>📍 Lahore, Pakistan</p>
-    </div>
-  </div>
-</section>
-
-
-<section id="contact" data-aos="fade-up">
-  <h2>Contact Me</h2>
-  <div class="socials">
-    <a href="mailto:h.mustafa.amin22@gmail.com">Email</a>
-    <a href="https://www.linkedin.com/in/mustafaaminofficial">LinkedIn</a>
-    <a href="https://github.com/Veonaary">GitHub</a>
-    <a href="tel:+923026804622">Phone</a>
-  </div>
-</section>
-
-
-
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
   <script src="script.js"></script>
-  <!-- AOS Animation JS -->
-<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-<script>
-  AOS.init({
-    duration: 1000,
-    once: true
-  });
-</script>
-<!-- AOS Script -->
-<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-<script>
-  AOS.init({ duration: 1000, once: true });
-</script>
-
-
 </body>
 </html>
