@@ -1127,4 +1127,43 @@ section h2::after {
     width: 150px;
     height: 50px;
   }
+  /* Contact Section */
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.contact-item {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 2rem;
+  border-radius: 12px;
+  text-align: center;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(0, 255, 231, 0.2); /* Border around the contact items */
+}
+
+.contact-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 255, 231, 0.2);
+  border-color: #ff00ff; /* Hover border color */
+}
+
+.contact-item h3 {
+  font-family: 'Orbitron', sans-serif;
+  color: #00ffe7;
+  margin-bottom: 1rem;
+}
+
+.contact-item a {
+  color: #ccc;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.contact-item a:hover {
+  color: #ff00ff; /* Hover color for links */
+}
+
 }
