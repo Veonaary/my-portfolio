@@ -1128,6 +1128,7 @@ section h2::after {
     height: 50px;
   }
   /* Contact Section */
+/* Contact Section */
 .contact-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -1136,34 +1137,54 @@ section h2::after {
 }
 
 .contact-item {
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.1); /* Tiled background with slight transparency */
   padding: 2rem;
   border-radius: 12px;
   text-align: center;
   transition: all 0.3s ease;
-  border: 1px solid rgba(0, 255, 231, 0.2); /* Border around the contact items */
+  border: 1px solid rgba(0, 255, 231, 0.3); /* Subtle border */
+  backdrop-filter: blur(5px); /* Add blur effect for modern look */
+  box-shadow: 0 4px 10px rgba(0, 255, 231, 0.1); /* Soft shadow effect */
 }
 
 .contact-item:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 30px rgba(0, 255, 231, 0.2);
-  border-color: #ff00ff; /* Hover border color */
+  transform: translateY(-5px); /* Slight lift effect */
+  box-shadow: 0 10px 30px rgba(0, 255, 231, 0.2); /* Enhanced shadow on hover */
+  border-color: #ff00ff; /* Hover border color change */
 }
 
 .contact-item h3 {
   font-family: 'Orbitron', sans-serif;
   color: #00ffe7;
   margin-bottom: 1rem;
+  font-size: 1.2rem;
 }
 
 .contact-item a {
   color: #ccc;
   text-decoration: none;
+  font-size: 1rem;
   transition: color 0.3s ease;
 }
 
 .contact-item a:hover {
   color: #ff00ff; /* Hover color for links */
+}
+
+/* Responsive Design for Mobile */
+@media (max-width: 768px) {
+  .contact-item {
+    padding: 1.5rem; /* Adjust padding for smaller screens */
+    border-radius: 8px; /* Slightly smaller border radius */
+  }
+
+  .contact-item h3 {
+    font-size: 1.1rem; /* Slightly smaller heading font size */
+  }
+
+  .contact-item a {
+    font-size: 0.9rem; /* Slightly smaller link font size */
+  }
 }
 
 }
