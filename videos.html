@@ -4,42 +4,23 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Project Videos | Mustafa Amin</title>
-  <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  
+  <!-- AOS Animation Library -->
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+  
+  <!-- Custom Styles (Linking to the main stylesheet) -->
+  <link rel="stylesheet" href="styles.css" />
+  
   <style>
+    /* Overriding background gradient with the main page's background color */
     body {
-      margin: 0;
-      font-family: 'Poppins', sans-serif;
-      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-      color: #fff;
-      padding: 2rem;
+      background: #0a0a0a; /* Same as homepage background */
     }
 
-    header {
-      text-align: center;
-      margin-bottom: 3rem;
-    }
-
-    header h1 {
-      font-size: 2.5rem;
-      background: linear-gradient(to right, #00f260, #0575e6);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      font-weight: 700;
-    }
-
-    nav a {
-      margin: 0 1rem;
-      text-decoration: none;
-      color: #0ff;
-      font-weight: 500;
-      transition: color 0.3s ease;
-    }
-
-    nav a:hover {
-      color: #fff;
-    }
-
+    /* Video grid and card styling */
     .video-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -86,17 +67,50 @@
   </style>
 </head>
 <body>
-  <header>
-    <h1>Mustafa's Project Videos</h1>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="cv.html">CV</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
+  <!-- Glowing Cursor -->
+  <div id="custom-cursor">
+    <div class="cursor-hexagon"></div>
+    <div class="cursor-ring"></div>
+    <div class="cursor-orbit"></div>
+    <div class="cursor-orbit"></div>
+    <div class="cursor-orbit"></div>
+  </div>
 
+  <!-- Premium Interactive Elements -->
+  <div class="sound-visualizer" id="soundVisualizer">
+    <div class="sound-bar"></div>
+    <div class="sound-bar"></div>
+    <div class="sound-bar"></div>
+    <div class="sound-bar"></div>
+    <div class="sound-bar"></div>
+    <div class="sound-bar"></div>
+    <div class="sound-bar"></div>
+    <div class="sound-bar"></div>
+    <div class="sound-bar"></div>
+    <div class="sound-bar"></div>
+  </div>
+
+  <!-- Floating Action Button -->
+  <div class="fab-container" id="fabContainer">
+    <div class="fab-main" id="fabMain"></div>
+    <div class="fab-menu">
+      <div class="fab-item" data-tooltip="Toggle Theme">🌙</div>
+      <div class="fab-item" data-tooltip="Play Music">🎵</div>
+      <div class="fab-item" data-tooltip="Full Screen">🖥️</div>
+      <div class="fab-item" data-tooltip="Gaming Mode">⚡</div>
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="cv.html">CV</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <!-- Video Grid Section -->
   <section class="video-grid">
-    <div class="video-card">
+    <div class="video-card" data-aos="fade-up" data-aos-delay="100">
       <video controls>
         <source src="videos/WasteManagement.mp4" type="video/mp4" />
         Your browser does not support the video tag.
@@ -104,7 +118,7 @@
       <p>Virtual University Experience — A VR tour of UMT campus paired with an innovative NFT economy.</p>
     </div>
 
-    <div class="video-card">
+    <div class="video-card" data-aos="fade-up" data-aos-delay="200">
       <video controls>
         <source src="videos/Project2.mp4" type="video/mp4" />
         Your browser does not support the video tag.
@@ -112,15 +126,19 @@
       <p>Project 2 — Interactive and immersive gameplay exploring AI-driven narratives.</p>
     </div>
 
-    <div class="video-card">
+    <div class="video-card" data-aos="fade-up" data-aos-delay="300">
       <video controls>
         <source src="videos/Project3.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
       <p>Project 3 — Real-time environment simulation and user-based scenario generation.</p>
     </div>
-
-    <!-- More projects can be added below -->
   </section>
+
+  <!-- AOS Initialization -->
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
 </body>
 </html>
