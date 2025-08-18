@@ -1137,6 +1137,10 @@ section h2::after {
 }
 
 .contact-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Vertically center the content */
+  align-items: center; /* Horizontally center the content */
   background: rgba(255, 255, 255, 0.1); /* Tiled background with slight transparency */
   padding: 2rem;
   border-radius: 12px;
