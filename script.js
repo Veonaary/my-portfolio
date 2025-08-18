@@ -424,7 +424,7 @@ function createCodeRain() {
     opacity: 0.1;
   `;
   
-  const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789{}[]()<>+-*=';
+  const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789{}[]()<>+-*='; 
   const columns = Math.floor(window.innerWidth / 20);
   
   for (let i = 0; i < columns; i++) {
@@ -478,68 +478,3 @@ document.head.appendChild(codeRainStyles);
 
 // Initialize code rain (uncomment to enable)
 // createCodeRain();
-
-// Performance optimization - throttle scroll events
-let ticking = false;
-
-function updateScrollEffects() {
-  const nav = document.querySelector('nav');
-  const scrolled = window.scrollY;
-  const hero = document.querySelector('.hero');
-  
-  if (scrolled > 100) {
-    nav.style.background = 'rgba(0, 0, 0, 0.95)';
-    nav.style.backdropFilter = 'blur(20px)';
-    nav.style.boxShadow = '0 0 40px rgba(0, 255, 231, 0.5)';
-  } else {
-    nav.style.background = 'rgba(0, 0, 0, 0.9)';
-    nav.style.backdropFilter = 'blur(20px)';
-    nav.style.boxShadow = '0 0 30px rgba(0, 255, 231, 0.3)';
-  }
-  
-  if (hero) {
-    hero.style.transform = `translateY(${scrolled * 0.3}px)`;
-  }
-  
-  ticking = false;
-}
-
-window.addEventListener('scroll', () => {
-  if (!ticking) {
-    requestAnimationFrame(updateScrollEffects);
-    ticking = true;
-  }
-});
-
-// Add intersection observer for animations
-const observerOptions = {
-  threshold: 0.1,
-  rootMargin: '0px 0px -50px 0px'
-};
-
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('animate');
-    }
-  });
-}, observerOptions);
-
-// Observe all animatable elements
-document.querySelectorAll('.project-card, .timeline-item, .skill-category, .contact-item').forEach(el => {
-  observer.observe(el);
-});
-
-// Error handling for missing elements
-function safeElementAction(selector, action) {
-  const element = document.querySelector(selector);
-  if (element) {
-    action(element);
-  }
-}
-
-// Initialize all systems
-document.addEventListener('DOMContentLoaded', () => {
-  console.log('🎮 Game Developer Portfolio Loaded Successfully!');
-  console.log('💡 Try the Konami Code: ↑↑↓↓←→←→BA');
-});
