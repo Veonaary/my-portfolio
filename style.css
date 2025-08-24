@@ -25,6 +25,300 @@ body {
   color: #eaeaea;
   overflow-x: hidden;
   line-height: 1.6;
+  transition: all 0.3s ease;
+}
+
+/* Light Theme Styles */
+body.light-theme {
+  background: #f8f9fa;
+  color: #2c3e50;
+}
+
+body.light-theme .background-animation {
+  background: linear-gradient(45deg, #e3f2fd, #f3e5f5, #e8f5e8);
+  background-size: 400% 400%;
+}
+
+body.light-theme nav {
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 0 30px rgba(52, 152, 219, 0.3);
+}
+
+body.light-theme nav a {
+  color: #2c3e50;
+}
+
+body.light-theme nav a:hover {
+  color: #3498db;
+  text-shadow: 0 0 10px #3498db;
+}
+
+body.light-theme .hero-content h1 {
+  color: #3498db;
+}
+
+body.light-theme .hero-content p {
+  color: #34495e;
+}
+
+body.light-theme .btn-primary {
+  background: linear-gradient(45deg, #3498db, #9b59b6);
+  color: #fff;
+  box-shadow: 0 0 20px rgba(52, 152, 219, 0.3);
+}
+
+body.light-theme .btn-primary:hover {
+  background: linear-gradient(45deg, #9b59b6, #3498db);
+  box-shadow: 0 0 30px rgba(155, 89, 182, 0.5);
+}
+
+body.light-theme section h2 {
+  color: #3498db;
+}
+
+body.light-theme section h2::after {
+  background: linear-gradient(45deg, #3498db, #9b59b6);
+}
+
+body.light-theme #about p {
+  color: #34495e;
+}
+
+body.light-theme .project-card {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(52, 152, 219, 0.2);
+  color: #2c3e50;
+}
+
+body.light-theme .project-card:hover {
+  box-shadow: 0 20px 40px rgba(52, 152, 219, 0.2);
+  border-color: rgba(155, 89, 182, 0.5);
+}
+
+body.light-theme .project-card h3 {
+  color: #2c3e50;
+}
+
+body.light-theme .project-card p {
+  color: #34495e;
+}
+
+body.light-theme .tech-tag {
+  background: rgba(52, 152, 219, 0.2);
+  color: #3498db;
+}
+
+body.light-theme .project-link {
+  border: 1px solid #3498db;
+  color: #3498db;
+}
+
+body.light-theme .project-link:hover {
+  background: #3498db;
+  color: #fff;
+  box-shadow: 0 0 15px rgba(52, 152, 219, 0.5);
+}
+
+body.light-theme .timeline-item {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(52, 152, 219, 0.1);
+  color: #2c3e50;
+}
+
+body.light-theme .timeline-item:hover {
+  border-color: rgba(155, 89, 182, 0.3);
+}
+
+body.light-theme .timeline-item h3 {
+  color: #2c3e50;
+}
+
+body.light-theme .timeline-item .company {
+  color: #3498db;
+}
+
+body.light-theme .timeline-item .duration {
+  color: #9b59b6;
+}
+
+body.light-theme .timeline-item .location {
+  color: #34495e;
+}
+
+body.light-theme .skill-category {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(52, 152, 219, 0.1);
+}
+
+body.light-theme .skill-category h3 {
+  color: #3498db;
+}
+
+body.light-theme .skill-item {
+  background: rgba(52, 152, 219, 0.1);
+  color: #2c3e50;
+  border: 1px solid rgba(52, 152, 219, 0.3);
+}
+
+body.light-theme .skill-item:hover {
+  background: rgba(155, 89, 182, 0.2);
+  border-color: #9b59b6;
+}
+
+body.light-theme .contact-item {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(52, 152, 219, 0.2);
+}
+
+body.light-theme .contact-item:hover {
+  box-shadow: 0 10px 30px rgba(52, 152, 219, 0.2);
+  border-color: #9b59b6;
+}
+
+body.light-theme .contact-item h3 {
+  color: #3498db;
+}
+
+body.light-theme .contact-item a {
+  color: #34495e;
+}
+
+body.light-theme .contact-item a:hover {
+  color: #9b59b6;
+}
+
+body.light-theme .glitch::before {
+  color: #9b59b6;
+}
+
+body.light-theme .glitch::after {
+  color: #3498db;
+}
+
+body.light-theme .section-title {
+  color: #3498db;
+}
+
+body.light-theme .section-title::after {
+  background: linear-gradient(45deg, #3498db, #9b59b6);
+}
+
+body.light-theme .video-card {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(52, 152, 219, 0.2);
+}
+
+body.light-theme .video-card:hover {
+  box-shadow: 0 20px 40px rgba(52, 152, 219, 0.2);
+  border-color: rgba(155, 89, 182, 0.5);
+}
+
+body.light-theme .video-info h3 {
+  color: #2c3e50;
+}
+
+body.light-theme .video-info p {
+  color: #34495e;
+}
+
+body.light-theme .video-info .project-link {
+  border: 1px solid #3498db;
+  color: #3498db;
+}
+
+body.light-theme .video-info .project-link:hover {
+  background: #3498db;
+  color: #fff;
+  box-shadow: 0 0 15px rgba(52, 152, 219, 0.5);
+}
+
+body.light-theme .video-placeholder {
+  background: linear-gradient(135deg, rgba(52, 152, 219, 0.1), rgba(155, 89, 182, 0.1));
+  border: 2px dashed rgba(52, 152, 219, 0.3);
+}
+
+body.light-theme .placeholder-content p {
+  color: #3498db;
+  text-shadow: 0 0 10px rgba(52, 152, 219, 0.5);
+}
+
+body.light-theme .cv-section h1 {
+  color: #3498db;
+}
+
+body.light-theme .download-btn {
+  background: linear-gradient(45deg, #3498db, #9b59b6);
+  color: #fff;
+  box-shadow: 0 0 20px rgba(52, 152, 219, 0.3);
+}
+
+body.light-theme .download-btn:hover {
+  background: linear-gradient(45deg, #9b59b6, #3498db);
+  box-shadow: 0 0 30px rgba(155, 89, 182, 0.5);
+}
+
+body.light-theme .cv-image-container {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(52, 152, 219, 0.2);
+}
+
+body.light-theme .cv-image-container:hover {
+  box-shadow: 0 20px 40px rgba(52, 152, 219, 0.2);
+  border-color: rgba(155, 89, 182, 0.5);
+}
+
+body.light-theme .sound-visualizer {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid #3498db;
+  box-shadow: 0 0 20px rgba(52, 152, 219, 0.3);
+}
+
+body.light-theme .sound-visualizer:hover {
+  box-shadow: 0 0 30px rgba(155, 89, 182, 0.5);
+}
+
+body.light-theme .sound-bar {
+  background: linear-gradient(to top, #3498db, #9b59b6);
+}
+
+body.light-theme .fab-main {
+  background: linear-gradient(45deg, #3498db, #9b59b6);
+  box-shadow: 0 0 20px rgba(52, 152, 219, 0.5);
+}
+
+body.light-theme .fab-main:hover {
+  box-shadow: 0 0 30px rgba(155, 89, 182, 0.8);
+}
+
+body.light-theme .fab-item {
+  background: rgba(255, 255, 255, 0.9);
+  border: 2px solid #3498db;
+}
+
+body.light-theme .fab-item:hover {
+  border-color: #9b59b6;
+  box-shadow: 0 0 15px rgba(155, 89, 182, 0.5);
+}
+
+body.light-theme .hud-element {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid #3498db;
+  color: #3498db;
+}
+
+body.light-theme .tooltip {
+  background: rgba(255, 255, 255, 0.95);
+  color: #3498db;
+  border: 1px solid #3498db;
+  box-shadow: 0 0 15px rgba(52, 152, 219, 0.3);
+}
+
+body.light-theme .tooltip::after {
+  border-top-color: #3498db;
+}
+
+body.light-theme .particle {
+  background: #3498db;
 }
 
 

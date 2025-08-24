@@ -95,7 +95,7 @@ document.querySelectorAll('.fab-item').forEach(item => {
     
     switch(tooltip) {
       case 'Toggle Theme':
-        document.body.style.filter = document.body.style.filter === 'invert(1)' ? '' : 'invert(1)';
+        document.body.classList.toggle('light-theme');
         break;
       case 'Gaming Mode':
         document.body.classList.toggle('konami-activated');
