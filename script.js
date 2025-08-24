@@ -10,48 +10,18 @@ let mouseX = 0, mouseY = 0;
 let lastTime = performance.now();
 let frameCount = 0;
 let fps = 60;
-const cursor = document.getElementById("custom-cursor");
-const magneticField = document.getElementById("magneticField");
 const tooltip = document.getElementById("tooltip");
 
-// INSANE Hexagonal Cursor with Magnetic Effect
+// Track mouse position for HUD
 document.addEventListener("mousemove", (e) => {
   mouseX = e.clientX;
   mouseY = e.clientY;
   
-  cursor.style.left = `${mouseX}px`;
-  cursor.style.top = `${mouseY}px`;
-  
   // Update HUD coordinates
-  document.getElementById('mouseX').textContent = mouseX;
-  document.getElementById('mouseY').textContent = mouseY;
-  
-  // Magnetic field effect
-  const magneticElements = document.querySelectorAll('.project-card, .timeline-item, .contact-item, .cv-image-container, .video-card, .download-btn');
-  magneticElements.forEach(element => {
-    const rect = element.getBoundingClientRect();
-    const centerX = rect.left + rect.width / 2;
-    const centerY = rect.top + rect.height / 2;
-    const distance = Math.sqrt(Math.pow(mouseX - centerX, 2) + Math.pow(mouseY - centerY, 2));
-    
-    if (distance < 100) {
-      document.body.classList.add('cursor-magnetic');
-      magneticField.style.left = `${centerX - 50}px`;
-      magneticField.style.top = `${centerY - 50}px`;
-      magneticField.classList.add('active');
-      
-      // Magnetic attraction
-      const force = (100 - distance) / 100;
-      const offsetX = (centerX - mouseX) * force * 0.3;
-      const offsetY = (centerY - mouseY) * force * 0.3;
-      
-      cursor.style.transform = `translate(calc(-50% + ${offsetX}px), calc(-50% + ${offsetY}px))`;
-    } else {
-      document.body.classList.remove('cursor-magnetic');
-      magneticField.classList.remove('active');
-      cursor.style.transform = 'translate(-50%, -50%)';
-    }
-  });
+  const mouseXElement = document.getElementById('mouseX');
+  const mouseYElement = document.getElementById('mouseY');
+  if (mouseXElement) mouseXElement.textContent = mouseX;
+  if (mouseYElement) mouseYElement.textContent = mouseY;
 });
 
 // Click Ripple Effect
@@ -338,18 +308,7 @@ window.addEventListener('scroll', () => {
   }
 });
 
-// Cursor hover effects
-const hoverElements = document.querySelectorAll('a, button, .project-card, .timeline-item, .skill-item, .contact-item, .cv-image-container, .video-card, .download-btn');
 
-hoverElements.forEach(element => {
-  element.addEventListener('mouseenter', () => {
-    document.body.classList.add('cursor-hover');
-  });
-  
-  element.addEventListener('mouseleave', () => {
-    document.body.classList.remove('cursor-hover');
-  });
-});
 
 // Glitch effect trigger on hero title
 const glitchTitle = document.querySelector('.glitch');
@@ -394,36 +353,7 @@ window.addEventListener('load', () => {
   }, 1000);
 });
 
-// Add dynamic styles for animations
-const dynamicStyles = document.createElement('style');
-dynamicStyles.textContent = `
-  .cursor-trail {
-    position: fixed;
-    width: 20px;
-    height: 20px;
-    background: radial-gradient(circle, #00ffe7, transparent);
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: 9998;
-    transition: opacity 0.3s ease;
-  }
-  
-  .cursor-hover #custom-cursor {
-    transform: translate(-50%, -50%) scale(1.5);
-  }
-  
-  .cursor-hover .cursor-hexagon::before {
-    background: linear-gradient(45deg, #ff00ff, #00ff00);
-    animation-duration: 1s;
-  }
-  
-  .cursor-hover .cursor-ring {
-    width: 70px;
-    height: 70px;
-    border-width: 3px;
-  }
-`;
-document.head.appendChild(dynamicStyles);
+
 
 // Matrix Code Rain Effect (Optional Enhancement)
 function createCodeRain() {
