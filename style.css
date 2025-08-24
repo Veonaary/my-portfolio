@@ -14,6 +14,11 @@ html, body {
   cursor: auto;
 }
 
+/* Ensure interactive elements show pointer cursor */
+a, button, .fab-main, .fab-item, .project-link, .download-btn, .btn-primary {
+  cursor: pointer;
+}
+
 body {
   font-family: 'Poppins', sans-serif;
   background: #0a0a0a;
