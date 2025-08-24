@@ -27,7 +27,7 @@ document.addEventListener("mousemove", (e) => {
   document.getElementById('mouseY').textContent = mouseY;
   
   // Magnetic field effect
-  const magneticElements = document.querySelectorAll('.project-card, .timeline-item, .contact-item');
+  const magneticElements = document.querySelectorAll('.project-card, .timeline-item, .contact-item, .cv-image-container, .video-card, .download-btn');
   magneticElements.forEach(element => {
     const rect = element.getBoundingClientRect();
     const centerX = rect.left + rect.width / 2;
@@ -68,6 +68,22 @@ document.addEventListener('click', (e) => {
   
   // Particle burst on click
   createParticleBurst(e.clientX, e.clientY);
+  
+  // Enhanced particle burst for interactive elements
+  const interactiveElements = document.querySelectorAll('a, button, .project-card, .timeline-item, .skill-item, .contact-item, .cv-image-container, .video-card, .download-btn, .fab-item');
+  interactiveElements.forEach(element => {
+    if (element.contains(e.target)) {
+      // Create extra particles for interactive elements
+      for (let i = 0; i < 5; i++) {
+        setTimeout(() => {
+          createParticleBurst(
+            e.clientX + (Math.random() - 0.5) * 50,
+            e.clientY + (Math.random() - 0.5) * 50
+          );
+        }, i * 100);
+      }
+    }
+  });
 });
 
 // Particle Burst System
@@ -323,7 +339,7 @@ window.addEventListener('scroll', () => {
 });
 
 // Cursor hover effects
-const hoverElements = document.querySelectorAll('a, button, .project-card, .timeline-item, .skill-item, .contact-item');
+const hoverElements = document.querySelectorAll('a, button, .project-card, .timeline-item, .skill-item, .contact-item, .cv-image-container, .video-card, .download-btn');
 
 hoverElements.forEach(element => {
   element.addEventListener('mouseenter', () => {

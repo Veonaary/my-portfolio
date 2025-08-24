@@ -1,9 +1,24 @@
-* Global Reset & Base Styles */
+/* Global Reset & Base Styles */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+/* Hide default cursor and show custom cursor */
+html, body {
   cursor: none;
+}
+
+/* Ensure custom cursor is visible */
+#custom-cursor {
+  position: fixed;
+  width: 60px;
+  height: 60px;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 body {
@@ -15,15 +30,6 @@ body {
 }
 
 /* INSANE Gaming Cursor with Magnetic Effect */
-#custom-cursor {
-  position: fixed;
-  width: 60px;
-  height: 60px;
-  pointer-events: none;
-  transform: translate(-50%, -50%);
-  z-index: 9999;
-  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
 
 /* Hexagonal Gaming Cursor */
 .cursor-hexagon {
