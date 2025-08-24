@@ -5,8 +5,12 @@
   box-sizing: border-box;
 }
 
-/* Restore default cursor */
+/* Default cursor behavior */
 html, body {
+  cursor: auto;
+}
+
+* {
   cursor: auto;
 }
 
@@ -328,6 +332,7 @@ nav a {
   transition: all 0.3s ease;
   position: relative;
   padding: 0.5rem 1rem;
+  cursor: pointer;
 }
 
 nav a::before {
@@ -390,6 +395,7 @@ nav a:hover::before {
   transition: all 0.3s ease;
   font-family: 'Orbitron', sans-serif;
   box-shadow: 0 0 20px rgba(0, 255, 231, 0.3);
+  cursor: pointer;
 }
 
 .btn-primary:hover {
@@ -520,6 +526,7 @@ section h2::after {
   border-radius: 25px;
   transition: all 0.3s ease;
   font-size: 0.9rem;
+  cursor: pointer;
 }
 
 .project-link:hover {
