@@ -5,6 +5,17 @@ AOS.init({
   offset: 100
 });
 
+// Theme persistence
+function initializeTheme() {
+  const savedTheme = localStorage.getItem('theme');
+  if (savedTheme === 'light') {
+    document.body.classList.add('light-theme');
+  }
+}
+
+// Initialize theme on page load
+initializeTheme();
+
 // Variables for tracking
 let mouseX = 0, mouseY = 0;
 let lastTime = performance.now();
@@ -96,6 +107,12 @@ document.querySelectorAll('.fab-item').forEach(item => {
     switch(tooltip) {
       case 'Toggle Theme':
         document.body.classList.toggle('light-theme');
+        // Save theme preference to localStorage
+        if (document.body.classList.contains('light-theme')) {
+          localStorage.setItem('theme', 'light');
+        } else {
+          localStorage.setItem('theme', 'dark');
+        }
         break;
       case 'Gaming Mode':
         document.body.classList.toggle('konami-activated');
