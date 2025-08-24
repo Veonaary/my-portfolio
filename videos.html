@@ -15,50 +15,100 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <!-- Consistent Navigation (Header) -->
-   <!-- Navigation -->
+
+  <!-- Premium Interactive Elements -->
+  <div class="sound-visualizer" id="soundVisualizer">
+    <div class="sound-bar"></div>
+    <div class="sound-bar"></div>
+    <div class="sound-bar"></div>
+    <div class="sound-bar"></div>
+    <div class="sound-bar"></div>
+    <div class="sound-bar"></div>
+    <div class="sound-bar"></div>
+    <div class="sound-bar"></div>
+    <div class="sound-bar"></div>
+    <div class="sound-bar"></div>
+  </div>
+
+  <!-- Floating Action Button -->
+  <div class="fab-container" id="fabContainer">
+    <div class="fab-main" id="fabMain"></div>
+    <div class="fab-menu">
+      <div class="fab-item" data-tooltip="Toggle Theme">🌙</div>
+      <div class="fab-item" data-tooltip="Play Music">🎵</div>
+      <div class="fab-item" data-tooltip="Full Screen">🖥️</div>
+      <div class="fab-item" data-tooltip="Gaming Mode">⚡</div>
+    </div>
+  </div>
+
+  <!-- Gaming HUD Elements -->
+  <div class="hud-element hud-fps">FPS: <span id="fps">60</span></div>
+  <div class="hud-element hud-coords">X: <span id="mouseX">0</span> Y: <span id="mouseY">0</span></div>
+  <div class="hud-element hud-time">TIME: <span id="currentTime"></span></div>
+
+  <!-- Magnetic Field Indicator -->
+  <div class="magnetic-field" id="magneticField"></div>
+
+  <!-- Tooltip Container -->
+  <div class="tooltip" id="tooltip"></div>
+
+  <!-- Background Animation -->
+  <div class="background-animation"></div>
+  <div class="particles" id="particles"></div>
+
+  <!-- Navigation -->
   <nav>
-    <a href="#home">Home</a>
-    <a href="#about">About</a>
-    <a href="#projects">Projects</a>
-    <a href="#experience">Experience</a>
-    <a href="#skills">Skills</a>
-    <a href="#contact">Contact</a>
+    <a href="index.html#home">Home</a>
+    <a href="index.html#about">About</a>
+    <a href="index.html#projects">Projects</a>
+    <a href="index.html#experience">Experience</a>
+    <a href="index.html#skills">Skills</a>
+    <a href="index.html#contact">Contact</a>
     <a href="videos.html">Videos</a>
     <a href="cv.html">CV</a>
   </nav>
 
   <!-- Video Grid Section -->
-  <section class="video-grid">
-    <div class="video-card" data-aos="fade-up" data-aos-delay="100">
-      <video controls>
-        <source src="videos/WasteManagement.mp4" type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
-      <p>Virtual University Experience — A VR tour of UMT campus paired with an innovative NFT economy.</p>
-    </div>
+  <section class="video-grid" data-aos="fade-up">
+    <h1 class="glitch" data-text="Project Videos">Project Videos</h1>
+    <div class="videos-container">
+      <div class="video-card" data-aos="fade-up" data-aos-delay="100">
+        <video controls>
+          <source src="videos/WasteManagement.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+        <div class="video-info">
+          <h3>Virtual University Experience</h3>
+          <p>A VR tour of UMT campus paired with an innovative NFT economy.</p>
+        </div>
+      </div>
 
-    <div class="video-card" data-aos="fade-up" data-aos-delay="200">
-      <video controls>
-        <source src="videos/Project2.mp4" type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
-      <p>Project 2 — Interactive and immersive gameplay exploring AI-driven narratives.</p>
-    </div>
+      <div class="video-card" data-aos="fade-up" data-aos-delay="200">
+        <video controls>
+          <source src="videos/Project2.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+        <div class="video-info">
+          <h3>Project 2</h3>
+          <p>Interactive and immersive gameplay exploring AI-driven narratives.</p>
+        </div>
+      </div>
 
-    <div class="video-card" data-aos="fade-up" data-aos-delay="300">
-      <video controls>
-        <source src="videos/Project3.mp4" type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
-      <p>Project 3 — Real-time environment simulation and user-based scenario generation.</p>
+      <div class="video-card" data-aos="fade-up" data-aos-delay="300">
+        <video controls>
+          <source src="videos/Project3.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+        <div class="video-info">
+          <h3>Project 3</h3>
+          <p>Real-time environment simulation and user-based scenario generation.</p>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- AOS Initialization -->
+  <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-  <script>
-    AOS.init();
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
