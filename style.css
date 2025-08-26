@@ -1100,7 +1100,7 @@ section h2::after {
 }
 
 /* Additional background stars effect */
-.background-animation::before {
+/* .background-animation::before {
   content: '';
   position: absolute;
   top: 0;
@@ -1122,7 +1122,7 @@ section h2::after {
   background-size: 400px 200px;
   animation: starTwinkle 4s ease-in-out infinite;
   opacity: 0.4;
-}
+} */
 
 .background-animation::after {
   content: '';
