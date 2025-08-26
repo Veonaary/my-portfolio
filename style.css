@@ -1098,9 +1098,9 @@ section h2::after {
   animation: gradientFlow 15s ease infinite;
   z-index: -2;
 }
-
-/* Additional background stars effect */
-/* .background-animation::before {
+/* 
+Additional background stars effect
+.background-animation::before {
   content: '';
   position: absolute;
   top: 0;
@@ -1122,7 +1122,7 @@ section h2::after {
   background-size: 400px 200px;
   animation: starTwinkle 4s ease-in-out infinite;
   opacity: 0.4;
-} */
+}
 
 .background-animation::after {
   content: '';
@@ -1141,7 +1141,7 @@ section h2::after {
   background-size: 300px 150px;
   animation: starTwinkle 6s ease-in-out infinite reverse;
   opacity: 0.3;
-}
+} */
 
 /* Particles Animation */
 .particles {
