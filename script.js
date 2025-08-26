@@ -273,7 +273,12 @@ function toggleBackgroundMusic() {
 // Create floating particles
 function createParticles() {
   const particlesContainer = document.getElementById('particles');
-  const particleCount = 30;
+  if (!particlesContainer) {
+    console.error('Particles container not found!');
+    return;
+  }
+  
+  const particleCount = 50; // Increased particle count
   
   for (let i = 0; i < particleCount; i++) {
     const particle = document.createElement('div');
@@ -283,6 +288,8 @@ function createParticles() {
     particle.style.animationDuration = (6 + Math.random() * 4) + 's';
     particlesContainer.appendChild(particle);
   }
+  
+  console.log(`Created ${particleCount} particles!`);
 }
 createParticles();
 
