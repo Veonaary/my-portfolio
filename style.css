@@ -2042,4 +2042,145 @@ section h2::after {
 
 .contact-item a:hover {
   color: #ff00ff;
+<<<<<<< HEAD
+=======
+}
+
+/* Portfolio Introduction Section */
+.portfolio-intro {
+  text-align: center;
+  margin-bottom: 4rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.intro-text {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #ccc;
+  margin-bottom: 0;
+}
+
+/* Section Descriptions */
+.section-description {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #aaa;
+  text-align: center;
+  margin-bottom: 2rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  font-style: italic;
+}
+
+/* Portfolio Call to Action */
+.portfolio-cta {
+  text-align: center;
+  margin-top: 4rem;
+  padding: 3rem 2rem;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 20px;
+  border: 1px solid rgba(0, 255, 231, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.cta-text {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #ccc;
+  margin-bottom: 2rem;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cta-buttons {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn-secondary {
+  display: inline-block;
+  padding: 1rem 2rem;
+  background: transparent;
+  border: 2px solid #ff00ff;
+  color: #ff00ff;
+  font-weight: bold;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  font-family: 'Orbitron', sans-serif;
+  box-shadow: 0 0 20px rgba(255, 0, 255, 0.2);
+  cursor: pointer;
+  text-align: center;
+}
+
+.btn-secondary:hover {
+  background: #ff00ff;
+  color: #000;
+  transform: scale(1.05) translateY(-2px);
+  box-shadow: 0 0 30px rgba(255, 0, 255, 0.5);
+}
+
+/* Enhanced Video Grid Layout */
+.video-grid {
+  padding: 6rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.videos-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+  justify-items: center;
+}
+
+.video-card {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 15px;
+  padding: 1.5rem;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(0, 255, 231, 0.2);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  max-width: 400px;
+  width: 100%;
+  text-align: center;
+}
+
+.video-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(0, 255, 231, 0.1), transparent);
+  transition: all 0.5s ease;
+}
+
+.video-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 255, 231, 0.2);
+  border-color: rgba(255, 0, 255, 0.5);
+}
+
+.video-card:hover::before {
+  left: 100%;
+}
+
+.video-card video {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+>>>>>>> parent of 8d6fedf (Added new project page and fixed header styles)
 }
