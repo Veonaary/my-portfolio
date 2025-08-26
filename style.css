@@ -997,11 +997,12 @@ section h2::after {
   color: #ff00ff;
 }
 
-/* Hero Title */
+/* Enhanced Hero Title */
 .glitch {
   position: relative;
   display: inline-block;
   text-shadow: 0 0 20px rgba(0, 255, 231, 0.5);
+  animation: titleGlow 3s ease-in-out infinite alternate;
 }
 
 .glitch::before,
@@ -1017,12 +1018,61 @@ section h2::after {
 
 .glitch::before {
   color: #00ffe7;
+  animation: subtleGlitch1 4s ease-in-out infinite;
   text-shadow: 2px 0 0 rgba(255, 0, 255, 0.3);
 }
 
 .glitch::after {
   color: #ff00ff;
+  animation: subtleGlitch2 4s ease-in-out infinite;
   text-shadow: -2px 0 0 rgba(0, 255, 231, 0.3);
+}
+
+@keyframes titleGlow {
+  0% {
+    text-shadow: 0 0 20px rgba(0, 255, 231, 0.5);
+  }
+  100% {
+    text-shadow: 0 0 30px rgba(0, 255, 231, 0.8), 0 0 40px rgba(255, 0, 255, 0.3);
+  }
+}
+
+@keyframes subtleGlitch1 {
+  0%, 100% {
+    transform: translateX(0);
+    opacity: 0.3;
+  }
+  25% {
+    transform: translateX(1px);
+    opacity: 0.4;
+  }
+  50% {
+    transform: translateX(-1px);
+    opacity: 0.3;
+  }
+  75% {
+    transform: translateX(0.5px);
+    opacity: 0.4;
+  }
+}
+
+@keyframes subtleGlitch2 {
+  0%, 100% {
+    transform: translateX(0);
+    opacity: 0.3;
+  }
+  25% {
+    transform: translateX(-1px);
+    opacity: 0.4;
+  }
+  50% {
+    transform: translateX(1px);
+    opacity: 0.3;
+  }
+  75% {
+    transform: translateX(-0.5px);
+    opacity: 0.4;
+  }
 }
 
 /* Background Animation */
@@ -1345,7 +1395,6 @@ section h2::after {
   color: #fff;
   margin-bottom: 0.5rem;
   font-size: 1.2rem;
-  text-align: center;
 }
 
 .video-info p {
@@ -1353,7 +1402,6 @@ section h2::after {
   font-size: 0.9rem;
   line-height: 1.5;
   margin-bottom: 1rem;
-  text-align: center;
 }
 
 .video-info .project-links {
@@ -1373,7 +1421,6 @@ section h2::after {
   transition: all 0.3s ease;
   font-size: 0.8rem;
   font-weight: 500;
-  text-align: center;
 }
 
 .video-info .project-link:hover {
@@ -1389,25 +1436,20 @@ section h2::after {
   nav {
     flex-wrap: wrap;
     gap: 0.5rem;
-    padding: 0.8rem;
-    flex-direction: row;
+    padding: 1rem;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
-    max-height: 80px;
-    overflow-y: auto;
   }
   
   nav a {
-    font-size: 0.8rem;
-    padding: 0.3rem 0.6rem;
-    white-space: nowrap;
+    font-size: 0.9rem;
+    padding: 0.3rem 0.8rem;
   }
   
   /* Hero Section */
   .hero {
     padding: 2rem 1rem;
     min-height: 80vh;
-    margin-top: 80px;
   }
   
   .hero-content h1 {
@@ -1426,7 +1468,7 @@ section h2::after {
   }
   
   /* Sections */
-  section {
+  .about-section, .skills-section, .projects-section, .timeline-section, .contact-section {
     padding: 3rem 1rem;
   }
   
@@ -1478,7 +1520,7 @@ section h2::after {
   }
   
   .skill-item {
-    padding: 0.8rem;
+    padding: 1rem;
   }
   
   .skill-item h3 {
@@ -1529,11 +1571,15 @@ section h2::after {
   }
   
   /* HUD */
-  .hud-element {
+  .hud {
     top: 10px;
     right: 10px;
     font-size: 0.7rem;
     padding: 0.5rem;
+  }
+  
+  .hud-item {
+    margin-bottom: 0.3rem;
   }
   
   /* Tooltip */
@@ -1547,7 +1593,6 @@ section h2::after {
     padding: 2rem 1rem;
     height: auto;
     min-height: 100vh;
-    margin-top: 80px;
   }
   
   .cv-section h1 {
@@ -1574,7 +1619,6 @@ section h2::after {
   /* Portfolio Section */
   .video-grid {
     padding: 2rem 1rem;
-    margin-top: 80px;
   }
   
   .videos-container {
@@ -1609,19 +1653,18 @@ section h2::after {
     height: 150px;
   }
   
-  .placeholder-icon {
+  .video-placeholder::after {
     font-size: 2rem;
   }
   
   /* Particles */
   .particles {
-    display: block;
-    opacity: 0.6;
+    display: none;
   }
   
-  /* Background Animation */
+    /* Background Animation */
   .background-animation {
-    opacity: 0.6;
+    opacity: 0.3;
   }
 }
 
@@ -1629,20 +1672,18 @@ section h2::after {
 @media (max-width: 480px) {
   /* Navigation */
   nav {
-    padding: 0.6rem;
-    max-height: 70px;
+    padding: 0.8rem;
   }
   
   nav a {
-    font-size: 0.7rem;
-    padding: 0.2rem 0.5rem;
+    font-size: 0.8rem;
+    padding: 0.2rem 0.6rem;
   }
   
   /* Hero Section */
   .hero {
     padding: 1.5rem 0.8rem;
     min-height: 70vh;
-    margin-top: 70px;
   }
   
   .hero-content h1 {
@@ -1659,7 +1700,7 @@ section h2::after {
   }
   
   /* Sections */
-  section {
+  .about-section, .skills-section, .projects-section, .timeline-section, .contact-section {
     padding: 2rem 0.8rem;
   }
   
@@ -1689,7 +1730,7 @@ section h2::after {
   }
   
   /* HUD */
-  .hud-element {
+  .hud {
     top: 5px;
     right: 5px;
     font-size: 0.6rem;
@@ -1699,7 +1740,6 @@ section h2::after {
   /* CV Section */
   .cv-section {
     padding: 1.5rem 0.8rem;
-    margin-top: 70px;
   }
   
   .cv-section h1 {
@@ -1714,7 +1754,6 @@ section h2::after {
   /* Portfolio Section */
   .video-grid {
     padding: 1.5rem 0.8rem;
-    margin-top: 70px;
   }
   
   .video-card {
@@ -1739,7 +1778,7 @@ section h2::after {
     height: 120px;
   }
   
-  .placeholder-icon {
+  .video-placeholder::after {
     font-size: 1.5rem;
   }
 }
@@ -2003,142 +2042,4 @@ section h2::after {
 
 .contact-item a:hover {
   color: #ff00ff;
-}
-
-/* Portfolio Introduction Section */
-.portfolio-intro {
-  text-align: center;
-  margin-bottom: 4rem;
-  max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.intro-text {
-  font-size: 1.1rem;
-  line-height: 1.8;
-  color: #ccc;
-  margin-bottom: 0;
-}
-
-/* Section Descriptions */
-.section-description {
-  font-size: 1rem;
-  line-height: 1.6;
-  color: #aaa;
-  text-align: center;
-  margin-bottom: 2rem;
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
-  font-style: italic;
-}
-
-/* Portfolio Call to Action */
-.portfolio-cta {
-  text-align: center;
-  margin-top: 4rem;
-  padding: 3rem 2rem;
-  background: rgba(255, 255, 255, 0.02);
-  border-radius: 20px;
-  border: 1px solid rgba(0, 255, 231, 0.1);
-  backdrop-filter: blur(10px);
-}
-
-.cta-text {
-  font-size: 1.1rem;
-  line-height: 1.7;
-  color: #ccc;
-  margin-bottom: 2rem;
-  max-width: 700px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.cta-buttons {
-  display: flex;
-  gap: 1.5rem;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-.btn-secondary {
-  display: inline-block;
-  padding: 1rem 2rem;
-  background: transparent;
-  border: 2px solid #ff00ff;
-  color: #ff00ff;
-  font-weight: bold;
-  border-radius: 50px;
-  text-decoration: none;
-  transition: all 0.3s ease;
-  font-family: 'Orbitron', sans-serif;
-  box-shadow: 0 0 20px rgba(255, 0, 255, 0.2);
-  cursor: pointer;
-  text-align: center;
-}
-
-.btn-secondary:hover {
-  background: #ff00ff;
-  color: #000;
-  transform: scale(1.05) translateY(-2px);
-  box-shadow: 0 0 30px rgba(255, 0, 255, 0.5);
-}
-
-/* Enhanced Video Grid Layout */
-.video-grid {
-  padding: 6rem 2rem;
-  max-width: 1200px;
-  margin: 0 auto;
-  text-align: center;
-}
-
-.videos-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 2rem;
-  margin-top: 2rem;
-  justify-items: center;
-}
-
-.video-card {
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 15px;
-  padding: 1.5rem;
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(0, 255, 231, 0.2);
-  transition: all 0.3s ease;
-  position: relative;
-  overflow: hidden;
-  max-width: 400px;
-  width: 100%;
-  text-align: center;
-}
-
-.video-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(0, 255, 231, 0.1), transparent);
-  transition: all 0.5s ease;
-}
-
-.video-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 20px 40px rgba(0, 255, 231, 0.2);
-  border-color: rgba(255, 0, 255, 0.5);
-}
-
-.video-card:hover::before {
-  left: 100%;
-}
-
-.video-card video {
-  width: 100%;
-  border-radius: 8px;
-  margin-bottom: 1rem;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
 }
