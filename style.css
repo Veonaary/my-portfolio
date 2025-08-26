@@ -1184,6 +1184,29 @@ section h2::after {
   opacity: 0.4;
 }
 
+/* Second layer of stars for depth */
+.background-animation::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    radial-gradient(1px 1px at 50px 150px, #00ffe7, transparent),
+    radial-gradient(2px 2px at 120px 200px, #ff00ff, transparent),
+    radial-gradient(1px 1px at 180px 180px, #ffff00, transparent),
+    radial-gradient(2px 2px at 240px 120px, #00ffe7, transparent),
+    radial-gradient(1px 1px at 320px 160px, #ff00ff, transparent),
+    radial-gradient(2px 2px at 380px 140px, #ffff00, transparent),
+    radial-gradient(1px 1px at 450px 190px, #00ffe7, transparent),
+    radial-gradient(2px 2px at 520px 110px, #ff00ff, transparent);
+  background-repeat: repeat;
+  background-size: 600px 300px;
+  animation: starTwinkle 6s ease-in-out infinite reverse;
+  opacity: 0.3;
+}
+
 /* Particles Animation */
 .particles {
   position: fixed;
@@ -1785,7 +1808,13 @@ section h2::after {
   
   /* Background Animation */
   .background-animation {
-    opacity: 0.6;
+    opacity: 0.8;
+  }
+  
+  /* Ensure background stars are visible on mobile */
+  .background-animation::before,
+  .background-animation::after {
+    opacity: 0.5;
   }
 }
 
