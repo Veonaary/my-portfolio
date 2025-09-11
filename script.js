@@ -163,14 +163,7 @@ function updateFPS() {
 }
 updateFPS();
 
-// Real-time Clock
-function updateTime() {
-  const now = new Date();
-  const timeString = now.toLocaleTimeString();
-  document.getElementById('currentTime').textContent = timeString;
-}
-setInterval(updateTime, 1000);
-updateTime();
+// Real-time Clock (removed at user's request)
 
 // Sound Visualizer Animation
 function animateSoundBars() {

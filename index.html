@@ -46,7 +46,6 @@
   <!-- Gaming HUD Elements -->
   <div class="hud-element hud-fps">FPSSSSSSSSSSSSSSSSSSSSSSSSSS: <span id="fps">60</span></div>
   <div class="hud-element hud-coords">X: <span id="mouseX">0</span> Y: <span id="mouseY">0</span></div>
-  <div class="hud-element hud-time">TIME: <span id="currentTime"></span></div>
 
   <!-- Magnetic Field Indicator -->
   <div class="magnetic-field" id="magneticField"></div>
@@ -199,53 +198,21 @@
     <p style="text-align: center; color: #ccc; margin-bottom: 2rem; font-size: 1.1rem;">
       Trusted by leading organizations and innovative companies worldwide
     </p>
-    <div class="companies-grid">
-      <div class="company-logo" data-aos="fade-up" data-aos-delay="100">
-        <img src="Files/finz_games_logo.png" alt="Finz Games" />
-        <div class="company-overlay">
-          <h4>Finz Games</h4>
-          <p>Associate Game Developer</p>
-        </div>
-      </div>
-
-      <div class="company-logo" data-aos="fade-up" data-aos-delay="200">
-        <img src="Files/umt_logo.png" alt="UMT" />
-        <div class="company-overlay">
-          <h4>University of Management & Technology</h4>
-          <p>Unity 3D Intern</p>
-        </div>
-      </div>
-
-      <div class="company-logo" data-aos="fade-up" data-aos-delay="300">
-        <img src="Files/yobro_studios_logo.png" alt="YoBro Studios" />
-        <div class="company-overlay">
-          <h4>YoBro Studios</h4>
-          <p>Associate Unity Game Developer</p>
-        </div>
-      </div>
-
-      <div class="company-logo" data-aos="fade-up" data-aos-delay="400">
-        <img src="Files/mindstorm_logo.png" alt="Mindstorm Student Chapter" />
-        <div class="company-overlay">
-          <h4>Mindstorm Student Chapter</h4>
-          <p>Director of Events</p>
-        </div>
-      </div>
-
-      <div class="company-logo" data-aos="fade-up" data-aos-delay="500">
-        <img src="Files/upwork_logo.png" alt="Upwork" />
-        <div class="company-overlay">
-          <h4>Upwork</h4>
-          <p>Freelance Unity Developer</p>
-        </div>
-      </div>
-
-      <div class="company-logo" data-aos="fade-up" data-aos-delay="600">
-        <img src="Files/fiverr_logo.png" alt="Fiverr" />
-        <div class="company-overlay">
-          <h4>Fiverr</h4>
-          <p>Freelance Unity Developer</p>
-        </div>
+    <div class="companies-rotator" aria-label="Companies carousel">
+      <div class="companies-track">
+        <div class="company-item"><img src="Files/finz_games_logo.png" alt="Finz Games" /></div>
+        <div class="company-item"><img src="Files/umt_logo.png" alt="UMT" /></div>
+        <div class="company-item"><img src="Files/yobro_studios_logo.png" alt="YoBro Studios" /></div>
+        <div class="company-item"><img src="Files/mindstorm_logo.png" alt="Mindstorm Student Chapter" /></div>
+        <div class="company-item"><img src="Files/upwork_logo.png" alt="Upwork" /></div>
+        <div class="company-item"><img src="Files/fiverr_logo.png" alt="Fiverr" /></div>
+        <!-- Duplicates for seamless loop -->
+        <div class="company-item"><img src="Files/finz_games_logo.png" alt="Finz Games" /></div>
+        <div class="company-item"><img src="Files/umt_logo.png" alt="UMT" /></div>
+        <div class="company-item"><img src="Files/yobro_studios_logo.png" alt="YoBro Studios" /></div>
+        <div class="company-item"><img src="Files/mindstorm_logo.png" alt="Mindstorm Student Chapter" /></div>
+        <div class="company-item"><img src="Files/upwork_logo.png" alt="Upwork" /></div>
+        <div class="company-item"><img src="Files/fiverr_logo.png" alt="Fiverr" /></div>
       </div>
     </div>
   </section>

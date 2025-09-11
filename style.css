@@ -1016,6 +1016,58 @@ section h2::after {
   margin: 0;
 }
 
+/* Companies Rotator (Carousel) */
+.companies-rotator {
+  position: relative;
+  overflow: hidden;
+  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+.companies-track {
+  display: flex;
+  gap: 3rem;
+  align-items: center;
+  animation: companiesScroll 25s linear infinite;
+  will-change: transform;
+}
+
+.company-item {
+  flex: 0 0 auto;
+  padding: 1rem 2rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(0, 255, 231, 0.2);
+  border-radius: 12px;
+  backdrop-filter: blur(8px);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.company-item img {
+  max-height: 48px;
+  max-width: 160px;
+  object-fit: contain;
+  filter: brightness(0.85);
+}
+
+.company-item:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 30px rgba(0, 255, 231, 0.2);
+  border-color: rgba(255, 0, 255, 0.5);
+}
+
+@keyframes companiesScroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* Light theme support for rotator */
+body.light-theme .company-item {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(52, 152, 219, 0.2);
+}
+body.light-theme .company-item img { filter: brightness(0.75); }
+body.light-theme .company-item:hover { border-color: rgba(155, 89, 182, 0.5); }
+
 /* Light theme styles for companies section */
 body.light-theme .company-logo {
   background: rgba(255, 255, 255, 0.9);
@@ -1753,6 +1805,10 @@ Additional background stars effect
     grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
   }
+  .companies-rotator { mask-image: none; -webkit-mask-image: none; }
+  .companies-track { gap: 1.5rem; }
+  .company-item { padding: 0.8rem 1.2rem; }
+  .company-item img { max-height: 36px; max-width: 120px; }
   
   .company-logo {
     padding: 1rem;
@@ -1976,6 +2032,9 @@ Additional background stars effect
     grid-template-columns: 1fr;
     gap: 0.8rem;
   }
+  .companies-track { gap: 1rem; }
+  .company-item { padding: 0.6rem 1rem; }
+  .company-item img { max-height: 32px; max-width: 100px; }
   
   .company-logo {
     padding: 0.8rem;
