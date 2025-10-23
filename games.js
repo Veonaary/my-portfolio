@@ -259,29 +259,39 @@ function updateSnakeStats() {
 document.addEventListener('keydown', function(e) {
     if (currentGame !== 'snake' || !gameRunning) return;
     
+    // Prevent default behavior for all game controls
+    e.preventDefault();
+    
     switch(e.key) {
         case 'ArrowUp':
+        case 'w':
+        case 'W':
             if (snakeGame.direction.y === 0) {
                 snakeGame.direction = { x: 0, y: -1 };
             }
             break;
         case 'ArrowDown':
+        case 's':
+        case 'S':
             if (snakeGame.direction.y === 0) {
                 snakeGame.direction = { x: 0, y: 1 };
             }
             break;
         case 'ArrowLeft':
+        case 'a':
+        case 'A':
             if (snakeGame.direction.x === 0) {
                 snakeGame.direction = { x: -1, y: 0 };
             }
             break;
         case 'ArrowRight':
+        case 'd':
+        case 'D':
             if (snakeGame.direction.x === 0) {
                 snakeGame.direction = { x: 1, y: 0 };
             }
             break;
         case ' ':
-            e.preventDefault();
             pauseSnakeGame();
             break;
     }

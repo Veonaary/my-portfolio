@@ -69,14 +69,14 @@ document.addEventListener('click', (e) => {
 
 // Particle Burst System
 function createParticleBurst(x, y) {
-  for (let i = 0; i < 12; i++) {
+  for (let i = 0; i < 8; i++) {
     const particle = document.createElement('div');
     particle.className = 'particle-burst';
     particle.style.left = `${x}px`;
     particle.style.top = `${y}px`;
     
-    const angle = (i / 12) * Math.PI * 2;
-    const distance = 60 + Math.random() * 40;
+    const angle = (i / 8) * Math.PI * 2;
+    const distance = 50 + Math.random() * 30;
     const dx = Math.cos(angle) * distance;
     const dy = Math.sin(angle) * distance;
     
@@ -87,7 +87,7 @@ function createParticleBurst(x, y) {
     
     setTimeout(() => {
       particle.remove();
-    }, 1200);
+    }, 1000);
   }
 }
 

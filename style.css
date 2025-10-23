@@ -553,13 +553,12 @@ body.light-theme .particle {
 
 .particle-burst {
   position: absolute;
-  width: 6px;
-  height: 6px;
+  width: 4px;
+  height: 4px;
   background: #ff00ff;
   border-radius: 50%;
   pointer-events: none;
-  animation: particleBurst 1.2s ease-out forwards;
-  box-shadow: 0 0 8px #ff00ff, 0 0 16px rgba(255, 0, 255, 0.6);
+  animation: particleBurst 1s ease-out forwards;
   z-index: 1000;
 }
 
@@ -568,13 +567,9 @@ body.light-theme .particle {
     opacity: 1;
     transform: scale(1);
   }
-  50% {
-    opacity: 0.8;
-    transform: scale(1.2);
-  }
   100% {
     opacity: 0;
-    transform: scale(0.3) translate(var(--dx), var(--dy));
+    transform: scale(0) translate(var(--dx), var(--dy));
   }
 }
 
