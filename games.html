@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mini Games | Mustafa Amin</title>
+  
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  
+  <!-- AOS Animation Library -->
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+  
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="style.css" />
+  
+  <style>
+    /* Games Page Specific Styles */
+    .games-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+    
+    .game-selector {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+    
+    .game-card {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 15px;
+      padding: 2rem;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(0, 255, 231, 0.2);
+      transition: all 0.3s ease;
+      cursor: pointer;
+      text-align: center;
+    }
+    
+    .game-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(0, 255, 231, 0.2);
+      border-color: rgba(255, 0, 255, 0.5);
+    }
+    
+    .game-card h3 {
+      font-family: 'Orbitron', sans-serif;
+      color: #00ffe7;
+      margin-bottom: 1rem;
+      font-size: 1.5rem;
+    }
+    
+    .game-card p {
+      color: #ccc;
+      margin-bottom: 1.5rem;
+      line-height: 1.5;
+    }
+    
+    .game-icon {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      display: block;
+    }
+    
+    .game-area {
+      background: rgba(0, 0, 0, 0.8);
+      border-radius: 15px;
+      padding: 2rem;
+      margin: 2rem 0;
+      border: 2px solid rgba(0, 255, 231, 0.3);
+      display: none;
+    }
+    
+    .game-area.active {
+      display: block;
+    }
+    
+    .game-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    
+    .game-title {
+      font-family: 'Orbitron', sans-serif;
+      color: #00ffe7;
+      font-size: 1.8rem;
+    }
+    
+    .game-stats {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    
+    .stat {
+      background: rgba(0, 255, 231, 0.1);
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      color: #00ffe7;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 0.9rem;
+    }
+    
+    .game-controls {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 1rem;
+      flex-wrap: wrap;
+    }
+    
+    .btn-game {
+      padding: 0.8rem 1.5rem;
+      background: linear-gradient(45deg, #00ffe7, #ff00ff);
+      color: #000;
+      border: none;
+      border-radius: 25px;
+      font-family: 'Orbitron', sans-serif;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .btn-game:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px rgba(0, 255, 231, 0.5);
+    }
+    
+    .btn-game:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+    
+    /* Snake Game Styles */
+    #snakeCanvas {
+      border: 2px solid #00ffe7;
+      border-radius: 10px;
+      background: #000;
+      display: block;
+      margin: 0 auto;
+    }
+    
+    /* Keyboard Game Styles */
+    .typing-game {
+      text-align: center;
+    }
+    
+    .word-display {
+      font-size: 2rem;
+      color: #00ffe7;
+      font-family: 'Orbitron', sans-serif;
+      margin: 2rem 0;
+      min-height: 3rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .word-display .correct {
+      color: #00ff00;
+    }
+    
+    .word-display .incorrect {
+      color: #ff0000;
+    }
+    
+    .word-display .current {
+      background: rgba(0, 255, 231, 0.2);
+      padding: 0.2rem;
+      border-radius: 5px;
+    }
+    
+    .input-area {
+      margin: 2rem 0;
+    }
+    
+    .typing-input {
+      padding: 1rem;
+      font-size: 1.2rem;
+      border: 2px solid #00ffe7;
+      border-radius: 10px;
+      background: rgba(0, 0, 0, 0.8);
+      color: #00ffe7;
+      font-family: 'Orbitron', sans-serif;
+      text-align: center;
+      width: 100%;
+      max-width: 400px;
+    }
+    
+    .typing-input:focus {
+      outline: none;
+      box-shadow: 0 0 20px rgba(0, 255, 231, 0.5);
+    }
+    
+    .progress-bar {
+      width: 100%;
+      height: 20px;
+      background: rgba(0, 0, 0, 0.5);
+      border-radius: 10px;
+      overflow: hidden;
+      margin: 1rem 0;
+    }
+    
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(45deg, #00ffe7, #ff00ff);
+      transition: width 0.3s ease;
+    }
+    
+    .game-instructions {
+      background: rgba(0, 255, 231, 0.1);
+      padding: 1rem;
+      border-radius: 10px;
+      margin: 1rem 0;
+      color: #ccc;
+      font-size: 0.9rem;
+    }
+    
+    .back-to-games {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      z-index: 1000;
+    }
+    
+    @media (max-width: 768px) {
+      .games-container {
+        padding: 1rem;
+      }
+      
+      .game-selector {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+      
+      .game-card {
+        padding: 1.5rem;
+      }
+      
+      .game-header {
+        flex-direction: column;
+        text-align: center;
+      }
+      
+      .game-stats {
+        justify-content: center;
+      }
+      
+      .word-display {
+        font-size: 1.5rem;
+      }
+      
+      .typing-input {
+        font-size: 1rem;
+        padding: 0.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav>
+    <a href="index.html#home">Home</a>
+    <a href="index.html#about">About</a>
+    <a href="index.html#experience">Experience</a>
+    <a href="index.html#skills">Skills</a>
+    <a href="index.html#companies">Companies</a>
+    <a href="index.html#contact">Contact</a>
+    <a href="videos.html">Portfolio</a>
+    <a href="cv.html">CV</a>
+    <a href="games.html" style="color: #ff00ff;">🎮 Games</a>
+  </nav>
+
+  <!-- Gaming HUD Elements -->
+  <div class="hud-element hud-fps">FPS: <span id="fps">60</span></div>
+  <div class="hud-element hud-coords">X: <span id="mouseX">0</span> Y: <span id="mouseY">0</span></div>
+
+  <!-- Floating Action Button -->
+  <div class="fab-container" id="fabContainer">
+    <div class="fab-main" id="fabMain"></div>
+    <div class="fab-menu">
+      <div class="fab-item" data-tooltip="Toggle Theme">🌙</div>
+      <div class="fab-item" data-tooltip="Play Music">🎵</div>
+      <div class="fab-item" data-tooltip="Full Screen">🖥️</div>
+      <div class="fab-item" data-tooltip="Gaming Mode">⚡</div>
+    </div>
+  </div>
+
+  <!-- Background Animation -->
+  <div class="background-animation"></div>
+  <div class="particles" id="particles"></div>
+
+  <!-- Games Container -->
+  <div class="games-container">
+    <h1 class="glitch" data-text="Mini Games">🎮 Mini Games</h1>
+    <p style="text-align: center; color: #ccc; margin-bottom: 2rem; font-size: 1.1rem;">
+      Play these fun mini-games while exploring my portfolio! Each game is themed around my skills and projects.
+    </p>
+
+    <!-- Game Selector -->
+    <div class="game-selector">
+      <div class="game-card" onclick="showGame('snake')">
+        <span class="game-icon">🐍</span>
+        <h3>Snake Game</h3>
+        <p>Classic Snake game with a cyberpunk twist! Use arrow keys to control the snake and collect glowing orbs. Don't hit the walls or yourself!</p>
+        <div class="btn-game">Play Snake</div>
+      </div>
+
+      <div class="game-card" onclick="showGame('keyboard')">
+        <span class="game-icon">⌨️</span>
+        <h3>Skill Typing Challenge</h3>
+        <p>Test your typing speed with my technical skills! Type the words as fast as you can. Perfect for warming up those coding fingers!</p>
+        <div class="btn-game">Start Typing</div>
+      </div>
+    </div>
+
+    <!-- Snake Game -->
+    <div id="snake-game" class="game-area">
+      <div class="game-header">
+        <h2 class="game-title">🐍 Snake Game</h2>
+        <div class="game-stats">
+          <div class="stat">Score: <span id="snake-score">0</span></div>
+          <div class="stat">High Score: <span id="snake-high-score">0</span></div>
+          <div class="stat">Speed: <span id="snake-speed">1</span></div>
+        </div>
+      </div>
+      
+      <div class="game-controls">
+        <button class="btn-game" onclick="startSnakeGame()">Start Game</button>
+        <button class="btn-game" onclick="pauseSnakeGame()">Pause</button>
+        <button class="btn-game" onclick="resetSnakeGame()">Reset</button>
+        <button class="btn-game" onclick="hideGame()">Back to Games</button>
+      </div>
+      
+      <div class="game-instructions">
+        <strong>Controls:</strong> Use Arrow Keys to move • Space to pause • Collect glowing orbs to grow and increase score!
+      </div>
+      
+      <canvas id="snakeCanvas" width="400" height="400"></canvas>
+    </div>
+
+    <!-- Keyboard Game -->
+    <div id="keyboard-game" class="game-area">
+      <div class="game-header">
+        <h2 class="game-title">⌨️ Skill Typing Challenge</h2>
+        <div class="game-stats">
+          <div class="stat">WPM: <span id="typing-wpm">0</span></div>
+          <div class="stat">Accuracy: <span id="typing-accuracy">0%</span></div>
+          <div class="stat">Words: <span id="typing-progress">0/10</span></div>
+        </div>
+      </div>
+      
+      <div class="game-controls">
+        <button class="btn-game" onclick="startTypingGame()">Start Challenge</button>
+        <button class="btn-game" onclick="resetTypingGame()">Reset</button>
+        <button class="btn-game" onclick="hideGame()">Back to Games</button>
+      </div>
+      
+      <div class="typing-game">
+        <div class="word-display" id="word-display">Press Start to begin!</div>
+        <div class="progress-bar">
+          <div class="progress-fill" id="progress-fill" style="width: 0%"></div>
+        </div>
+        <div class="input-area">
+          <input type="text" class="typing-input" id="typing-input" placeholder="Type the word above..." disabled>
+        </div>
+        <div class="game-instructions">
+          <strong>Instructions:</strong> Type the highlighted word as fast as you can! The game will automatically move to the next word.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script src="script.js"></script>
+  <script src="games.js"></script>
+</body>
+</html>
