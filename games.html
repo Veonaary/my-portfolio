@@ -318,6 +318,13 @@
         <p>Test your typing speed with my technical skills! Type the words as fast as you can. Perfect for warming up those coding fingers!</p>
         <div class="btn-game">Start Typing</div>
       </div>
+
+      <div class="game-card" onclick="showGame('tetris')">
+        <span class="game-icon">🧩</span>
+        <h3>Tetris Classic</h3>
+        <p>The legendary puzzle game with a cyberpunk twist! Drop the blocks and clear lines in this neon-themed Tetris experience.</p>
+        <div class="btn-game">Play Tetris</div>
+      </div>
     </div>
 
     <!-- Snake Game -->
@@ -372,6 +379,49 @@
         </div>
         <div class="game-instructions">
           <strong>Instructions:</strong> Type the highlighted word as fast as you can! The game will automatically move to the next word.
+        </div>
+      </div>
+    </div>
+
+    <!-- Tetris Game -->
+    <div id="tetris-game" class="game-area">
+      <div class="game-header">
+        <h2 class="game-title">🧩 Tetris Classic</h2>
+        <div class="game-stats">
+          <div class="stat">Score: <span id="tetris-score">0</span></div>
+          <div class="stat">Lines: <span id="tetris-lines">0</span></div>
+          <div class="stat">Level: <span id="tetris-level">1</span></div>
+          <div class="stat">High Score: <span id="tetris-high-score">0</span></div>
+        </div>
+      </div>
+      
+      <div class="game-controls">
+        <button class="btn-game" onclick="startTetrisGame()">Start Game</button>
+        <button class="btn-game" onclick="pauseTetrisGame()">Pause</button>
+        <button class="btn-game" onclick="resetTetrisGame()">Reset</button>
+        <button class="btn-game" onclick="hideGame()">Back to Games</button>
+      </div>
+      
+      <div class="game-instructions">
+        <strong>Controls:</strong> Arrow Keys or WASD to move/rotate • Space to drop • Clear lines to score points!
+      </div>
+      
+      <div style="display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; align-items: flex-start;">
+        <canvas id="tetrisCanvas" width="300" height="600"></canvas>
+        <div style="display: flex; flex-direction: column; gap: 1rem;">
+          <div style="background: rgba(0, 255, 231, 0.1); padding: 1rem; border-radius: 10px; border: 1px solid rgba(0, 255, 231, 0.3);">
+            <h4 style="color: #00ffe7; margin-bottom: 0.5rem;">Next Piece</h4>
+            <canvas id="nextPieceCanvas" width="80" height="80"></canvas>
+          </div>
+          <div style="background: rgba(0, 255, 231, 0.1); padding: 1rem; border-radius: 10px; border: 1px solid rgba(0, 255, 231, 0.3);">
+            <h4 style="color: #00ffe7; margin-bottom: 0.5rem;">Controls</h4>
+            <div style="color: #ccc; font-size: 0.8rem; line-height: 1.4;">
+              <div>↑ Rotate</div>
+              <div>← → Move</div>
+              <div>↓ Soft Drop</div>
+              <div>Space Hard Drop</div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
