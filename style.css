@@ -542,12 +542,14 @@ body.light-theme .particle {
 
 .particle-burst {
   position: absolute;
-  width: 4px;
-  height: 4px;
+  width: 6px;
+  height: 6px;
   background: #ff00ff;
   border-radius: 50%;
   pointer-events: none;
-  animation: particleBurst 1s ease-out forwards;
+  animation: particleBurst 1.2s ease-out forwards;
+  box-shadow: 0 0 8px #ff00ff, 0 0 16px rgba(255, 0, 255, 0.6);
+  z-index: 1000;
 }
 
 @keyframes particleBurst {
@@ -555,9 +557,13 @@ body.light-theme .particle {
     opacity: 1;
     transform: scale(1);
   }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.2);
+  }
   100% {
     opacity: 0;
-    transform: scale(0) translate(var(--dx), var(--dy));
+    transform: scale(0.3) translate(var(--dx), var(--dy));
   }
 }
 
@@ -1147,7 +1153,7 @@ body.light-theme .company-overlay p {
 
 .contact-item {
   background: rgba(255, 255, 255, 0.05);
-  padding: 2rem;
+  padding: 1rem;
   border-radius: 12px;
   text-align: center;
   transition: all 0.3s ease;
@@ -1156,7 +1162,7 @@ body.light-theme .company-overlay p {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-height: 120px;
+  min-height: 80px;
 }
 
 .contact-item:hover {
@@ -1835,8 +1841,8 @@ Additional background stars effect
   }
   
   .contact-item {
-    padding: 1.5rem;
-    min-height: 80px;
+    padding: 0.8rem;
+    min-height: 60px;
   }
   
   /* FAB */
@@ -2344,12 +2350,12 @@ Additional background stars effect
   justify-content: center;
   align-items: center;
   background: rgba(255, 255, 255, 0.05);
-  padding: 2rem;
+  padding: 1rem;
   border-radius: 12px;
   text-align: center;
   transition: all 0.3s ease;
   border: 1px solid rgba(0, 255, 231, 0.2);
-  min-height: 120px;
+  min-height: 80px;
 }
 
 .contact-item:hover {
