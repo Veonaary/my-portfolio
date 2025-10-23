@@ -5,6 +5,17 @@
   box-sizing: border-box;
 }
 
+/* Touch-friendly improvements */
+* {
+  -webkit-tap-highlight-color: rgba(0, 255, 231, 0.3);
+}
+
+/* Smooth scrolling for better mobile experience */
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
 /* Default cursor behavior */
 html, body {
   cursor: auto;
@@ -1446,12 +1457,11 @@ Additional background stars effect
 .cv-section {
   padding: 4rem 2rem;
   text-align: center;
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  overflow: hidden;
 }
 
 .cv-section h1 {
@@ -1464,10 +1474,8 @@ Additional background stars effect
 }
 
 .cv-content {
-  max-width: 800px;
+  max-width: 1000px;
   width: 100%;
-  max-height: 80vh;
-  overflow-y: auto;
   padding: 1rem;
 }
 
@@ -1502,8 +1510,6 @@ Additional background stars effect
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
-  max-height: 60vh;
-  overflow-y: auto;
 }
 
 .cv-image-container::before {
@@ -1717,51 +1723,84 @@ Additional background stars effect
   transform: translateY(-2px);
 }
 
-/* Responsive Design */
+/* Tablet and Medium Screens */
+@media (max-width: 1024px) {
+  .hero-content h1 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+  }
+  
+  .section-title {
+    font-size: clamp(1.8rem, 4vw, 2.2rem);
+  }
+  
+  .companies-rotator {
+    margin: 0 1rem;
+  }
+  
+  .companies-track {
+    gap: 2rem;
+  }
+  
+  .company-item {
+    padding: 1rem 1.5rem;
+  }
+}
+
+/* Mobile and Small Tablets */
 @media (max-width: 768px) {
   /* Navigation */
   nav {
     flex-wrap: wrap;
     gap: 0.5rem;
     padding: 1rem;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
   }
   
   nav a {
-    font-size: 0.9rem;
-    padding: 0.3rem 0.8rem;
+    font-size: 0.85rem;
+    padding: 0.4rem 0.6rem;
+    margin: 0.1rem;
   }
   
   /* Hero Section */
   .hero {
-    padding: 2rem 1rem;
-    min-height: 80vh;
+    padding: 1.5rem 1rem;
+    min-height: 85vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   
   .hero-content h1 {
-    font-size: clamp(1.8rem, 6vw, 2.5rem);
+    font-size: clamp(1.8rem, 7vw, 2.8rem);
     margin-bottom: 1rem;
+    line-height: 1.2;
   }
   
   .hero-content p {
     font-size: 1rem;
     margin-bottom: 1.5rem;
+    line-height: 1.5;
   }
   
   .btn-primary {
-    padding: 0.8rem 1.5rem;
+    padding: 0.9rem 1.8rem;
     font-size: 0.9rem;
+    min-height: 44px; /* Touch-friendly minimum size */
   }
   
   /* Sections */
-  .about-section, .skills-section, .projects-section, .timeline-section, .contact-section {
-    padding: 3rem 1rem;
+  section {
+    padding: 2.5rem 1rem;
   }
   
   .section-title {
     font-size: clamp(1.5rem, 5vw, 2rem);
     margin-bottom: 1.5rem;
+    line-height: 1.3;
   }
   
   /* Timeline */
@@ -1785,19 +1824,22 @@ Additional background stars effect
   /* Projects Grid */
   .projects-grid {
     grid-template-columns: 1fr;
-    gap: 1rem;
+    gap: 1.5rem;
   }
   
   .project-card {
-    padding: 1rem;
+    padding: 1.2rem;
+    margin-bottom: 0.5rem;
   }
   
   .project-card h3 {
     font-size: 1.2rem;
+    line-height: 1.3;
   }
   
   .project-card p {
     font-size: 0.9rem;
+    line-height: 1.5;
   }
   
   /* Skills Grid */
@@ -1836,32 +1878,45 @@ Additional background stars effect
   
   /* Contact Grid */
   .contact-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
   }
   
   .contact-item {
-    padding: 0.8rem;
-    min-height: 60px;
+    padding: 1rem;
+    min-height: 80px;
+    font-size: 0.9rem;
+  }
+  
+  .contact-item h3 {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .contact-item a {
+    font-size: 0.85rem;
+    word-break: break-all;
   }
   
   /* FAB */
   .fab-container {
-    bottom: 15px;
-    left: 15px;
-    transform: scale(0.8);
+    bottom: 20px;
+    left: 20px;
+    transform: scale(0.9);
   }
   
   .fab-main {
-    width: 50px;
-    height: 50px;
-    font-size: 1.2rem;
+    width: 56px;
+    height: 56px;
+    font-size: 1.4rem;
+    min-height: 44px; /* Touch-friendly */
   }
   
   .fab-item {
-    width: 40px;
-    height: 40px;
-    font-size: 1rem;
+    width: 48px;
+    height: 48px;
+    font-size: 1.1rem;
+    min-height: 44px; /* Touch-friendly */
   }
   
   /* Sound Visualizer */
@@ -1897,30 +1952,37 @@ Additional background stars effect
   
   /* CV Section */
   .cv-section {
-    padding: 2rem 1rem;
-    height: auto;
+    padding: 1.5rem 1rem;
     min-height: 100vh;
   }
   
   .cv-section h1 {
     font-size: clamp(1.5rem, 5vw, 2rem);
     margin-bottom: 1.5rem;
+    line-height: 1.2;
   }
   
   .cv-content {
-    max-height: none;
+    max-width: 100%;
     padding: 0.5rem;
   }
   
   .cv-image-container {
     padding: 1rem;
-    max-height: none;
+    margin: 0.5rem;
+  }
+  
+  .cv-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
   }
   
   .download-btn {
-    padding: 0.8rem 1.5rem;
+    padding: 0.9rem 1.8rem;
     font-size: 0.9rem;
     margin-bottom: 1.5rem;
+    min-height: 44px; /* Touch-friendly */
   }
   
   /* Portfolio Section */
@@ -1930,29 +1992,40 @@ Additional background stars effect
   
   .videos-container {
     grid-template-columns: 1fr;
-    gap: 1rem;
+    gap: 1.5rem;
   }
   
   .video-card {
-    padding: 1rem;
+    padding: 1.2rem;
+    margin-bottom: 0.5rem;
   }
   
   .video-info h3 {
     font-size: 1.1rem;
+    line-height: 1.3;
+    margin-bottom: 0.8rem;
   }
   
   .video-info p {
     font-size: 0.9rem;
+    line-height: 1.5;
+    margin-bottom: 1rem;
   }
   
   .project-links {
-    flex-direction: column;
+    flex-direction: row;
     gap: 0.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
   }
   
   .project-link {
-    padding: 0.4rem 0.8rem;
+    padding: 0.5rem 1rem;
     font-size: 0.8rem;
+    min-height: 44px; /* Touch-friendly */
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   
   /* Video Placeholder */
@@ -1964,15 +2037,24 @@ Additional background stars effect
     font-size: 2rem;
   }
   
-  /* Particles */
+  /* Particles - Reduced for mobile performance */
   .particles {
     display: block;
+    opacity: 0.4;
+  }
+  
+  /* Background Animation - Reduced for mobile performance */
+  .background-animation {
     opacity: 0.6;
   }
   
-  /* Background Animation */
-  .background-animation {
-    opacity: 0.8;
+  /* Reduce animations on mobile for better performance */
+  .sound-bar {
+    animation-duration: 1.5s;
+  }
+  
+  .particle {
+    animation-duration: 8s;
   }
   
   /* Ensure background stars are visible on mobile */
@@ -1991,31 +2073,36 @@ Additional background stars effect
 @media (max-width: 480px) {
   /* Navigation */
   nav {
-    padding: 0.8rem;
+    padding: 0.8rem 0.5rem;
+    gap: 0.3rem;
   }
   
   nav a {
-    font-size: 0.8rem;
-    padding: 0.2rem 0.6rem;
+    font-size: 0.75rem;
+    padding: 0.3rem 0.5rem;
+    margin: 0.05rem;
   }
   
   /* Hero Section */
   .hero {
-    padding: 1.5rem 0.8rem;
-    min-height: 70vh;
+    padding: 1.2rem 0.8rem;
+    min-height: 75vh;
   }
   
   .hero-content h1 {
-    font-size: clamp(1.5rem, 7vw, 2rem);
+    font-size: clamp(1.5rem, 8vw, 2.2rem);
+    line-height: 1.1;
   }
   
   .hero-content p {
     font-size: 0.9rem;
+    line-height: 1.4;
   }
   
   .btn-primary {
-    padding: 0.7rem 1.2rem;
-    font-size: 0.8rem;
+    padding: 0.8rem 1.5rem;
+    font-size: 0.85rem;
+    min-height: 44px; /* Touch-friendly */
   }
   
   /* Sections */
@@ -2151,19 +2238,16 @@ Additional background stars effect
 .cv-section {
   padding: 4rem 2rem;
   text-align: center;
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  overflow: hidden;
 }
 
 .cv-content {
-  max-width: 800px;
+  max-width: 1000px;
   width: 100%;
-  max-height: 80vh;
-  overflow-y: auto;
   padding: 1rem;
 }
 
@@ -2206,8 +2290,6 @@ Additional background stars effect
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
-  max-height: 60vh;
-  overflow-y: auto;
 }
 
 .cv-image-container:hover {
