@@ -3,34 +3,22 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Project Videos | Mustafa Amin</title>
-
+  <title>Portfolio | Mustafa Amin</title>
+  
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  
   <!-- AOS Animation Library -->
   <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+  
   <!-- Custom Styles -->
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <!-- Consistent Navigation (Header) -->
-  <nav>
-    <a href="#home">Home</a>
-    <a href="#about">About</a>
-    <a href="#projects">Projects</a>
-    <a href="#experience">Experience</a>
-    <a href="#skills">Skills</a>
-    <a href="#contact">Contact</a>
-    <a href="videos.html">Videos</a>
-    <a href="cv.html">CV</a>
-  </nav>
 
-  <!-- Background Animation (consistent on all pages) -->
-  <div class="background-animation"></div>
-  <div class="particles" id="particles"></div>
 
-  <!-- Sound Visualizer -->
+  <!-- Premium Interactive Elements -->
   <div class="sound-visualizer" id="soundVisualizer">
     <div class="sound-bar"></div>
     <div class="sound-bar"></div>
@@ -55,31 +43,695 @@
     </div>
   </div>
 
+  <!-- Gaming HUD Elements -->
+  <div class="hud-element hud-fps">FPS: <span id="fps">60</span></div>
+  <div class="hud-element hud-coords">X: <span id="mouseX">0</span> Y: <span id="mouseY">0</span></div>
+
+  <!-- Magnetic Field Indicator -->
+  <div class="magnetic-field" id="magneticField"></div>
+
+  <!-- Tooltip Container -->
+  <div class="tooltip" id="tooltip"></div>
+
+  <!-- Background Animation -->
+  <div class="background-animation"></div>
+  <div class="particles" id="particles"></div>
+
+  <!-- Navigation -->
+  <nav>
+    <a href="index.html#home">Home</a>
+    <a href="index.html#about">About</a>
+    <a href="index.html#projects">Projects</a>
+    <a href="index.html#experience">Experience</a>
+    <a href="index.html#skills">Skills</a>
+    <a href="index.html#contact">Contact</a>
+    <a href="cv.html">CV</a>
+    <a href="games.html">🎮 Games</a>
+  </nav>
+
   <!-- Video Grid Section -->
   <section class="video-grid">
-    <div class="video-card" data-aos="fade-up" data-aos-delay="100">
-      <video controls>
-        <source src="videos/WasteManagement.mp4" type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
-      <p>Virtual University Experience — A VR tour of UMT campus paired with an innovative NFT economy.</p>
+    <h1 class="glitch" data-text="Hafiz Mustafa Amin">Hafiz Mustafa Amin</h1>
+    
+    <!-- Introduction Section -->
+    <div class="portfolio-intro">
+      <h2 class="section-title">🎯 Welcome to My Portfolio</h2>
+      <p class="intro-text">
+        Explore my diverse collection of projects spanning Spatial Computing, Mobile Gaming, VR Experiences, and PC Development. 
+        Each project showcases different aspects of my skills and passion for creating immersive digital experiences.
+      </p>
     </div>
+     
+     <!-- Spatial Projects Section -->
+     <div class="portfolio-section">
+       <h2 class="section-title">🌐 Spatial Projects</h2>
+       <p class="section-description">
+         Immersive 3D environments and virtual spaces created using Spatial.io platform. 
+         These projects demonstrate my expertise in metaverse development and spatial computing.
+       </p>
+       <div class="videos-container">
+         <!-- UMT Virtual Tour -->
+         <div class="video-card">
+           <div class="video-placeholder">
+             <div class="placeholder-content">
+               <span class="placeholder-icon">🏫</span>
+               <p>Virtual Tour Experience</p>
+             </div>
+           </div>
+           <div class="video-info">
+             <h3>UMT Virtual University Tour</h3>
+             <p>A comprehensive virtual tour of the University of Management and Technology campus, featuring interactive elements, mini-games, and special events. This immersive experience allows prospective students to explore the actual building virtually.</p>
+             <div class="project-links">
+               <a href="https://www.spatial.io/s/UMT-Admission-Fall-2025-67761a8fbf5af7853374d9eb?share=2271069599105654614" class="project-link" target="_blank">🔗 Explore Space</a>
+             </div>
+           </div>
+         </div>
 
-    <div class="video-card" data-aos="fade-up" data-aos-delay="200">
-      <video controls>
-        <source src="videos/Project2.mp4" type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
-      <p>Project 2 — Interactive and immersive gameplay exploring AI-driven narratives.</p>
-    </div>
+         <!-- UMT Vision Chamber -->
+         <div class="video-card" 250">
+           <div class="video-placeholder">
+             <div class="placeholder-content">
+               <span class="placeholder-icon">🏢</span>
+               <p>Meeting Room Experience</p>
+             </div>
+           </div>
+           <div class="video-info">
+             <h3>UMT Vision Chamber</h3>
+             <p>A professional virtual meeting room designed for client collaboration. Features include secure access control (PIN-based entry system) and advanced meeting capabilities. Currently implementing enhanced security features with API integration.</p>
+             <div class="project-links">
+               <a href="https://www.spatial.io/s/The-UMT-Vision-Chamber-681efb50f734432bbfb0ac6f?share=5392423570185999153" class="project-link" target="_blank">🔗 Explore Space</a>
+             </div>
+           </div>
+         </div>
 
-    <div class="video-card" data-aos="fade-up" data-aos-delay="300">
-      <video controls>
-        <source src="videos/Project3.mp4" type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
-      <p>Project 3 — Real-time environment simulation and user-based scenario generation.</p>
-    </div>
+         <!-- French AI Gaming Space -->
+         <div class="video-card" 300">
+           <div class="video-placeholder">
+             <div class="placeholder-content">
+               <span class="placeholder-icon">🤖</span>
+               <p>AI Gaming Experience</p>
+             </div>
+           </div>
+           <div class="video-info">
+             <h3>Angouleme AI Gaming Space</h3>
+             <p>An innovative gaming environment created for a French client featuring AI agents powered by ChatGPT APIs. This interactive space combines entertainment with artificial intelligence for a unique user experience.</p>
+             <div class="project-links">
+               <a href="https://www.spatial.io/s/ANGOULEME-6622b7f3f7145b3cca2d91b0?share=18002740565581292" class="project-link" target="_blank">🔗 Explore Space</a>
+             </div>
+           </div>
+         </div>
+
+         <!-- Block Party Island -->
+         <div class="video-card" 350">
+           <div class="video-placeholder">
+             <div class="placeholder-content">
+               <span class="placeholder-icon">🎵</span>
+               <p>Music Event Platform</p>
+             </div>
+           </div>
+           <div class="video-info">
+             <h3>Block Party Island & Sound Stage</h3>
+             <p>A comprehensive music and event platform featuring 7 interconnected spaces with a central hub. Designed to host live music events, performances, and entertainment experiences in the metaverse.</p>
+             <div class="project-links">
+               <a href="https://www.spatial.io/s/The-Block-Party-Island-684d212f72cf55d3b7251e05?share=0" class="project-link" target="_blank">🔗 Main Island</a>
+               <a href="https://www.spatial.io/s/Block-Party-Sound-Stage-67de9af2742c75f887eebcff?share=1520011710695373846" class="project-link" target="_blank">🔗 Sound Stage</a>
+             </div>
+           </div>
+         </div>
+
+         <!-- Podcast Studio -->
+         <div class="video-card" 400">
+           <div class="video-placeholder">
+             <div class="placeholder-content">
+               <span class="placeholder-icon">🎙️</span>
+               <p>Podcast Studio Network</p>
+             </div>
+           </div>
+           <div class="video-info">
+             <h3>BlockParty Podcast Studios</h3>
+             <p>A network of 5 professional podcast studios with integrated live streaming capabilities. Features a rental system for podcast hosts and seamless broadcasting to multiple platforms.</p>
+             <div class="project-links">
+               <a href="https://www.spatial.io/s/BlockParty_Studio-6838b10ef734432bbfb0aef4?share=0" class="project-link" target="_blank">🔗 Explore Studio</a>
+             </div>
+           </div>
+         </div>
+
+         <!-- Crypto Gaming Space -->
+         <div class="video-card" 450">
+           <div class="video-placeholder">
+             <div class="placeholder-content">
+               <span class="placeholder-icon">💰</span>
+               <p>Crypto Gaming Platform</p>
+             </div>
+           </div>
+           <div class="video-info">
+             <h3>Rock Paper Ninja Crypto Game</h3>
+             <p>An innovative multiplayer gaming space featuring cryptocurrency integration and a competitive Rock, Paper, Scissors tournament system. Players enter lobbies using crypto coins and compete for prizes.</p>
+             <div class="project-links">
+               <a href="https://www.spatial.io/s/RockPaperNinja-6766fc1da22e9d3ade82202e?share=5443763991122110144" class="project-link" target="_blank">🔗 Play Game</a>
+             </div>
+           </div>
+         </div>
+
+         <!-- AI Testing Space -->
+         <div class="video-card" 500">
+           <div class="video-placeholder">
+             <div class="placeholder-content">
+               <span class="placeholder-icon">🧪</span>
+               <p>AI Testing Environment</p>
+             </div>
+           </div>
+           <div class="video-info">
+             <h3>AI Agent Testing Space</h3>
+             <p>A development and testing environment for AI agents with advanced ChatGPT API integration. Features interactive AI companions and experimental AI-driven experiences.</p>
+             <div class="project-links">
+               <a href="https://www.spatial.io/s/Testing1-670eb8fa20de9e609be9c8ae?share=3109708681723324541" class="project-link" target="_blank">🔗 Test AI</a>
+             </div>
+           </div>
+         </div>
+
+         <!-- TED Talk Room -->
+         <div class="video-card" 550">
+           <div class="video-placeholder">
+             <div class="placeholder-content">
+               <span class="placeholder-icon">🎭</span>
+               <p>TED Talk Venue</p>
+             </div>
+           </div>
+           <div class="video-info">
+             <h3>TED Talk Virtual Room</h3>
+             <p>A professional presentation space designed specifically for TED Talk-style events. Features optimized acoustics, audience interaction systems, and streaming capabilities for global reach.</p>
+             <div class="project-links">
+               <a href="https://www.spatial.io/s/Ted-Talk-Room-6862c1907096556e2726ab48?share=2355260668347065020" class="project-link" target="_blank">🔗 Join Talk</a>
+             </div>
+           </div>
+         </div>
+
+         <!-- Fashion Store -->
+         <div class="video-card" 600">
+           <div class="video-placeholder">
+             <div class="placeholder-content">
+               <span class="placeholder-icon">👗</span>
+               <p>Virtual Fashion Store</p>
+             </div>
+           </div>
+           <div class="video-info">
+             <h3>Virtual Fashion Boutique</h3>
+             <p>An ongoing project for a fashion brand creating their virtual store presence in Spatial. Features immersive shopping experiences and virtual product showcases.</p>
+             <div class="project-links">
+               <a href="https://www.spatial.io/s/Fashion-6721aee1c6f66862305dc73b?share=5761392791638924950" class="project-link" target="_blank">🔗 Visit Store</a>
+             </div>
+           </div>
+         </div>
+
+         <!-- Educational Platform HQ -->
+         <div class="video-card" 650">
+           <div class="video-placeholder">
+             <div class="placeholder-content">
+               <span class="placeholder-icon">🎓</span>
+               <p>Educational Headquarters</p>
+             </div>
+           </div>
+           <div class="video-info">
+             <h3>Live X Headquarters</h3>
+             <p>The virtual headquarters for an online educational platform, designed to facilitate learning, collaboration, and administrative functions in an immersive environment.</p>
+             <div class="project-links">
+               <a href="https://www.spatial.io/s/Live-X-HeadQuaters-669fcfdd73453567813f865b" class="project-link" target="_blank">🔗 Visit HQ</a>
+             </div>
+           </div>
+         </div>
+
+         <!-- Additional French Spaces -->
+         <div class="video-card" 700">
+           <div class="video-placeholder">
+             <div class="placeholder-content">
+               <span class="placeholder-icon">🇫🇷</span>
+               <p>French Tourism Spaces</p>
+             </div>
+           </div>
+           <div class="video-info">
+             <h3>Charentes Tourism Virtual Spaces</h3>
+             <p>Multiple virtual spaces created for French tourism promotion, featuring AI agents and interactive experiences showcasing regional attractions and cultural highlights.</p>
+             <div class="project-links">
+               <a href="https://www.spatial.io/s/Angouleme-Virtual-Space-66268dd44a375a14e5d52c0c?share=319344949176445586" class="project-link" target="_blank">🔗 Angouleme</a>
+               <a href="https://www.spatial.io/s/Charentes-Tourisme-Virtual-Space-6568fafa1baba8ed86a9dd78" class="project-link" target="_blank">🔗 Charentes</a>
+             </div>
+           </div>
+         </div>
+
+         <!-- Virtual UMT (Spatial) -->
+         <div class="video-card" 750">
+           <div class="video-placeholder">
+             <div class="placeholder-content">
+               <span class="placeholder-icon">🏫</span>
+               <p>Virtual UMT Experience</p>
+             </div>
+           </div>
+           <div class="video-info">
+             <h3>Virtual UMT</h3>
+             <p>Comprehensive virtual tour of the University of Management and Technology campus in Spatial.io. Features interactive elements and immersive campus exploration.</p>
+             <div class="project-links">
+               <a href="https://www.spatial.io/s/MY-UMT-6729847e04c2479ff36e79e5?share=6237097896188895851" class="project-link" target="_blank">🔗 Explore Space</a>
+             </div>
+           </div>
+         </div>
+
+         <!-- Virtual SDT Tour -->
+         <div class="video-card" 800">
+           <div class="video-placeholder">
+             <div class="placeholder-content">
+               <span class="placeholder-icon">🏢</span>
+               <p>Virtual SDT Building Tour</p>
+             </div>
+           </div>
+           <div class="video-info">
+             <h3>Virtual Tour of SDT</h3>
+             <p>Immersive virtual tour of the SDT building, showcasing architectural details and providing an interactive exploration experience.</p>
+             <div class="project-links">
+               <a href="https://www.spatial.io/s/SST-Building-6759cb3c5390ea24b1a78af3?share=965485355008330417" class="project-link" target="_blank">🔗 Explore Space</a>
+             </div>
+           </div>
+         </div>
+       </div>
+     </div>
+
+     <!-- Mobile Projects Section -->
+     <div class="portfolio-section" 750">
+       <h2 class="section-title">📱 Mobile Projects</h2>
+       <p class="section-description">
+         Optimized mobile gaming experiences designed for Android devices. 
+         These projects showcase my expertise in mobile game development and performance optimization.
+         <br><br>
+         <em>I have worked on many other different genres and have only showcased one of each here.</em>
+       </p>
+       <div class="videos-container">
+         <!-- Tractor Parking -->
+         <div class="video-card" 800">
+           <div class="video-placeholder">
+             <div class="placeholder-content">
+               <span class="placeholder-icon">🚜</span>
+               <p>Tractor Parking Game</p>
+             </div>
+           </div>
+           <div class="video-info">
+             <h3>Tractor Parking</h3>
+             <p>Realistic parking simulation with physics-based mechanics for tractors. Challenge yourself with increasingly difficult parking scenarios.</p>
+             <div class="project-links">
+               <a href="https://apkcombo.com/spinner-merge/com.YoBroStudios.MergeSpinner" class="project-link" target="_blank">🔗 Download APK</a>
+             </div>
+           </div>
+         </div>
+
+         <!-- Spinner Merge -->
+         <div class="video-card" 850">
+           <div class="video-placeholder">
+             <div class="placeholder-content">
+               <span class="placeholder-icon">🎯</span>
+               <p>Spinner Merge Game</p>
+             </div>
+           </div>
+           <div class="video-info">
+             <h3>Spinner Merge</h3>
+             <p>Addictive merge puzzle game where you combine spinners to create more powerful ones. Strategic gameplay with colorful visuals.</p>
+             <div class="project-links">
+               <a href="https://apkcombo.com/spinner-merge/com.YoBroStudios.MergeSpinner" class="project-link" target="_blank">🔗 Download APK</a>
+             </div>
+           </div>
+         </div>
+
+         <!-- Car Racing -->
+         <div class="video-card" 900">
+           <div class="video-placeholder">
+             <div class="placeholder-content">
+               <span class="placeholder-icon">🏎️</span>
+               <p>Car Racing Game</p>
+             </div>
+           </div>
+           <div class="video-info">
+             <h3>Car Racing</h3>
+             <p>High-octane mobile racing game with police chase elements. Experience thrilling car chases and escape scenarios.</p>
+             <div class="project-links">
+               <a href="https://apkcombo.com/police-games-escape-car-games/com.YoBroStudio.carracing" class="project-link" target="_blank">🔗 Download APK</a>
+             </div>
+           </div>
+         </div>
+
+         <!-- Taxi Driving -->
+         <div class="video-card" 950">
+           <div class="video-placeholder">
+             <div class="placeholder-content">
+               <span class="placeholder-icon">🚕</span>
+               <p>Taxi Driving Simulator</p>
+             </div>
+           </div>
+           <div class="video-info">
+             <h3>Taxi Driving</h3>
+             <p>Realistic taxi driving simulator set in a bustling city. Pick up passengers and navigate through traffic to reach destinations.</p>
+             <div class="project-links">
+               <a href="https://apkcombo.com/taxi-driving-game-taxi-games/com.YoBroStudios.CityTaxiDriving2023" class="project-link" target="_blank">🔗 Download APK</a>
+             </div>
+           </div>
+         </div>
+
+         <!-- Bouncy Ragdoll -->
+         <div class="video-card" 1000">
+           <div class="video-placeholder">
+             <div class="placeholder-content">
+               <span class="placeholder-icon">🤸</span>
+               <p>Bouncy Ragdoll Game</p>
+             </div>
+           </div>
+           <div class="video-info">
+             <h3>Bouncy Ragdoll</h3>
+             <p>Fun physics-based game where you control a bouncy ragdoll character. Navigate through obstacles and challenges with realistic physics.</p>
+             <div class="project-links">
+               <a href="https://play.google.com/store/apps/details?id=com.games.fun.lazy.jump" class="project-link" target="_blank">🔗 Play Store</a>
+             </div>
+           </div>
+         </div>
+
+         <!-- Flick Kick -->
+         <div class="video-card" 1050">
+           <div class="video-placeholder">
+             <div class="placeholder-content">
+               <span class="placeholder-icon">⚽</span>
+               <p>Flick Kick Football</p>
+             </div>
+           </div>
+           <div class="video-info">
+             <h3>Flick Kick</h3>
+             <p>Street football game where you flick to kick the ball. Master the art of precision kicking in this addictive sports game.</p>
+             <div class="project-links">
+               <a href="https://play.google.com/store/apps/details?id=com.games.mini.sports.street.hero.football" class="project-link" target="_blank">🔗 Play Store</a>
+             </div>
+           </div>
+         </div>
+
+         <!-- Penalty Kick Star -->
+         <div class="video-card" 1100">
+           <div class="video-placeholder">
+             <div class="placeholder-content">
+               <span class="placeholder-icon">🥅</span>
+               <p>Penalty Kick Game</p>
+             </div>
+           </div>
+           <div class="video-info">
+             <h3>Penalty Kick Star</h3>
+             <p>Test your penalty kicking skills in this exciting football game. Aim for the perfect shot and become a penalty kick star.</p>
+             <div class="project-links">
+               <a href="https://play.google.com/store/apps/details?id=com.games.fun.superb.goal" class="project-link" target="_blank">🔗 Play Store</a>
+             </div>
+           </div>
+         </div>
+
+         <!-- Indoor Futsal -->
+         <div class="video-card" 1150">
+           <div class="video-placeholder">
+             <div class="placeholder-content">
+               <span class="placeholder-icon">🏟️</span>
+               <p>Indoor Futsal Game</p>
+             </div>
+           </div>
+           <div class="video-info">
+             <h3>Indoor Futsal</h3>
+             <p>Fast-paced indoor football game with realistic futsal mechanics. Experience the excitement of indoor football matches.</p>
+             <div class="project-links">
+               <a href="https://play.google.com/store/apps/details?id=game.wonder.sports.indoor.futsal&pcampaignid=web_share" class="project-link" target="_blank">🔗 Play Store</a>
+             </div>
+           </div>
+         </div>
+
+         <!-- Kick It -->
+         <div class="video-card" 1200">
+           <div class="video-placeholder">
+             <div class="placeholder-content">
+               <span class="placeholder-icon">⚽</span>
+               <p>Kick It Soccer Game</p>
+             </div>
+           </div>
+           <div class="video-info">
+             <h3>Kick It</h3>
+             <p>Fun soccer game where you kick the ball to score goals. Simple controls with engaging gameplay mechanics.</p>
+             <div class="project-links">
+               <a href="https://play.google.com/store/apps/details?id=com.games.mini.sports.kick.it.fun.soccer&hl=en" class="project-link" target="_blank">🔗 Play Store</a>
+             </div>
+           </div>
+         </div>
+       </div>
+     </div>
+
+     <!-- APK Download Section -->
+     <div class="portfolio-section" 1250">
+       <h2 class="section-title">📦 Game Prototypes (APK Downloads)</h2>
+       <p class="section-description">
+         Download and try these game prototypes directly on your Android device. 
+         These are early-stage projects showcasing different game mechanics and concepts.
+         <br><br>
+         <em>All of these are prototypes and not complete projects.</em>
+       </p>
+       <div class="videos-container">
+         <!-- Satisfun -->
+         <div class="video-card" 1300">
+           <div class="video-placeholder">
+             <div class="placeholder-content">
+               <span class="placeholder-icon">😊</span>
+               <p>Satisfun Prototype</p>
+             </div>
+           </div>
+           <div class="video-info">
+             <h3>Satisfun</h3>
+             <p>A fun and satisfying prototype game with engaging mechanics and colorful visuals.</p>
+             <div class="project-links">
+               <a href="Files/satisfun.apk" class="project-link" download>📱 Download APK</a>
+             </div>
+           </div>
+         </div>
+
+         <!-- Match Factory -->
+         <div class="video-card" 1350">
+           <div class="video-placeholder">
+             <div class="placeholder-content">
+               <span class="placeholder-icon">🏭</span>
+               <p>Match Factory Prototype</p>
+             </div>
+           </div>
+           <div class="video-info">
+             <h3>Match Factory</h3>
+             <p>Factory-themed matching game prototype with industrial aesthetics and puzzle mechanics.</p>
+             <div class="project-links">
+               <a href="Files/match_factory.apk" class="project-link" download>📱 Download APK</a>
+             </div>
+           </div>
+         </div>
+
+         <!-- Traffic Racer -->
+         <div class="video-card" 1400">
+           <div class="video-placeholder">
+             <div class="placeholder-content">
+               <span class="placeholder-icon">🚗</span>
+               <p>Traffic Racer Prototype</p>
+             </div>
+           </div>
+           <div class="video-info">
+             <h3>Traffic Racer</h3>
+             <p>Endless racing prototype where you navigate through traffic and avoid obstacles.</p>
+             <div class="project-links">
+               <a href="Files/traffic_racer.apk" class="project-link" download>📱 Download APK</a>
+             </div>
+           </div>
+         </div>
+
+         <!-- Wonder Throw -->
+         <div class="video-card" 1450">
+           <div class="video-placeholder">
+             <div class="placeholder-content">
+               <span class="placeholder-icon">🎯</span>
+               <p>Wonder Throw Prototype</p>
+             </div>
+           </div>
+           <div class="video-info">
+             <h3>Wonder Throw</h3>
+             <p>Physics-based throwing game prototype with precise aiming mechanics and satisfying gameplay.</p>
+             <div class="project-links">
+               <a href="Files/wonder_throw.apk" class="project-link" download>📱 Download APK</a>
+             </div>
+           </div>
+         </div>
+
+         <!-- Random Meme Game -->
+         <div class="video-card" 1500">
+           <div class="video-placeholder">
+             <div class="placeholder-content">
+               <span class="placeholder-icon">😂</span>
+               <p>Random Meme Game Prototype</p>
+             </div>
+           </div>
+           <div class="video-info">
+             <h3>Random Meme Game</h3>
+             <p>Fun prototype featuring random meme elements and humorous gameplay mechanics.</p>
+             <div class="project-links">
+               <a href="Files/random_meme_game.apk" class="project-link" download>📱 Download APK</a>
+             </div>
+           </div>
+         </div>
+
+         <!-- Thumb Drifting -->
+         <div class="video-card" 1550">
+           <div class="video-placeholder">
+             <div class="placeholder-content">
+               <span class="placeholder-icon">🏁</span>
+               <p>Thumb Drifting Prototype</p>
+             </div>
+           </div>
+           <div class="video-info">
+             <h3>Thumb Drifting</h3>
+             <p>Drifting racing prototype controlled with thumb gestures for smooth and intuitive gameplay.</p>
+             <div class="project-links">
+               <a href="Files/thumb_drifting.apk" class="project-link" download>📱 Download APK</a>
+             </div>
+           </div>
+         </div>
+       </div>
+       
+       <!-- Game APKs Folder Link -->
+       <div class="portfolio-cta" 1600" style="margin-top: 2rem;">
+         <h3 style="color: #00ffe7; margin-bottom: 1rem;">📁 Complete Game APK Collection</h3>
+         <p style="color: #ccc; margin-bottom: 1.5rem;">
+           Access the complete collection of game APKs and prototypes in one convenient location.
+         </p>
+         <a href="https://drive.google.com/drive/u/0/folders/1KWQB2AM5pGOcQdIGtRdScZ-OtzRCPUQv" class="btn-primary" target="_blank">📂 View All Game APKs</a>
+       </div>
+     </div>
+
+     <!-- VR Projects Section -->
+     <div class="portfolio-section" 1600">
+       <h2 class="section-title">🎮 VR Projects</h2>
+       <p class="section-description">
+         Immersive virtual reality experiences that push the boundaries of interactive storytelling. 
+         These projects demonstrate my expertise in VR development and spatial computing.
+       </p>
+       <div class="videos-container">
+         <!-- Virtual UMT -->
+         <div class="video-card" 1650">
+           <div class="video-placeholder">
+             <div class="placeholder-content">
+               <span class="placeholder-icon">🏫</span>
+               <p>Virtual UMT Experience</p>
+             </div>
+           </div>
+           <div class="video-info">
+             <h3>Virtual UMT</h3>
+             <p>A comprehensive VR tour of UMT campus with innovative NFT economy integration. Experience the university in virtual reality.</p>
+             <div class="project-links">
+               <a href="https://www.spatial.io/s/MY-UMT-6729847e04c2479ff36e79e5?share=6237097896188895851" class="project-link" target="_blank">🔗 Explore VR Space</a>
+             </div>
+           </div>
+         </div>
+
+         <!-- Virtual Japanese Temple -->
+         <div class="video-card" 1700">
+           <div class="video-placeholder">
+             <div class="placeholder-content">
+               <span class="placeholder-icon">🏯</span>
+               <p>Japanese Temple VR</p>
+             </div>
+           </div>
+           <div class="video-info">
+             <h3>Virtual Experience of a Japanese Temple</h3>
+             <p>Immersive VR experience of a traditional Japanese temple with authentic architecture and cultural elements.</p>
+             <div class="project-links">
+               <a href="https://youtu.be/pNk9NdxfntU" class="project-link" target="_blank">🎥 Watch Demo</a>
+             </div>
+           </div>
+         </div>
+
+         <!-- Waste Management VR Game -->
+         <div class="video-card" 1750">
+           <video controls>
+             <source src="videos/WasteManagement.mp4" type="video/mp4" />
+             Your browser does not support the video tag.
+           </video>
+           <div class="video-info">
+             <h3>Waste Management Game (VR)</h3>
+             <p>Educational VR game focused on waste management and environmental awareness. Learn about recycling and sustainability through interactive gameplay.</p>
+             <div class="project-links">
+               <a href="videos/WasteManagement.mp4" class="project-link" target="_blank">🎥 Watch Demo</a>
+               <a href="https://youtu.be/-iT-9bbYqPI" class="project-link" target="_blank">🎥 YouTube Demo</a>
+             </div>
+           </div>
+         </div>
+
+         <!-- Local Multiplayer Prototype -->
+         <div class="video-card" 1800">
+           <div class="video-placeholder">
+             <div class="placeholder-content">
+               <span class="placeholder-icon">👥</span>
+               <p>Local Multiplayer VR</p>
+             </div>
+           </div>
+           <div class="video-info">
+             <h3>Local Multiplayer Prototype</h3>
+             <p>VR prototype featuring local multiplayer functionality where multiple players can interact in the same virtual space.</p>
+             <div class="project-links">
+               <a href="https://youtu.be/YjJzrTjheB0" class="project-link" target="_blank">🎥 Watch Demo</a>
+             </div>
+           </div>
+         </div>
+       </div>
+     </div>
+
+     <!-- PC Projects Section -->
+     <div class="portfolio-section" 1050">
+       <h2 class="section-title">🖥️ PC Projects</h2>
+       <p class="section-description">
+         High-performance desktop applications and games designed for powerful computing systems. 
+         These projects showcase advanced graphics, physics, and user interface design.
+       </p>
+       <div class="videos-container">
+         <div class="video-card" 1100">
+           <video controls>
+             <source src="videos/Project3.mp4" type="video/mp4" />
+             Your browser does not support the video tag.
+           </video>
+           <div class="video-info">
+             <h3>PC Game Development</h3>
+             <p>High-performance PC game with advanced graphics and physics.</p>
+             <div class="project-links">
+               <a href="videos/Project3.mp4" class="project-link" target="_blank">🎥 Watch Demo</a>
+               <a href="#" class="project-link" target="_blank">🔗 Project Link</a>
+             </div>
+           </div>
+         </div>
+
+         <div class="video-card" 1150">
+           <video controls>
+             <source src="videos/WasteManagement.mp4" type="video/mp4" />
+             Your browser does not support the video tag.
+           </video>
+           <div class="video-info">
+             <h3>Desktop Application</h3>
+             <p>Cross-platform desktop application with modern UI/UX design.</p>
+             <div class="project-links">
+               <a href="videos/WasteManagement.mp4" class="project-link" target="_blank">🎥 Watch Demo</a>
+               <a href="#" class="project-link" target="_blank">🔗 Project Link</a>
+             </div>
+           </div>
+         </div>
+       </div>
+     </div>
+
+     <!-- Call to Action Section -->
+     <div class="portfolio-cta" 1200">
+       <h2 class="section-title">🚀 Ready to Collaborate?</h2>
+       <p class="cta-text">
+         I'm always excited to work on new and challenging projects. 
+         Whether you need a game developer, VR specialist, or metaverse architect, let's create something amazing together!
+       </p>
+       <div class="cta-buttons">
+         <a href="index.html#contact" class="btn-primary">Get In Touch</a>
+         <a href="cv.html" class="btn-secondary">View My CV</a>
+       </div>
+     </div>
   </section>
 
   <!-- Scripts -->
