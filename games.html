@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <title>Mini Games | Mustafa Amin</title>
   
   <!-- Fonts -->
@@ -232,6 +232,7 @@
     @media (max-width: 768px) {
       .games-container {
         padding: 1rem;
+        margin-top: 1rem;
       }
       
       .game-selector {
@@ -241,24 +242,91 @@
       
       .game-card {
         padding: 1.5rem;
+        min-height: 44px; /* Touch-friendly */
       }
       
       .game-header {
         flex-direction: column;
         text-align: center;
+        gap: 1rem;
       }
       
       .game-stats {
         justify-content: center;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+      }
+      
+      .game-controls {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+      }
+      
+      .btn-game {
+        min-height: 44px;
+        min-width: 44px;
+        padding: 0.8rem 1.2rem;
+        font-size: 0.9rem;
       }
       
       .word-display {
         font-size: 1.5rem;
+        min-height: 3rem;
       }
       
       .typing-input {
         font-size: 1rem;
         padding: 0.8rem;
+        min-height: 44px;
+      }
+      
+      #snakeCanvas {
+        width: 100%;
+        max-width: 350px;
+        height: auto;
+      }
+      
+      #tetrisCanvas {
+        width: 100%;
+        max-width: 280px;
+        height: auto;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .games-container {
+        padding: 0.5rem;
+      }
+      
+      .game-card {
+        padding: 1rem;
+      }
+      
+      .game-title {
+        font-size: 1.4rem;
+      }
+      
+      .btn-game {
+        padding: 0.7rem 1rem;
+        font-size: 0.8rem;
+      }
+      
+      .word-display {
+        font-size: 1.2rem;
+      }
+      
+      .typing-input {
+        font-size: 0.9rem;
+        padding: 0.7rem;
+      }
+      
+      #snakeCanvas {
+        max-width: 300px;
+      }
+      
+      #tetrisCanvas {
+        max-width: 250px;
       }
     }
   </style>
