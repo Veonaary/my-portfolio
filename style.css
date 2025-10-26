@@ -1188,6 +1188,12 @@ body.light-theme .company-overlay p {
   text-decoration: none;
   transition: color 0.3s ease;
 }
+.contact-item a {
+  display: inline-block;
+  max-width: 100%;
+  word-break: break-all;
+  overflow-wrap: anywhere;
+}
 
 .contact-item a:hover {
   color: #ff00ff;
