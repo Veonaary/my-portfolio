@@ -1187,6 +1187,11 @@ body.light-theme .company-overlay p {
   color: #ccc;
   text-decoration: none;
   transition: color 0.3s ease;
+  display: inline-block;
+  max-width: 100%;
+  word-break: break-all;
+  overflow-wrap: anywhere;
+  white-space: normal;
 }
 
 .contact-item a:hover {
@@ -1891,6 +1896,8 @@ Additional background stars effect
   .contact-item a {
     font-size: 0.85rem;
     word-break: break-all;
+    overflow-wrap: anywhere;
+    white-space: normal;
   }
   
   /* FAB */
@@ -2448,16 +2455,6 @@ Additional background stars effect
   font-size: 1.2rem;
 }
 
-.contact-item a {
-  color: #ccc;
-  text-decoration: none;
-  font-size: 1rem;
-  transition: color 0.3s ease;
-}
-
-.contact-item a:hover {
-  color: #ff00ff;
-}
 
 /* Portfolio Introduction Section */
 .portfolio-intro {
