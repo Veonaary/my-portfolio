@@ -64,20 +64,44 @@ let tetrisGame = {
     ]
 };
 
-// Check if device is mobile
+// Mobile detection
 function isMobileDevice() {
     return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || 
-           (window.innerWidth <= 768 && window.matchMedia("(pointer: coarse)").matches);
+           (window.innerWidth <= 768 && 'ontouchstart' in window);
 }
+
+// Initialize games when page loads
+document.addEventListener('DOMContentLoaded', function() {
+    initializeSnakeGame();
+    initializeTypingGame();
+    initializeTetrisGame();
+    
+    // Show mobile warnings and controls if on mobile
+    if (isMobileDevice()) {
+        const snakeWarning = document.getElementById('snake-mobile-warning');
+        const snakeControls = document.getElementById('snake-mobile-controls');
+        const tetrisWarning = document.getElementById('tetris-mobile-warning');
+        const tetrisControls = document.getElementById('tetris-mobile-controls');
+        
+        if (snakeWarning) snakeWarning.classList.add('show');
+        if (snakeControls) snakeControls.classList.add('show');
+        if (tetrisWarning) tetrisWarning.classList.add('show');
+        if (tetrisControls) tetrisControls.classList.add('show');
+    }
+    
+    // Prevent default touch behavior on mobile control buttons
+    document.querySelectorAll('.mobile-control-btn').forEach(btn => {
+        btn.addEventListener('touchstart', function(e) {
+            e.preventDefault();
+        });
+        btn.addEventListener('touchend', function(e) {
+            e.preventDefault();
+        });
+    });
+});
 
 // Game Navigation Functions
 function showGame(gameType) {
-    // Check if mobile and trying to play snake/tetris
-    if ((gameType === 'snake' || gameType === 'tetris') && isMobileDevice()) {
-        alert('This game is not available on mobile devices. Please use a desktop or tablet with keyboard controls.');
-        return;
-    }
-    
     // Hide all games
     document.querySelectorAll('.game-area').forEach(area => {
         area.classList.remove('active');
@@ -99,27 +123,6 @@ function showGame(gameType) {
         }
     }
 }
-
-// Initialize games when page loads
-document.addEventListener('DOMContentLoaded', function() {
-    // Check if mobile and disable games
-    if (isMobileDevice()) {
-        const mobileMessage = document.getElementById('mobileGameMessage');
-        if (mobileMessage) {
-            mobileMessage.classList.add('show');
-        }
-        
-        // Disable snake and tetris cards on mobile
-        const snakeCard = document.getElementById('snake-card');
-        const tetrisCard = document.getElementById('tetris-card');
-        if (snakeCard) snakeCard.classList.add('disabled');
-        if (tetrisCard) tetrisCard.classList.add('disabled');
-    }
-    
-    initializeSnakeGame();
-    initializeTypingGame();
-    initializeTetrisGame();
-});
 
 function hideGame() {
     document.querySelectorAll('.game-area').forEach(area => {
@@ -204,7 +207,7 @@ function gameStep() {
     head.x += snakeGame.direction.x;
     head.y += snakeGame.direction.y;
     
-    // Wrap around walls instead of game over
+    // Wrap around walls instead of hitting them
     const gridWidth = Math.floor(snakeGame.canvas.width / 20);
     const gridHeight = Math.floor(snakeGame.canvas.height / 20);
     
@@ -271,6 +274,22 @@ function drawSnake() {
     ctx.fillStyle = '#000';
     ctx.fillRect(0, 0, snakeGame.canvas.width, snakeGame.canvas.height);
     
+    // Draw grid outline for better visibility
+    ctx.strokeStyle = 'rgba(0, 255, 231, 0.1)';
+    ctx.lineWidth = 1;
+    for (let x = 0; x <= snakeGame.canvas.width; x += cellSize) {
+        ctx.beginPath();
+        ctx.moveTo(x, 0);
+        ctx.lineTo(x, snakeGame.canvas.height);
+        ctx.stroke();
+    }
+    for (let y = 0; y <= snakeGame.canvas.height; y += cellSize) {
+        ctx.beginPath();
+        ctx.moveTo(0, y);
+        ctx.lineTo(snakeGame.canvas.width, y);
+        ctx.stroke();
+    }
+    
     // Draw snake
     snakeGame.snake.forEach((segment, index) => {
         if (index === 0) {
@@ -284,14 +303,14 @@ function drawSnake() {
             ctx.shadowBlur = 5;
         }
         
-        ctx.fillRect(segment.x * cellSize, segment.y * cellSize, cellSize - 2, cellSize - 2);
+        ctx.fillRect(segment.x * cellSize + 1, segment.y * cellSize + 1, cellSize - 2, cellSize - 2);
     });
     
     // Draw food
     ctx.fillStyle = '#ff00ff';
     ctx.shadowColor = '#ff00ff';
     ctx.shadowBlur = 15;
-    ctx.fillRect(snakeGame.food.x * cellSize, snakeGame.food.y * cellSize, cellSize - 2, cellSize - 2);
+    ctx.fillRect(snakeGame.food.x * cellSize + 1, snakeGame.food.y * cellSize + 1, cellSize - 2, cellSize - 2);
     
     // Reset shadow
     ctx.shadowBlur = 0;
@@ -738,6 +757,22 @@ function drawTetris() {
     ctx.fillStyle = '#000';
     ctx.fillRect(0, 0, tetrisGame.canvas.width, tetrisGame.canvas.height);
     
+    // Draw grid outline for better visibility
+    ctx.strokeStyle = 'rgba(0, 255, 231, 0.1)';
+    ctx.lineWidth = 1;
+    for (let x = 0; x <= tetrisGame.canvas.width; x += cellSize) {
+        ctx.beginPath();
+        ctx.moveTo(x, 0);
+        ctx.lineTo(x, tetrisGame.canvas.height);
+        ctx.stroke();
+    }
+    for (let y = 0; y <= tetrisGame.canvas.height; y += cellSize) {
+        ctx.beginPath();
+        ctx.moveTo(0, y);
+        ctx.lineTo(tetrisGame.canvas.width, y);
+        ctx.stroke();
+    }
+    
     // Draw board
     for (let y = 0; y < tetrisGame.board.length; y++) {
         for (let x = 0; x < tetrisGame.board[y].length; x++) {
@@ -745,7 +780,7 @@ function drawTetris() {
                 ctx.fillStyle = tetrisGame.board[y][x];
                 ctx.shadowColor = tetrisGame.board[y][x];
                 ctx.shadowBlur = 5;
-                ctx.fillRect(x * cellSize, y * cellSize, cellSize - 1, cellSize - 1);
+                ctx.fillRect(x * cellSize + 1, y * cellSize + 1, cellSize - 2, cellSize - 2);
             }
         }
     }
@@ -759,9 +794,9 @@ function drawTetris() {
         for (let y = 0; y < tetrisGame.currentPiece.shape.length; y++) {
             for (let x = 0; x < tetrisGame.currentPiece.shape[y].length; x++) {
                 if (tetrisGame.currentPiece.shape[y][x]) {
-                    const drawX = (tetrisGame.currentPiece.x + x) * cellSize;
-                    const drawY = (tetrisGame.currentPiece.y + y) * cellSize;
-                    ctx.fillRect(drawX, drawY, cellSize - 1, cellSize - 1);
+                    const drawX = (tetrisGame.currentPiece.x + x) * cellSize + 1;
+                    const drawY = (tetrisGame.currentPiece.y + y) * cellSize + 1;
+                    ctx.fillRect(drawX, drawY, cellSize - 2, cellSize - 2);
                 }
             }
         }
@@ -897,6 +932,85 @@ document.addEventListener('keydown', function(e) {
             break;
     }
 });
+
+// Mobile Touch Controls for Snake
+function handleSnakeTouch(direction) {
+    if (currentGame !== 'snake' || !gameRunning) return;
+    
+    switch(direction) {
+        case 'up':
+            if (snakeGame.direction.y === 0) {
+                snakeGame.direction = { x: 0, y: -1 };
+            }
+            break;
+        case 'down':
+            if (snakeGame.direction.y === 0) {
+                snakeGame.direction = { x: 0, y: 1 };
+            }
+            break;
+        case 'left':
+            if (snakeGame.direction.x === 0) {
+                snakeGame.direction = { x: -1, y: 0 };
+            }
+            break;
+        case 'right':
+            if (snakeGame.direction.x === 0) {
+                snakeGame.direction = { x: 1, y: 0 };
+            }
+            break;
+    }
+}
+
+function handleSnakeTouchEnd() {
+    // Optional: Add haptic feedback or visual feedback
+}
+
+// Mobile Touch Controls for Tetris
+function handleTetrisTouch(action) {
+    if (currentGame !== 'tetris' || !tetrisGame.gameActive || !tetrisGame.currentPiece) return;
+    
+    switch(action) {
+        case 'left':
+            if (!checkCollision(tetrisGame.currentPiece, -1, 0)) {
+                tetrisGame.currentPiece.x--;
+            }
+            break;
+        case 'right':
+            if (!checkCollision(tetrisGame.currentPiece, 1, 0)) {
+                tetrisGame.currentPiece.x++;
+            }
+            break;
+        case 'softDrop':
+            if (!checkCollision(tetrisGame.currentPiece, 0, 1)) {
+                tetrisGame.currentPiece.y++;
+                tetrisGame.score += 1;
+            }
+            break;
+        case 'hardDrop':
+            while (!checkCollision(tetrisGame.currentPiece, 0, 1)) {
+                tetrisGame.currentPiece.y++;
+                tetrisGame.score += 2;
+            }
+            placePiece();
+            clearLines();
+            spawnNewPiece();
+            break;
+        case 'rotate':
+            const rotated = rotatePiece(tetrisGame.currentPiece);
+            const originalShape = tetrisGame.currentPiece.shape;
+            tetrisGame.currentPiece.shape = rotated;
+            if (checkCollision(tetrisGame.currentPiece, 0, 0)) {
+                tetrisGame.currentPiece.shape = originalShape;
+            }
+            break;
+    }
+    updateTetrisStats();
+    drawTetris();
+}
+
+function handleTetrisTouchEnd() {
+    // Optional: Add haptic feedback or visual feedback
+}
 
 // Initialize AOS animations
 AOS.init({
