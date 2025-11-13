@@ -306,24 +306,166 @@ window.addEventListener('scroll', () => {
   const scrolled = window.scrollY;
   
   if (scrolled > 100) {
+    nav.classList.add('scrolled');
     nav.style.background = 'rgba(0, 0, 0, 0.95)';
     nav.style.backdropFilter = 'blur(20px)';
-    nav.style.boxShadow = '0 0 40px rgba(0, 255, 231, 0.5)';
+    nav.style.boxShadow = '0 4px 20px rgba(0, 255, 231, 0.4)';
   } else {
+    nav.classList.remove('scrolled');
     nav.style.background = 'rgba(0, 0, 0, 0.9)';
     nav.style.backdropFilter = 'blur(20px)';
     nav.style.boxShadow = '0 0 30px rgba(0, 255, 231, 0.3)';
   }
-});
-
-// Add parallax effect to hero section
-window.addEventListener('scroll', () => {
-  const scrolled = window.pageYOffset;
+  
+  // Parallax effect for hero section
   const hero = document.querySelector('.hero');
   if (hero) {
-    hero.style.transform = `translateY(${scrolled * 0.3}px)`;
+    const heroOffset = scrolled * 0.5;
+    hero.style.transform = `translateY(${heroOffset}px)`;
+    hero.style.opacity = Math.max(0, 1 - scrolled / 500);
   }
+  
+  // Fade in sections on scroll
+  const sections = document.querySelectorAll('section');
+  sections.forEach(section => {
+    const sectionTop = section.getBoundingClientRect().top;
+    const windowHeight = window.innerHeight;
+    
+    if (sectionTop < windowHeight * 0.8) {
+      section.style.opacity = '1';
+      section.style.transform = 'translateY(0)';
+    }
+  });
 });
+
+// Magnetic cursor effect for interactive elements (only on desktop)
+let magneticElements = [];
+let mouseX = 0, mouseY = 0;
+let isDesktop = window.innerWidth > 768;
+
+function updateMagneticElements() {
+  magneticElements = document.querySelectorAll('a, button, .btn-primary, .project-card, .skill-item, .filter-btn, .contact-item, .video-card, .company-logo');
+}
+
+updateMagneticElements();
+
+if (isDesktop) {
+  document.addEventListener('mousemove', (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+    
+    magneticElements.forEach(element => {
+      // Skip if element has floating animation
+      if (element.style.animation && element.style.animation.includes('gentleFloat')) {
+        return;
+      }
+      
+      const rect = element.getBoundingClientRect();
+      const centerX = rect.left + rect.width / 2;
+      const centerY = rect.top + rect.height / 2;
+      
+      const distanceX = mouseX - centerX;
+      const distanceY = mouseY - centerY;
+      const distance = Math.sqrt(distanceX * distanceX + distanceY * distanceY);
+      
+      if (distance < 120) {
+        const strength = (120 - distance) / 120;
+        const moveX = (distanceX / distance) * 15 * strength;
+        const moveY = (distanceY / distance) * 15 * strength;
+        
+        element.style.transform = `translate(${moveX}px, ${moveY}px)`;
+        element.style.transition = 'transform 0.15s ease-out';
+      } else {
+        element.style.transform = 'translate(0, 0)';
+        element.style.transition = 'transform 0.3s ease-out';
+      }
+    });
+  });
+  
+  // Update on resize
+  window.addEventListener('resize', () => {
+    isDesktop = window.innerWidth > 768;
+    updateMagneticElements();
+  });
+}
+
+// Re-initialize magnetic elements when DOM changes
+const mutationObserver = new MutationObserver(() => {
+  updateMagneticElements();
+  // Re-observe new elements for reveal animation
+  const newElements = document.querySelectorAll('.project-card, .timeline-item, .skill-item, .contact-item, .video-card, .company-logo');
+  newElements.forEach(el => {
+    if (!el.classList.contains('revealed') && el.style.opacity !== '1') {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(30px)';
+      el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+      revealObserver.observe(el);
+    }
+  });
+});
+
+mutationObserver.observe(document.body, { childList: true, subtree: true });
+
+// Smooth reveal animations for elements
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.style.opacity = '1';
+      entry.target.style.transform = 'translateY(0)';
+      entry.target.classList.add('revealed');
+    }
+  });
+}, {
+  threshold: 0.1,
+  rootMargin: '0px 0px -50px 0px'
+});
+
+// Observe all cards and items
+document.addEventListener('DOMContentLoaded', () => {
+  const elementsToReveal = document.querySelectorAll('.project-card, .timeline-item, .skill-item, .contact-item, .video-card, .company-logo');
+  elementsToReveal.forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(30px)';
+    el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    revealObserver.observe(el);
+  });
+});
+
+// Add floating animation for cards (only when not hovering)
+function addFloatingAnimation() {
+  const cards = document.querySelectorAll('.project-card, .video-card, .company-logo');
+  cards.forEach((card, index) => {
+    if (!card.classList.contains('revealed')) return;
+    
+    // Only add floating if not being affected by magnetic effect
+    if (!card.dataset.floatingAdded) {
+      const delay = index * 0.15;
+      card.style.animation = `gentleFloat 5s ease-in-out infinite`;
+      card.style.animationDelay = `${delay}s`;
+      card.dataset.floatingAdded = 'true';
+    }
+  });
+}
+
+// Add floating animation keyframes
+const floatStyle = document.createElement('style');
+floatStyle.textContent = `
+  @keyframes gentleFloat {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-8px);
+    }
+  }
+`;
+document.head.appendChild(floatStyle);
+
+// Initialize floating animations
+setTimeout(() => {
+  addFloatingAnimation();
+  setInterval(addFloatingAnimation, 2000);
+}, 1000);
 
 
 
