@@ -64,15 +64,20 @@ let tetrisGame = {
     ]
 };
 
-// Initialize games when page loads
-document.addEventListener('DOMContentLoaded', function() {
-    initializeSnakeGame();
-    initializeTypingGame();
-    initializeTetrisGame();
-});
+// Check if device is mobile
+function isMobileDevice() {
+    return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || 
+           (window.innerWidth <= 768 && window.matchMedia("(pointer: coarse)").matches);
+}
 
 // Game Navigation Functions
 function showGame(gameType) {
+    // Check if mobile and trying to play snake/tetris
+    if ((gameType === 'snake' || gameType === 'tetris') && isMobileDevice()) {
+        alert('This game is not available on mobile devices. Please use a desktop or tablet with keyboard controls.');
+        return;
+    }
+    
     // Hide all games
     document.querySelectorAll('.game-area').forEach(area => {
         area.classList.remove('active');
@@ -94,6 +99,27 @@ function showGame(gameType) {
         }
     }
 }
+
+// Initialize games when page loads
+document.addEventListener('DOMContentLoaded', function() {
+    // Check if mobile and disable games
+    if (isMobileDevice()) {
+        const mobileMessage = document.getElementById('mobileGameMessage');
+        if (mobileMessage) {
+            mobileMessage.classList.add('show');
+        }
+        
+        // Disable snake and tetris cards on mobile
+        const snakeCard = document.getElementById('snake-card');
+        const tetrisCard = document.getElementById('tetris-card');
+        if (snakeCard) snakeCard.classList.add('disabled');
+        if (tetrisCard) tetrisCard.classList.add('disabled');
+    }
+    
+    initializeSnakeGame();
+    initializeTypingGame();
+    initializeTetrisGame();
+});
 
 function hideGame() {
     document.querySelectorAll('.game-area').forEach(area => {
@@ -178,11 +204,20 @@ function gameStep() {
     head.x += snakeGame.direction.x;
     head.y += snakeGame.direction.y;
     
-    // Check wall collision
-    if (head.x < 0 || head.x >= snakeGame.canvas.width / 20 || 
-        head.y < 0 || head.y >= snakeGame.canvas.height / 20) {
-        gameOver();
-        return;
+    // Wrap around walls instead of game over
+    const gridWidth = Math.floor(snakeGame.canvas.width / 20);
+    const gridHeight = Math.floor(snakeGame.canvas.height / 20);
+    
+    if (head.x < 0) {
+        head.x = gridWidth - 1;
+    } else if (head.x >= gridWidth) {
+        head.x = 0;
+    }
+    
+    if (head.y < 0) {
+        head.y = gridHeight - 1;
+    } else if (head.y >= gridHeight) {
+        head.y = 0;
     }
     
     // Check self collision

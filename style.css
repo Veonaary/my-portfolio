@@ -1608,6 +1608,8 @@ Additional background stars effect
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   gap: 2rem;
   margin-top: 2rem;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .video-card {
@@ -1776,6 +1778,55 @@ Additional background stars effect
   
   .company-item {
     padding: 1rem 1.5rem;
+  }
+
+  /* Portfolio Section - Tablet */
+  .video-grid {
+    padding: 4rem 1.5rem;
+  }
+
+  .videos-container {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .portfolio-intro {
+    margin-bottom: 3rem;
+    padding: 0 1rem;
+  }
+
+  .portfolio-filters {
+    gap: 0.8rem;
+    margin-bottom: 2.5rem;
+    padding: 0.8rem 0.5rem;
+    top: 75px;
+    position: sticky;
+    margin-left: -1.5rem;
+    margin-right: -1.5rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  .filter-btn {
+    padding: 0.7rem 1.2rem;
+    font-size: 0.9rem;
+  }
+
+  .back-to-top {
+    bottom: 90px;
+    right: 25px;
+    width: 48px;
+    height: 48px;
+    font-size: 1.4rem;
+  }
+
+  .portfolio-section {
+    margin-bottom: 3rem;
+  }
+
+  .section-description {
+    font-size: 0.95rem;
+    padding: 0 1rem;
   }
 }
 
@@ -2036,10 +2087,97 @@ Additional background stars effect
   .video-grid {
     padding: 2rem 1rem;
   }
+
+  .video-grid h1 {
+    font-size: clamp(1.8rem, 6vw, 2.5rem);
+    margin-bottom: 2rem;
+  }
   
   .videos-container {
     grid-template-columns: 1fr;
     gap: 1.5rem;
+  }
+
+  /* Portfolio Intro */
+  .portfolio-intro {
+    margin-bottom: 2.5rem;
+    padding: 0 0.5rem;
+  }
+
+  .portfolio-intro .section-title {
+    font-size: clamp(1.3rem, 5vw, 1.8rem);
+    margin-bottom: 1rem;
+  }
+
+  .intro-text {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    padding: 0 0.5rem;
+  }
+
+  /* Portfolio Filters */
+  .portfolio-filters {
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+    padding: 0.8rem 0.5rem;
+    justify-content: center;
+    top: 70px;
+    position: sticky;
+    margin-left: -1rem;
+    margin-right: -1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .filter-btn {
+    padding: 0.6rem 1rem;
+    font-size: 0.85rem;
+    min-height: 44px;
+    flex: 0 1 auto;
+    white-space: nowrap;
+  }
+
+  /* Back to Top Button */
+  .back-to-top {
+    bottom: 80px;
+    right: 15px;
+    width: 45px;
+    height: 45px;
+    font-size: 1.3rem;
+  }
+
+  /* Portfolio Sections */
+  .portfolio-section {
+    margin-bottom: 2.5rem;
+  }
+
+  .section-description {
+    font-size: 0.9rem;
+    padding: 0 0.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  /* Portfolio CTA */
+  .portfolio-cta {
+    margin-top: 3rem;
+    padding: 2rem 1rem;
+  }
+
+  .cta-text {
+    font-size: 1rem;
+    padding: 0 0.5rem;
+  }
+
+  .cta-buttons {
+    gap: 1rem;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    width: 100%;
+    max-width: 300px;
   }
   
   .video-card {
@@ -2269,22 +2407,121 @@ Additional background stars effect
   .video-grid {
     padding: 1.5rem 0.8rem;
   }
+
+  .video-grid h1 {
+    font-size: clamp(1.5rem, 7vw, 2rem);
+    margin-bottom: 1.5rem;
+  }
   
   .video-card {
     padding: 0.8rem;
+    max-width: 100%;
   }
   
   .video-info h3 {
     font-size: 1rem;
+    line-height: 1.2;
   }
   
   .video-info p {
     font-size: 0.8rem;
+    line-height: 1.4;
   }
   
   .project-link {
     padding: 0.3rem 0.6rem;
     font-size: 0.7rem;
+    min-height: 44px;
+  }
+
+  /* Portfolio Intro */
+  .portfolio-intro {
+    margin-bottom: 2rem;
+    padding: 0 0.3rem;
+  }
+
+  .portfolio-intro .section-title {
+    font-size: clamp(1.2rem, 6vw, 1.6rem);
+    margin-bottom: 0.8rem;
+  }
+
+  .intro-text {
+    font-size: 0.85rem;
+    line-height: 1.5;
+    padding: 0 0.3rem;
+  }
+
+  /* Portfolio Filters */
+  .portfolio-filters {
+    gap: 0.4rem;
+    margin-bottom: 1.5rem;
+    padding: 0.6rem 0.3rem;
+    justify-content: center;
+    top: 65px;
+    position: sticky;
+    margin-left: -0.8rem;
+    margin-right: -0.8rem;
+    padding-left: 0.8rem;
+    padding-right: 0.8rem;
+  }
+
+  .filter-btn {
+    padding: 0.5rem 0.8rem;
+    font-size: 0.75rem;
+    min-height: 44px;
+    flex: 0 1 auto;
+    white-space: nowrap;
+  }
+
+  /* Back to Top Button */
+  .back-to-top {
+    bottom: 70px;
+    right: 10px;
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+  }
+
+  /* Portfolio Sections */
+  .portfolio-section {
+    margin-bottom: 2rem;
+  }
+
+  .section-description {
+    font-size: 0.85rem;
+    padding: 0 0.3rem;
+    margin-bottom: 1.2rem;
+  }
+
+  /* Portfolio CTA */
+  .portfolio-cta {
+    margin-top: 2.5rem;
+    padding: 1.5rem 0.8rem;
+  }
+
+  .portfolio-cta .section-title {
+    font-size: clamp(1.2rem, 6vw, 1.6rem);
+    margin-bottom: 1rem;
+  }
+
+  .cta-text {
+    font-size: 0.9rem;
+    padding: 0 0.3rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .cta-buttons {
+    gap: 0.8rem;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    width: 100%;
+    max-width: 280px;
+    padding: 0.9rem 1.5rem;
+    font-size: 0.85rem;
   }
   
   /* Video Placeholder */
@@ -2294,6 +2531,40 @@ Additional background stars effect
   
   .video-placeholder::after {
     font-size: 1.5rem;
+  }
+}
+
+/* Extra Small Devices (320px and below) */
+@media (max-width: 320px) {
+  .portfolio-filters {
+    gap: 0.3rem;
+    padding: 0.5rem 0.2rem;
+    margin-left: -0.8rem;
+    margin-right: -0.8rem;
+    padding-left: 0.8rem;
+    padding-right: 0.8rem;
+  }
+
+  .filter-btn {
+    padding: 0.4rem 0.6rem;
+    font-size: 0.7rem;
+    min-width: auto;
+  }
+
+  .video-grid {
+    padding: 1rem 0.5rem;
+  }
+
+  .video-card {
+    padding: 0.6rem;
+  }
+
+  .back-to-top {
+    bottom: 60px;
+    right: 8px;
+    width: 38px;
+    height: 38px;
+    font-size: 1.1rem;
   }
 }
 
@@ -2334,6 +2605,45 @@ Additional background stars effect
   nav a {
     font-size: 0.75rem;
     padding: 0.3rem 0.4rem;
+  }
+
+  /* Portfolio Section - Landscape */
+  .video-grid {
+    padding: 2rem 1rem;
+  }
+
+  .portfolio-filters {
+    gap: 0.4rem;
+    margin-bottom: 1.5rem;
+    padding: 0.6rem 0.5rem;
+    top: 60px;
+    position: sticky;
+    margin-left: -1rem;
+    margin-right: -1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .filter-btn {
+    padding: 0.5rem 0.9rem;
+    font-size: 0.8rem;
+  }
+
+  .back-to-top {
+    bottom: 60px;
+    right: 10px;
+    width: 42px;
+    height: 42px;
+    font-size: 1.25rem;
+  }
+
+  .videos-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .video-card {
+    padding: 1rem;
   }
 }
 
@@ -2566,6 +2876,168 @@ Additional background stars effect
   margin-right: auto;
 }
 
+/* Portfolio Filter Buttons */
+.portfolio-filters {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+  padding: 1rem;
+  position: sticky;
+  top: 80px;
+  z-index: 100;
+  background: rgba(10, 10, 10, 0.95);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(0, 255, 231, 0.1);
+  margin-left: -2rem;
+  margin-right: -2rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+body.light-theme .portfolio-filters {
+  background: rgba(248, 249, 250, 0.95);
+  border-bottom: 1px solid rgba(52, 152, 219, 0.1);
+}
+
+.filter-btn {
+  padding: 0.8rem 1.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 2px solid rgba(0, 255, 231, 0.3);
+  color: #00ffe7;
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 600;
+  font-size: 0.95rem;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  min-height: 44px;
+  min-width: 44px;
+  -webkit-tap-highlight-color: rgba(0, 255, 231, 0.3);
+  touch-action: manipulation;
+  user-select: none;
+}
+
+.filter-btn:hover {
+  background: rgba(0, 255, 231, 0.1);
+  border-color: #00ffe7;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 255, 231, 0.3);
+}
+
+.filter-btn.active {
+  background: linear-gradient(45deg, #00ffe7, #ff00ff);
+  border-color: transparent;
+  color: #000;
+  box-shadow: 0 0 20px rgba(0, 255, 231, 0.5);
+  font-weight: 700;
+}
+
+.filter-btn.active:hover {
+  background: linear-gradient(45deg, #ff00ff, #00ffe7);
+  box-shadow: 0 0 30px rgba(255, 0, 255, 0.6);
+}
+
+/* Portfolio Section Filtering */
+.portfolio-section {
+  transition: all 0.5s ease;
+  opacity: 1;
+  max-height: 10000px;
+  overflow: hidden;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.portfolio-section.hidden {
+  display: none;
+  opacity: 0;
+  max-height: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.portfolio-cta.hidden {
+  display: none;
+}
+
+/* Back to Top Button */
+.back-to-top {
+  position: fixed;
+  bottom: 100px;
+  right: 30px;
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(45deg, #00ffe7, #ff00ff);
+  color: #000;
+  border: none;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  z-index: 999;
+  box-shadow: 0 0 20px rgba(0, 255, 231, 0.5);
+  min-height: 44px;
+  min-width: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  -webkit-tap-highlight-color: rgba(0, 255, 231, 0.3);
+  touch-action: manipulation;
+  user-select: none;
+}
+
+.back-to-top.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.back-to-top:hover {
+  transform: translateY(-5px) scale(1.1);
+  box-shadow: 0 0 30px rgba(255, 0, 255, 0.8);
+  background: linear-gradient(45deg, #ff00ff, #00ffe7);
+}
+
+/* Light Theme Support for Filters */
+body.light-theme .filter-btn {
+  background: rgba(255, 255, 255, 0.9);
+  border: 2px solid rgba(52, 152, 219, 0.3);
+  color: #3498db;
+}
+
+body.light-theme .filter-btn:hover {
+  background: rgba(52, 152, 219, 0.1);
+  border-color: #3498db;
+  box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+}
+
+body.light-theme .filter-btn.active {
+  background: linear-gradient(45deg, #3498db, #9b59b6);
+  color: #fff;
+  box-shadow: 0 0 20px rgba(52, 152, 219, 0.5);
+}
+
+body.light-theme .filter-btn.active:hover {
+  background: linear-gradient(45deg, #9b59b6, #3498db);
+  box-shadow: 0 0 30px rgba(155, 89, 182, 0.6);
+}
+
+body.light-theme .back-to-top {
+  background: linear-gradient(45deg, #3498db, #9b59b6);
+  color: #fff;
+  box-shadow: 0 0 20px rgba(52, 152, 219, 0.5);
+}
+
+body.light-theme .back-to-top:hover {
+  background: linear-gradient(45deg, #9b59b6, #3498db);
+  box-shadow: 0 0 30px rgba(155, 89, 182, 0.8);
+}
+
 .intro-text {
   font-size: 1.1rem;
   line-height: 1.8;
@@ -2643,6 +3115,9 @@ Additional background stars effect
   max-width: 1200px;
   margin: 0 auto;
   text-align: center;
+  width: 100%;
+  box-sizing: border-box;
+  overflow-x: hidden;
 }
 
 .videos-container {

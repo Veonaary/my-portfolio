@@ -139,11 +139,87 @@
     
     /* Snake Game Styles */
     #snakeCanvas {
-      border: 2px solid #00ffe7;
+      border: 3px solid #00ffe7;
       border-radius: 10px;
       background: #000;
       display: block;
       margin: 0 auto;
+      box-shadow: 0 0 20px rgba(0, 255, 231, 0.5), inset 0 0 20px rgba(0, 255, 231, 0.1);
+      outline: 2px solid rgba(255, 0, 255, 0.3);
+      outline-offset: 4px;
+    }
+    
+    /* Tetris Canvas Styles */
+    #tetrisCanvas {
+      border: 3px solid #00ffe7;
+      border-radius: 10px;
+      background: #000;
+      display: block;
+      box-shadow: 0 0 20px rgba(0, 255, 231, 0.5), inset 0 0 20px rgba(0, 255, 231, 0.1);
+      outline: 2px solid rgba(255, 0, 255, 0.3);
+      outline-offset: 4px;
+    }
+    
+    /* Mobile Game Disable Message */
+    .mobile-game-message {
+      display: none;
+      background: rgba(255, 0, 0, 0.1);
+      border: 2px solid rgba(255, 0, 0, 0.5);
+      border-radius: 15px;
+      padding: 2rem;
+      text-align: center;
+      margin: 2rem 0;
+      color: #ff6b6b;
+    }
+    
+    .mobile-game-message.show {
+      display: block;
+    }
+    
+    .mobile-game-message h3 {
+      font-family: 'Orbitron', sans-serif;
+      color: #ff6b6b;
+      margin-bottom: 1rem;
+      font-size: 1.5rem;
+    }
+    
+    .mobile-game-message p {
+      color: #ccc;
+      line-height: 1.6;
+      font-size: 1rem;
+    }
+    
+    .game-card.disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+      pointer-events: none;
+    }
+    
+    .game-card.disabled:hover {
+      transform: none;
+      box-shadow: none;
+    }
+    
+    /* Light Theme Support */
+    body.light-theme .mobile-game-message {
+      background: rgba(255, 200, 200, 0.2);
+      border: 2px solid rgba(255, 0, 0, 0.3);
+      color: #d32f2f;
+    }
+    
+    body.light-theme .mobile-game-message h3 {
+      color: #d32f2f;
+    }
+    
+    body.light-theme .mobile-game-message p {
+      color: #555;
+    }
+    
+    body.light-theme #snakeCanvas,
+    body.light-theme #tetrisCanvas {
+      border-color: #3498db;
+      box-shadow: 0 0 20px rgba(52, 152, 219, 0.5), inset 0 0 20px rgba(52, 152, 219, 0.1);
+      outline-color: rgba(155, 89, 182, 0.3);
     }
     
     /* Keyboard Game Styles */
@@ -328,6 +404,30 @@
       #tetrisCanvas {
         max-width: 250px;
       }
+      
+      .mobile-game-message {
+        padding: 1.5rem;
+        margin: 1rem 0;
+      }
+      
+      .mobile-game-message h3 {
+        font-size: 1.2rem;
+      }
+      
+      .mobile-game-message p {
+        font-size: 0.9rem;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .mobile-game-message {
+        padding: 1.5rem 1rem;
+      }
+      
+      #snakeCanvas,
+      #tetrisCanvas {
+        outline-offset: 2px;
+      }
     }
   </style>
 </head>
@@ -364,18 +464,29 @@
   <div class="background-animation"></div>
   <div class="particles" id="particles"></div>
 
-  <!-- Games Container -->
-  <div class="games-container">
+    <!-- Games Container -->
+    <div class="games-container">
     <p style="text-align: center; color: #ccc; margin-bottom: 2rem; font-size: 1.1rem;">
       Play these fun mini-games while exploring my portfolio! Each game is themed around my skills and projects.
     </p>
 
+    <!-- Mobile Game Disable Message -->
+    <div class="mobile-game-message" id="mobileGameMessage">
+      <h3>📱 Games Not Available on Mobile</h3>
+      <p>
+        These games are designed for desktop/tablet devices with keyboard controls. 
+        Please visit this page on a desktop or tablet to play the games!
+        <br><br>
+        <strong>Note:</strong> The typing challenge works on mobile devices.
+      </p>
+    </div>
+
     <!-- Game Selector -->
     <div class="game-selector">
-      <div class="game-card" onclick="showGame('snake')">
+      <div class="game-card" id="snake-card" onclick="showGame('snake')">
         <span class="game-icon">🐍</span>
         <h3>Snake Game</h3>
-        <p>Classic Snake game with a cyberpunk twist! Use arrow keys to control the snake and collect glowing orbs. Don't hit the walls or yourself!</p>
+        <p>Classic Snake game with a cyberpunk twist! Use arrow keys to control the snake and collect glowing orbs. Snake wraps around walls!</p>
         <div class="btn-game">Play Snake</div>
       </div>
 
@@ -386,7 +497,7 @@
         <div class="btn-game">Start Typing</div>
       </div>
 
-      <div class="game-card" onclick="showGame('tetris')">
+      <div class="game-card" id="tetris-card" onclick="showGame('tetris')">
         <span class="game-icon">🧩</span>
         <h3>Tetris Classic</h3>
         <p>The legendary puzzle game with a cyberpunk twist! Drop the blocks and clear lines in this neon-themed Tetris experience.</p>
@@ -413,7 +524,7 @@
       </div>
       
       <div class="game-instructions">
-        <strong>Controls:</strong> Use Arrow Keys or WASD to move • Space to pause • Collect glowing orbs to grow and increase score!
+        <strong>Controls:</strong> Use Arrow Keys or WASD to move • Space to pause • Collect glowing orbs to grow and increase score! • Snake wraps around walls!
       </div>
       
       <canvas id="snakeCanvas" width="400" height="400"></canvas>

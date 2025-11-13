@@ -80,9 +80,18 @@
         Each project showcases different aspects of my skills and passion for creating immersive digital experiences.
       </p>
     </div>
+
+    <!-- Category Filter Buttons -->
+    <div class="portfolio-filters" id="portfolioFilters">
+      <button class="filter-btn active" data-category="all">All Projects</button>
+      <button class="filter-btn" data-category="mobile">📱 Mobile</button>
+      <button class="filter-btn" data-category="vr">🥽 VR</button>
+      <button class="filter-btn" data-category="spatial">🌐 Spatial.io</button>
+      <button class="filter-btn" data-category="desktop">🖥️ Desktop</button>
+    </div>
      
      <!-- Mobile Games Section -->
-     <div class="portfolio-section">
+     <div class="portfolio-section" data-category="mobile">
        <h2 class="section-title">📱 Mobile Games</h2>
        <p class="section-description">
          Optimized mobile gaming experiences designed for Android devices. 
@@ -281,7 +290,7 @@
      </div>
 
      <!-- APK Games Section -->
-     <div class="portfolio-section">
+     <div class="portfolio-section" data-category="mobile">
        <h2 class="section-title">📦 APK Games</h2>
        <p class="section-description">
          Download and try these game prototypes directly on your Android device. 
@@ -344,7 +353,7 @@
      </div>
 
      <!-- Spatial Projects Section -->
-     <div class="portfolio-section">
+     <div class="portfolio-section" data-category="spatial">
        <h2 class="section-title">🌐 Spatial Projects</h2>
        <p class="section-description">
          Immersive 3D environments and virtual spaces created using Spatial.io platform. 
@@ -474,7 +483,7 @@
      </div>
 
      <!-- VR Projects Section -->
-     <div class="portfolio-section">
+     <div class="portfolio-section" data-category="vr">
        <h2 class="section-title">🎮 VR Projects</h2>
        <p class="section-description">
          Immersive virtual reality experiences that push the boundaries of interactive storytelling. 
@@ -518,7 +527,7 @@
      </div>
 
      <!-- Desktop Projects Section -->
-     <div class="portfolio-section">
+     <div class="portfolio-section" data-category="desktop">
        <h2 class="section-title">🖥️ Desktop Projects</h2>
        <p class="section-description">
          High-performance desktop applications and games designed for PC platforms. 
@@ -562,7 +571,7 @@
      </div>
 
      <!-- Call to Action Section -->
-     <div class="portfolio-cta">
+     <div class="portfolio-cta" data-category="all">
        <h2 class="section-title">🚀 Ready to Collaborate?</h2>
        <p class="cta-text">
          I'm always excited to work on new and challenging projects. 
@@ -574,6 +583,9 @@
        </div>
      </div>
   </section>
+
+  <!-- Back to Top Button -->
+  <button class="back-to-top" id="backToTop" title="Back to Top">↑</button>
 
   <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
