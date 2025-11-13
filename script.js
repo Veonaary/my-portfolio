@@ -480,36 +480,10 @@ document.addEventListener('DOMContentLoaded', function() {
           if (portfolioCTA) portfolioCTA.classList.add('hidden');
         }
         
-        // Scroll to the first visible section of the selected category
-        // Use requestAnimationFrame to ensure DOM updates are complete
-        requestAnimationFrame(() => {
-          setTimeout(() => {
-            if (category === 'all') {
-              // Scroll to intro section
-              const introSection = document.querySelector('.portfolio-intro');
-              if (introSection) {
-                const introPosition = introSection.getBoundingClientRect().top + window.pageYOffset - 100;
-                window.scrollTo({ top: introPosition, behavior: 'smooth' });
-              }
-            } else {
-              // Find and scroll to the first visible section of this category
-              const firstVisibleSection = Array.from(portfolioSections).find(section => {
-                const sectionCategory = section.getAttribute('data-category');
-                return sectionCategory === category && !section.classList.contains('hidden');
-              });
-              
-              if (firstVisibleSection) {
-                // Calculate position accounting for sticky header
-                const sectionPosition = firstVisibleSection.getBoundingClientRect().top + window.pageYOffset - 100;
-                window.scrollTo({ top: sectionPosition, behavior: 'smooth' });
-              } else {
-                // Fallback: scroll to filters
-                const filterPosition = portfolioFilters.getBoundingClientRect().top + window.pageYOffset - 80;
-                window.scrollTo({ top: filterPosition, behavior: 'smooth' });
-              }
-            }
-          }, 200);
-        });
+        // Scroll to top of filters after a short delay
+        setTimeout(() => {
+          portfolioFilters.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 100);
       });
     });
   }
