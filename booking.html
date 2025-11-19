@@ -2,70 +2,149 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
   <title>Book a Call | Mustafa</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+  
   <style>
-    body {
-      margin: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: #050816;
-      color: #f5f5f5;
-      display: flex;
+    /* Page specific overrides to ensure the widget fits perfectly */
+    .booking-section {
       min-height: 100vh;
+      padding: 6rem 1rem 2rem 1rem; /* Top padding to clear Nav */
+      display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
     }
-    .wrapper {
-      max-width: 960px;
+
+    .booking-container {
       width: 100%;
-      padding: 24px;
-    }
-    h1 {
-      margin-bottom: 8px;
-      font-size: 28px;
-    }
-    p {
-      margin-top: 0;
-      margin-bottom: 20px;
-      color: #c9c9c9;
-    }
-    .calendly-inline-widget {
-      min-width: 320px;
-      height: 700px;
-      background: #0b1020;
-      border-radius: 12px;
+      max-width: 1000px;
+      /* Reusing your card styles manually here to ensure specific fit for iframe */
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(0, 255, 231, 0.2);
+      border-radius: 15px;
+      padding: 2rem;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      transition: all 0.3s ease;
+      position: relative;
       overflow: hidden;
-      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.45);
     }
+
+    .booking-container:hover {
+      border-color: rgba(255, 0, 255, 0.5);
+      box-shadow: 0 20px 40px rgba(0, 255, 231, 0.2);
+    }
+
+    /* Gradient border effect */
+    .booking-container::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(0, 255, 231, 0.1), transparent);
+      transition: all 0.5s ease;
+      pointer-events: none;
+    }
+
+    .booking-container:hover::before {
+      left: 100%;
+    }
+
+    .subtitle {
+      color: #ccc;
+      text-align: center;
+      margin-bottom: 2rem;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    /* Calendly Widget Styling */
+    .calendly-inline-widget {
+      min-width: 320px; 
+      height: 700px; 
+      width: 100%;
+    }
+
     @media (max-width: 768px) {
-      .wrapper {
-        padding: 16px;
+      .booking-container {
+        padding: 1rem;
       }
-      .calendly-inline-widget {
-        height: 750px;
+      .booking-section {
+        padding-top: 5rem;
       }
     }
   </style>
 </head>
 <body>
-  <div class="wrapper">
-    <h1>Book a 30-Minute Call</h1>
-    <p>
+
+  <div class="sound-visualizer" id="soundVisualizer">
+    <div class="sound-bar"></div>
+    <div class="sound-bar"></div>
+    <div class="sound-bar"></div>
+    <div class="sound-bar"></div>
+    <div class="sound-bar"></div>
+  </div>
+
+  <div class="fab-container" id="fabContainer">
+    <div class="fab-main" id="fabMain"></div>
+    <div class="fab-menu">
+      <div class="fab-item" data-tooltip="Toggle Theme">🌙</div>
+      <div class="fab-item" data-tooltip="Play Music">🎵</div>
+      <div class="fab-item" data-tooltip="Full Screen">🖥️</div>
+      <div class="fab-item" data-tooltip="Gaming Mode">⚡</div>
+      <div class="fab-item" data-tooltip="Book a Call">📞</div>
+    </div>
+  </div>
+
+  <div class="hud-element hud-fps">FPS: <span id="fps">60</span></div>
+  <div class="hud-element hud-coords">X: <span id="mouseX">0</span> Y: <span id="mouseY">0</span></div>
+
+  <div class="magnetic-field" id="magneticField"></div>
+
+  <div class="tooltip" id="tooltip"></div>
+
+  <div class="background-animation"></div>
+  <div class="particles" id="particles"></div>
+
+  <nav>
+    <a href="index.html#home">Home</a>
+    <a href="index.html#about">About</a>
+    <a href="index.html#experience">Experience</a>
+    <a href="index.html#skills">Skills</a>
+    <a href="index.html#companies">Companies</a>
+    <a href="index.html#contact">Contact</a>
+    <a href="videos.html">Portfolio</a>
+    <a href="cv.html">CV</a>
+    <a href="games.html">🎮 Games</a>
+    <a href="booking.html" class="active" style="color: #00ffe7; text-shadow: 0 0 10px #00ffe7;">📞 Book a Call</a>
+  </nav>
+
+  <section class="booking-section">
+    <h1 class="glitch" data-text="Book a 30-Minute Call" style="margin-bottom: 1rem; text-align: center;">
+      Book a 30-Minute Call
+    </h1>
+    
+    <p class="subtitle" data-aos="fade-up" data-aos-delay="100">
       Pick a time that works best for you and I’ll see you on the call. 👋
     </p>
 
-    <!-- Calendly inline widget -->
-    <div
-      class="calendly-inline-widget"
-      data-url="https://calendly.com/gamedevelopermustafa-mustafaamin/30min"
-    ></div>
-  </div>
+    <div class="booking-container" data-aos="fade-up" data-aos-delay="200">
+      <div 
+        class="calendly-inline-widget" 
+        data-url="https://calendly.com/gamedevelopermustafa-mustafaamin/30min?background_color=0a0a0a&text_color=eaeaea&primary_color=00ffe7" 
+      ></div>
+    </div>
+  </section>
 
-  <!-- Calendly script -->
-  <script
-    type="text/javascript"
-    src="https://assets.calendly.com/assets/external/widget.js"
-    async
-  ></script>
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+  <script src="script.js"></script>
 </body>
 </html>
