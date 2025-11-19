@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
-  <title>Book a Call | Mustafa</title>
+  <title>Comms Link | Mustafa</title>
 
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
@@ -11,73 +11,94 @@
   <link rel="stylesheet" href="style.css" />
   
   <style>
-    /* Page specific overrides to ensure the widget fits perfectly */
     .booking-section {
       min-height: 100vh;
-      padding: 6rem 1rem 2rem 1rem; /* Top padding to clear Nav */
+      padding: 8rem 1rem 4rem 1rem; /* Adjusted for fixed nav */
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
+      justify-content: flex-start;
+      position: relative;
+      z-index: 1;
     }
 
-    .booking-container {
+    /* The "Terminal" Container */
+    .booking-terminal {
       width: 100%;
-      max-width: 1000px;
-      /* Reusing your card styles manually here to ensure specific fit for iframe */
-      background: rgba(255, 255, 255, 0.05);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(0, 255, 231, 0.2);
-      border-radius: 15px;
-      padding: 2rem;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-      transition: all 0.3s ease;
+      max-width: 900px;
+      height: 750px; /* Fixed height to fit widget perfectly */
+      background: #0a0a0a; /* Matches body bg to hide iframe edges */
+      border: 1px solid rgba(0, 255, 231, 0.3);
+      border-radius: 12px;
       position: relative;
       overflow: hidden;
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.8);
+      transition: all 0.3s ease;
     }
 
-    .booking-container:hover {
-      border-color: rgba(255, 0, 255, 0.5);
-      box-shadow: 0 20px 40px rgba(0, 255, 231, 0.2);
+    /* Glowing edges on hover */
+    .booking-terminal:hover {
+      border-color: #00ffe7;
+      box-shadow: 0 0 40px rgba(0, 255, 231, 0.15);
     }
 
-    /* Gradient border effect */
-    .booking-container::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(0, 255, 231, 0.1), transparent);
-      transition: all 0.5s ease;
-      pointer-events: none;
+    /* Top Bar of the Terminal */
+    .terminal-header {
+      height: 40px;
+      background: rgba(0, 255, 231, 0.1);
+      border-bottom: 1px solid rgba(0, 255, 231, 0.2);
+      display: flex;
+      align-items: center;
+      padding: 0 1rem;
+      justify-content: space-between;
     }
 
-    .booking-container:hover::before {
-      left: 100%;
+    .terminal-title {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 0.8rem;
+      color: #00ffe7;
+      letter-spacing: 1px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
     }
 
-    .subtitle {
-      color: #ccc;
-      text-align: center;
-      margin-bottom: 2rem;
-      font-family: 'Poppins', sans-serif;
+    .terminal-controls {
+      display: flex;
+      gap: 6px;
     }
 
-    /* Calendly Widget Styling */
+    .control-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.2);
+    }
+    .control-dot.red { background: #ff5f56; }
+    .control-dot.yellow { background: #ffbd2e; }
+    .control-dot.green { background: #27c93f; }
+
+    /* The Widget Wrapper */
     .calendly-inline-widget {
-      min-width: 320px; 
-      height: 700px; 
-      width: 100%;
+      width: 100%; 
+      height: calc(100% - 40px); /* Subtract header height */
     }
 
+    /* Typing Effect for Subtitle */
+    .status-text {
+      color: #00ffe7;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 0.9rem;
+      margin-bottom: 2rem;
+      opacity: 0.8;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+    
+    /* Mobile adjustments */
     @media (max-width: 768px) {
-      .booking-container {
-        padding: 1rem;
-      }
-      .booking-section {
-        padding-top: 5rem;
+      .booking-terminal {
+        height: 850px; /* Taller on mobile for scroll */
       }
     }
   </style>
@@ -85,31 +106,23 @@
 <body>
 
   <div class="sound-visualizer" id="soundVisualizer">
-    <div class="sound-bar"></div>
-    <div class="sound-bar"></div>
-    <div class="sound-bar"></div>
-    <div class="sound-bar"></div>
-    <div class="sound-bar"></div>
+    <div class="sound-bar"></div><div class="sound-bar"></div><div class="sound-bar"></div>
+    <div class="sound-bar"></div><div class="sound-bar"></div>
   </div>
 
   <div class="fab-container" id="fabContainer">
     <div class="fab-main" id="fabMain"></div>
     <div class="fab-menu">
-      <div class="fab-item" data-tooltip="Toggle Theme">🌙</div>
-      <div class="fab-item" data-tooltip="Play Music">🎵</div>
-      <div class="fab-item" data-tooltip="Full Screen">🖥️</div>
-      <div class="fab-item" data-tooltip="Gaming Mode">⚡</div>
-      <div class="fab-item" data-tooltip="Book a Call">📞</div>
+      <div class="fab-item">🌙</div><div class="fab-item">🎵</div>
+      <div class="fab-item">🖥️</div><div class="fab-item">⚡</div>
+      <div class="fab-item">📞</div>
     </div>
   </div>
 
   <div class="hud-element hud-fps">FPS: <span id="fps">60</span></div>
   <div class="hud-element hud-coords">X: <span id="mouseX">0</span> Y: <span id="mouseY">0</span></div>
-
   <div class="magnetic-field" id="magneticField"></div>
-
   <div class="tooltip" id="tooltip"></div>
-
   <div class="background-animation"></div>
   <div class="particles" id="particles"></div>
 
@@ -127,18 +140,26 @@
   </nav>
 
   <section class="booking-section">
-    <h1 class="glitch" data-text="Book a 30-Minute Call" style="margin-bottom: 1rem; text-align: center;">
-      Book a 30-Minute Call
-    </h1>
-    
-    <p class="subtitle" data-aos="fade-up" data-aos-delay="100">
-      Pick a time that works best for you and I’ll see you on the call. 👋
-    </p>
+    <h1 class="glitch" data-text="Secure Comms Link">Secure Comms Link</h1>
+    <div class="status-text" data-aos="fade-in" data-aos-delay="200">
+      ● System Online // Ready to Connect
+    </div>
 
-    <div class="booking-container" data-aos="fade-up" data-aos-delay="200">
+    <div class="booking-terminal" data-aos="zoom-in-up" data-aos-delay="400">
+      <div class="terminal-header">
+        <div class="terminal-title">
+          <span style="animation: blink 2s infinite">►</span> INCOMING TRANSMISSION SETUP
+        </div>
+        <div class="terminal-controls">
+          <div class="control-dot red"></div>
+          <div class="control-dot yellow"></div>
+          <div class="control-dot green"></div>
+        </div>
+      </div>
+
       <div 
         class="calendly-inline-widget" 
-        data-url="https://calendly.com/gamedevelopermustafa-mustafaamin/30min?background_color=0a0a0a&text_color=eaeaea&primary_color=00ffe7" 
+        data-url="https://calendly.com/gamedevelopermustafa-mustafaamin/30min?hide_landing_page_details=1&hide_gdpr_banner=1&background_color=0a0a0a&text_color=eaeaea&primary_color=00ffe7" 
       ></div>
     </div>
   </section>
@@ -146,5 +167,13 @@
   <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
   <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
   <script src="script.js"></script>
+  
+  <script>
+    // Initialize Animations
+    AOS.init({
+      duration: 800,
+      once: true
+    });
+  </script>
 </body>
 </html>
