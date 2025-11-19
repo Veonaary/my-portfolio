@@ -13,7 +13,7 @@
   <style>
     .booking-section {
       min-height: 100vh;
-      padding: 8rem 1rem 4rem 1rem; /* Adjusted for fixed nav */
+      padding: 8rem 1rem 4rem 1rem; 
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -22,12 +22,12 @@
       z-index: 1;
     }
 
-    /* The "Terminal" Container */
+    /* The "Terminal" Container - NOW BIGGER */
     .booking-terminal {
       width: 100%;
-      max-width: 900px;
-      height: 750px; /* Fixed height to fit widget perfectly */
-      background: #0a0a0a; /* Matches body bg to hide iframe edges */
+      max-width: 1100px; /* Increased from 900px */
+      height: 800px;     /* Increased from 750px */
+      background: #0a0a0a; 
       border: 1px solid rgba(0, 255, 231, 0.3);
       border-radius: 12px;
       position: relative;
@@ -39,38 +39,39 @@
     /* Glowing edges on hover */
     .booking-terminal:hover {
       border-color: #00ffe7;
-      box-shadow: 0 0 40px rgba(0, 255, 231, 0.15);
+      box-shadow: 0 0 50px rgba(0, 255, 231, 0.2); /* Increased glow */
     }
 
     /* Top Bar of the Terminal */
     .terminal-header {
-      height: 40px;
+      height: 45px; /* Slightly taller header */
       background: rgba(0, 255, 231, 0.1);
       border-bottom: 1px solid rgba(0, 255, 231, 0.2);
       display: flex;
       align-items: center;
-      padding: 0 1rem;
+      padding: 0 1.5rem;
       justify-content: space-between;
     }
 
     .terminal-title {
       font-family: 'Orbitron', sans-serif;
-      font-size: 0.8rem;
+      font-size: 0.9rem;
       color: #00ffe7;
-      letter-spacing: 1px;
+      letter-spacing: 2px;
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 10px;
+      font-weight: 700;
     }
 
     .terminal-controls {
       display: flex;
-      gap: 6px;
+      gap: 8px;
     }
 
     .control-dot {
-      width: 10px;
-      height: 10px;
+      width: 12px;
+      height: 12px;
       border-radius: 50%;
       background: rgba(255, 255, 255, 0.2);
     }
@@ -81,24 +82,29 @@
     /* The Widget Wrapper */
     .calendly-inline-widget {
       width: 100%; 
-      height: calc(100% - 40px); /* Subtract header height */
+      height: calc(100% - 45px); /* Subtract new header height */
     }
 
     /* Typing Effect for Subtitle */
     .status-text {
       color: #00ffe7;
       font-family: 'Orbitron', sans-serif;
-      font-size: 0.9rem;
+      font-size: 1rem;
       margin-bottom: 2rem;
       opacity: 0.8;
       text-transform: uppercase;
-      letter-spacing: 2px;
+      letter-spacing: 3px;
+      text-shadow: 0 0 10px rgba(0, 255, 231, 0.5);
     }
     
     /* Mobile adjustments */
     @media (max-width: 768px) {
       .booking-terminal {
-        height: 850px; /* Taller on mobile for scroll */
+        height: 850px; /* Keep tall on mobile for scrolling */
+        max-width: 100%;
+      }
+      .terminal-header {
+        padding: 0 1rem;
       }
     }
   </style>
@@ -148,7 +154,7 @@
     <div class="booking-terminal" data-aos="zoom-in-up" data-aos-delay="400">
       <div class="terminal-header">
         <div class="terminal-title">
-          <span style="animation: blink 2s infinite">►</span> INCOMING TRANSMISSION SETUP
+          <span style="animation: blink 2s infinite; margin-right: 10px;">►</span> INCOMING TRANSMISSION SETUP
         </div>
         <div class="terminal-controls">
           <div class="control-dot red"></div>
